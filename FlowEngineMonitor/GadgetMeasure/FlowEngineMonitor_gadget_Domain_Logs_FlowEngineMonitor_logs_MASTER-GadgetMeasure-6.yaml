@@ -1,0 +1,12 @@
+---
+createdAt: 1650624090412
+updatedAt: 1687521576972
+id: "MASTER-GadgetMeasure-6"
+gadget: "MASTER-Gadget-FE-4"
+datasource: "MASTER-GadgetDatasource-FE-4"
+config:
+  fields:
+  - "msg.message"
+  name: "Message"
+  config:
+    position: "4"

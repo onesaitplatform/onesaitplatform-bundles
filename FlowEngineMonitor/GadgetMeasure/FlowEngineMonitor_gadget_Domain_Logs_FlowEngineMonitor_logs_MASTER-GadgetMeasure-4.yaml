@@ -1,0 +1,12 @@
+---
+createdAt: 1664368030025
+updatedAt: 1687521576690
+id: "MASTER-GadgetMeasure-4"
+gadget: "MASTER-Gadget-FE-4"
+datasource: "MASTER-GadgetDatasource-FE-4"
+config:
+  fields:
+  - "level_name"
+  name: "Level"
+  config:
+    position: "1"

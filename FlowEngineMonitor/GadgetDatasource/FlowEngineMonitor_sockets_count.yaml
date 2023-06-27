@@ -1,0 +1,16 @@
+---
+createdAt: 1687502136281
+updatedAt: 1687502136281
+id: "MASTER-GadgetDatasource-FE-3"
+identification: "FlowEngineMonitor_sockets_count"
+user: "administrator"
+mode: "query"
+query: "SELECT socketCount,domain,timestampISO FROM flowEngineResourceConsumption\
+  \ order by timestampISO asc"
+dbtype: "RTDB"
+ontology: "MASTER-Ontology-fe-resource-log"
+refresh: 0
+maxvalues: 2000
+description: "FlowEngineMonitor_sockets_count"
+config:
+  simpleMode: true

@@ -1,0 +1,15 @@
+---
+createdAt: 1687502136313
+updatedAt: 1687502136313
+id: "MASTER-GadgetDatasource-FE-4"
+identification: "FlowEngineMonitor_logs"
+user: "administrator"
+mode: "query"
+query: "SELECT * FROM flowEngineDomainLogs  order by timestamp desc"
+dbtype: "RTDB"
+ontology: "MASTER-Ontology-fe-ops"
+refresh: 0
+maxvalues: 2000
+description: "FlowEngineMonitor_logs"
+config:
+  simpleMode: true

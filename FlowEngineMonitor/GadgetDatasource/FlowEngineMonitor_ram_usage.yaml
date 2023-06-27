@@ -1,0 +1,16 @@
+---
+createdAt: 1687502136249
+updatedAt: 1687502136249
+id: "MASTER-GadgetDatasource-FE-2"
+identification: "FlowEngineMonitor_ram_usage"
+user: "administrator"
+mode: "query"
+query: "SELECT memory/1024/1024 as memory,domain,timestampISO FROM flowEngineResourceConsumption\
+  \ order by timestampISO asc"
+dbtype: "RTDB"
+ontology: "MASTER-Ontology-fe-resource-log"
+refresh: 0
+maxvalues: 2000
+description: "FlowEngineMonitor_ram_usage"
+config:
+  simpleMode: true

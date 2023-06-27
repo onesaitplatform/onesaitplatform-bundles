@@ -1,0 +1,12 @@
+---
+createdAt: 1650624090438
+updatedAt: 1687521577057
+id: "MASTER-GadgetMeasure-7"
+gadget: "MASTER-Gadget-FE-4"
+datasource: "MASTER-GadgetDatasource-FE-4"
+config:
+  fields:
+  - "timestampISO"
+  name: "Timestamp"
+  config:
+    position: "0"

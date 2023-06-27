@@ -1,0 +1,20 @@
+---
+createdAt: 1687502136850
+updatedAt: 1687521575505
+id: "MASTER-GadgetMeasure-1"
+gadget: "MASTER-Gadget-FE-1"
+datasource: "MASTER-GadgetDatasource-FE-1"
+config:
+  fields:
+  - "timestampISO"
+  - "cpu"
+  name: "CPU usage"
+  config:
+    backgroundColor: "rgba(0,108,168,0.62)"
+    borderColor: "rgba(0,108,168,0.62)"
+    pointBackgroundColor: "rgba(0,108,168,0.62)"
+    pointHoverBackgroundColor: "rgba(0,108,168,0.62)"
+    yAxisID: "#0"
+    fill: false
+    steppedLine: false
+    radius: "0"

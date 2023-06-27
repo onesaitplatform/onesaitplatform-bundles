@@ -1,0 +1,12 @@
+---
+createdAt: 1684496644048
+updatedAt: 1687521576568
+id: "MASTER-GadgetMeasure-3"
+gadget: "MASTER-Gadget-FE-4"
+datasource: "MASTER-GadgetDatasource-FE-4"
+config:
+  fields:
+  - "type"
+  name: "Type"
+  config:
+    position: "2"

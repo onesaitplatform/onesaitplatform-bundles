@@ -1,0 +1,20 @@
+---
+createdAt: 1650624090385
+updatedAt: 1687521576871
+id: "MASTER-GadgetMeasure-5"
+gadget: "MASTER-Gadget-FE-2"
+datasource: "MASTER-GadgetDatasource-FE-2"
+config:
+  fields:
+  - "timestampISO"
+  - "memory"
+  name: ""
+  config:
+    backgroundColor: "rgba(0,108,168,0.62)"
+    borderColor: "rgba(0,108,168,0.62)"
+    pointBackgroundColor: "rgba(0,108,168,0.62)"
+    pointHoverBackgroundColor: "rgba(0,108,168,0.62)"
+    yAxisID: "#0"
+    fill: false
+    steppedLine: false
+    radius: "0"

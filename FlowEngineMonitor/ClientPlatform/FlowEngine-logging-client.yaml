@@ -1,0 +1,35 @@
+---
+createdAt: 1687502132712
+updatedAt: 1687502132804
+id: "MASTER-FlowEngine-internal-logging"
+identification: "FlowEngine-logging-client"
+user: "administrator"
+clientPlatformOntologies:
+- createdAt: 1687502132790
+  updatedAt: 1687502132790
+  id: "c41b312e-496d-45a9-9761-c07013000d8e"
+  access: "ALL"
+  ontology: "MASTER-Ontology-fe-resource-log"
+- createdAt: 1687502132797
+  updatedAt: 1687502132797
+  id: "23a9b6ba-dbc4-483e-a784-543799a08c70"
+  access: "ALL"
+  ontology: "MASTER-Ontology-fe-ops"
+tokens:
+- createdAt: 1687502132883
+  updatedAt: 1687502132883
+  id: "MASTER-Token-fe-client"
+  tokenName: "e7ef0742d09d4de9c3412b0abdf7f826"
+  active: true
+clientConnections: []
+devices:
+- createdAt: 1687506877907
+  updatedAt: 1687516590120
+  id: "e521821f-9da8-4ba6-9143-a67dfee6f4bd"
+  identification: "FlowEngine-logging-client:FlowEngine-logging-client"
+  connected: false
+  status: "OK"
+  protocol: "REST"
+  disabled: false
+encryptionKey: "85f02b3b-9bc0-4f66-8a04-3285b77fd839"
+description: "ClientPatform created for FlowEngine logging."

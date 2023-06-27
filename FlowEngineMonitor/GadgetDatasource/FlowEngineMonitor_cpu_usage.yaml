@@ -1,0 +1,16 @@
+---
+createdAt: 1687502136178
+updatedAt: 1687502136178
+id: "MASTER-GadgetDatasource-FE-1"
+identification: "FlowEngineMonitor_cpu_usage"
+user: "administrator"
+mode: "query"
+query: "SELECT cpu,domain,timestampISO FROM flowEngineResourceConsumption order by\
+  \ timestampISO asc"
+dbtype: "RTDB"
+ontology: "MASTER-Ontology-fe-resource-log"
+refresh: 0
+maxvalues: 2000
+description: "FlowEngineMonitor_cpu_usage"
+config:
+  simpleMode: true

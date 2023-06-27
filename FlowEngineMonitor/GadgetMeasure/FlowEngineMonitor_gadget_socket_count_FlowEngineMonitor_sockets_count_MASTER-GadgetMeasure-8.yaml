@@ -1,0 +1,20 @@
+---
+createdAt: 1650624090466
+updatedAt: 1687521577257
+id: "MASTER-GadgetMeasure-8"
+gadget: "MASTER-Gadget-FE-3"
+datasource: "MASTER-GadgetDatasource-FE-3"
+config:
+  fields:
+  - "timestampISO"
+  - "socketCount"
+  name: "Sockets"
+  config:
+    backgroundColor: "rgba(0,108,168,0.62)"
+    borderColor: "rgba(0,108,168,0.62)"
+    pointBackgroundColor: "rgba(0,108,168,0.62)"
+    pointHoverBackgroundColor: "rgba(0,108,168,0.62)"
+    yAxisID: "#0"
+    fill: false
+    steppedLine: false
+    radius: "0"

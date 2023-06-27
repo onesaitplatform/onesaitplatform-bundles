@@ -1,0 +1,63 @@
+---
+createdAt: 1687502132648
+updatedAt: 1687502132648
+id: "MASTER-Ontology-fe-ops"
+identification: "flowEngineDomainLogs"
+user: "administrator"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-04/schema#"
+  title: "FlowEngine ops log"
+  type: "object"
+  required:
+  - "level"
+  - "id"
+  - "type"
+  - "msg"
+  - "z"
+  - "timestamp"
+  - "level_name"
+  - "domain"
+  - "timestampISO"
+  properties:
+    level:
+      type: "number"
+    id:
+      type: "string"
+    type:
+      type: "string"
+    msg:
+      type: "object"
+    z:
+      type: "string"
+    timestamp:
+      type: "number"
+    level_name:
+      type: "string"
+    domain:
+      type: "string"
+    timestampISO:
+      type: "string"
+  description: "Flow Engine ops log"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+rtdbToHdbStorage: "MONGO_GRIDFS"
+description: "It contains the history of resource consuption for every FlowEngine\
+  \ domain."
+metainf: "imported,json"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+supportsJsonLd: false
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

@@ -1,0 +1,15 @@
+---
+createdAt: 1687502136351
+updatedAt: 1687502136351
+id: "MASTER-GadgetDatasource-FE-5"
+identification: "FlowEngineDomains"
+user: "administrator"
+mode: "query"
+query: "SELECT distinct domain as domain FROM flowEngineResourceConsumption "
+dbtype: "RTDB"
+ontology: "MASTER-Ontology-fe-resource-log"
+refresh: 0
+maxvalues: 2000
+description: "FlowEngineDomains"
+config:
+  simpleMode: true

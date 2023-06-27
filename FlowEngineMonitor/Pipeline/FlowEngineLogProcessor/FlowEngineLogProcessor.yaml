@@ -1,0 +1,10 @@
+---
+createdAt: 1687502136074
+updatedAt: 1687502136074
+id: "1ceeda48-460e-4407-b7a8-c4a5f3898f36"
+identification: "FlowEngineLogProcessor"
+user: "administrator"
+idstreamsets: "FlowEngine450db289-179e-40a1-959d-f0a045d872eb"
+pipelineAccesses: []
+public: false
+instance: "235de35d-7694-4bd2-b403-0b886e5a35a2"

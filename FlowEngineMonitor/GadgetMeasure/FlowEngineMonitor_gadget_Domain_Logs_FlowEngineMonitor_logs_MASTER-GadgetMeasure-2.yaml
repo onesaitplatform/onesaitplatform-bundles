@@ -1,0 +1,12 @@
+---
+createdAt: 1684496643981
+updatedAt: 1687521576466
+id: "MASTER-GadgetMeasure-2"
+gadget: "MASTER-Gadget-FE-4"
+datasource: "MASTER-GadgetDatasource-FE-4"
+config:
+  fields:
+  - "msg.msgid"
+  name: "msg ID"
+  config:
+    position: "3"
