@@ -1,0 +1,16 @@
+---
+createdAt: 1688541991169
+updatedAt: 1688541991169
+id: "4affd3b4-63a9-4ea9-ad8a-23ecd3b484ed"
+identification: "tlogfilterstatus"
+user: "orchestrator_user"
+mode: "query"
+query: "SELECT p.process_id,   ops.status as operation_status,  p.operation_type \
+  \ from processes as p  left join operation_status as ops  on ops.process_id = p.process_id\
+  \  group by p.process_id, ops.status, p.operation_type  order by p.process_id"
+dbtype: "RTDB"
+ontology: "22451f4d-c706-4221-bda4-798bed55ff6f"
+refresh: 0
+maxvalues: 100
+description: "datasource for filter status\r\n\r\n"
+config: null

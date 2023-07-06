@@ -1,0 +1,586 @@
+createdAt: 1688459420647
+updatedAt: 1688459420647
+id: 6b74fab0-1c53-4c83-b6a0-9b1514b6f814
+identification: orchestrator_dashboard
+user: orchestrator_user
+description: plogdash
+jsoni18n: ''
+customcss: ''
+customjs: ''
+model:
+    navigation:
+        showBreadcrumbIcon: false
+        showBreadcrumb: false
+    pages:
+    -   combinelayers: false
+        background:
+            file: [
+                ]
+        selectedlayer: 0
+        icon: apps
+        layers:
+        -   gridboard:
+            -   $$hashKey: object:75
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: Processes (table)
+                rows: 13
+                type: table
+                $$hashKey: object:96
+                content: table
+                nomargin: false
+                x: 0
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Processes
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 866fc267-33fb-46e1-b7c5-18f83154f166
+                customMenuOptions: [
+                    ]
+                cols: 20
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                showOnlyFiltered: true
+                hideBadges: false
+                prettyTitle: Timeline by process (bar)
+                rows: 7
+                type: bar
+                $$hashKey: object:342
+                content: bar
+                nomargin: false
+                x: 0
+                y: 13
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Timeline by process
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: e5897c4c-b4b7-4b06-847d-3d9a8a0ab99e
+                customMenuOptions: [
+                    ]
+                cols: 20
+            title: baseLayer
+            $$hashKey: object:23
+        title: Timeline
+        $$hashKey: object:4
+    -   background:
+            file: [
+                ]
+            color: hsl(0, 0%, 100%)
+        selectedlayer: 0
+        icon: null
+        layers:
+        -   gridboard:
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: Log Detail (table)
+                rows: 12
+                type: table
+                $$hashKey: object:12317
+                content: table
+                nomargin: false
+                x: 5
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Log Detail
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                customMenuOptions: [
+                    ]
+                cols: 15
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                filters:
+                -   op: =
+                    targetList:
+                    -   gadgetId: gadgetfilter_1646826475757
+                        overwriteField: process_id
+                        field: process_id
+                    data:
+                        dsFieldValue: process_id
+                        ds: tlogfilter
+                        dsFieldDes: process_id
+                    name: Process
+                    id: process_id
+                    type: simpleselectdsfilter
+                    $$hashKey: object:27069
+                    typeAction: filter
+                -   op: =
+                    targetList:
+                    -   gadgetId: gadgetfilter_1646826475757
+                        overwriteField: operation_id
+                        field: operation_id
+                    data:
+                        dsFieldValue: operation_id
+                        ds: tlogfilter
+                        dsFieldDes: ''
+                    name: Operation
+                    id: operation_id
+                    type: simpleselectdsfilter
+                    $$hashKey: object:2712
+                    typeAction: filter
+                -   op: =
+                    targetList:
+                    -   gadgetId: gadgetfilter_1646826475757
+                        overwriteField: execution_id
+                        field: execution_id
+                    data:
+                        dsFieldValue: execution_id
+                        ds: tlogfilter
+                    name: Execution ID
+                    id: execution_id
+                    type: textfilter
+                    $$hashKey: object:4217
+                    typeAction: filter
+                prettyTitle: Filter for detail (gadgetfilter)
+                rows: 12
+                type: gadgetfilter
+                $$hashKey: object:22364
+                content: !html |-
+                    <!-- Write your HTML <div></div> and CSS <style></style> here -->
+                    <!--Focus here and F11 to full screen editor-->
+                nomargin: false
+                contentcode: !html |-
+                    //Write your controller (JS code) code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+                    vm.initLiveComponent = function(){
+
+                    };
+
+                    //This function will be call when data change. On first execution oldData will be null
+                    vm.drawLiveComponent = function(newData, oldData){
+
+                    };
+
+                    //This function will be call on element resize
+                    vm.resizeEvent = function(){
+
+                    }
+
+                    //This function will be call when element is destroyed
+                    vm.destroyLiveComponent = function(){
+
+                    };
+
+                    //This function will be call when receiving a value from vm.sendValue(idGadgetTarget,data)
+                    vm.receiveValue = function(data){
+
+                    };
+                x: 0
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Filter for detail
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: gadgetfilter_1646826475757
+                customMenuOptions: [
+                    ]
+                cols: 5
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: Process execution time (table)
+                rows: 8
+                type: table
+                $$hashKey: object:4202
+                content: table
+                nomargin: false
+                x: 5
+                y: 12
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Process execution time
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: eea93c19-4d10-4458-9901-aca6c7cb2891
+                customMenuOptions: [
+                    ]
+                cols: 15
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: Operation time (pie)
+                rows: 8
+                type: pie
+                $$hashKey: object:2708
+                content: pie
+                nomargin: false
+                x: 0
+                y: 12
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Operation time
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 110bf7c1-c219-4799-8712-d9150e16a16d
+                customMenuOptions: [
+                    ]
+                cols: 5
+            title: baseLayer
+            $$hashKey: object:11645
+        title: Detail
+        $$hashKey: object:11609
+    -   background:
+            file: [
+                ]
+            color: hsl(0, 0%, 100%)
+        selectedlayer: 0
+        icon: null
+        layers:
+        -   gridboard:
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                filters:
+                -   targetList:
+                    -   gadgetId: gadgetfilter_1649175216321
+                        overwriteField: process_id
+                        field: process_id
+                    data:
+                        dsFieldValue: process_id
+                        ds: tlogfilterstatus
+                    name: Process
+                    id: process_id
+                    type: multiselectdsfilter
+                    $$hashKey: object:10451
+                    typeAction: filter
+                -   targetList:
+                    -   gadgetId: gadgetfilter_1649175216321
+                        overwriteField: operation_status
+                        field: operation_status
+                    data:
+                        dsFieldValue: operation_status
+                        ds: tlogfilterstatus
+                    name: Operation Status
+                    id: operation_status
+                    type: multiselectdsfilter
+                    $$hashKey: object:7294
+                    typeAction: filter
+                -   targetList:
+                    -   gadgetId: gadgetfilter_1649175216321
+                        overwriteField: operation_type
+                        field: operation_type
+                    data:
+                        dsFieldValue: operation_type
+                        ds: tlogfilterstatus
+                    name: Operation Type
+                    id: operation_type
+                    type: multiselectdsfilter
+                    $$hashKey: object:5356
+                    typeAction: filter
+                prettyTitle: Filter (gadgetfilter)
+                rows: 10
+                type: gadgetfilter
+                $$hashKey: object:1698
+                content: !html |-
+                    <!-- Write your HTML <div></div> and CSS <style></style> here -->
+                    <!--Focus here and F11 to full screen editor-->
+                nomargin: false
+                contentcode: !html |-
+                    //Write your controller (JS code) code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+                    vm.initLiveComponent = function(){
+
+                    };
+
+                    //This function will be call when data change. On first execution oldData will be null
+                    vm.drawLiveComponent = function(newData, oldData){
+
+                    };
+
+                    //This function will be call on element resize
+                    vm.resizeEvent = function(){
+
+                    }
+
+                    //This function will be call when element is destroyed
+                    vm.destroyLiveComponent = function(){
+
+                    };
+
+                    //This function will be call when receiving a value from vm.sendValue(idGadgetTarget,data)
+                    vm.receiveValue = function(data){
+
+                    };
+                x: 0
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Filter
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: gadgetfilter_1649175216321
+                customMenuOptions: [
+                    ]
+                cols: 5
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: Global Status (table)
+                rows: 20
+                type: table
+                $$hashKey: object:255
+                content: table
+                nomargin: false
+                x: 5
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Global Status
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 6264dadd-65f0-4a32-b5e0-e350f4344ed8
+                customMenuOptions: [
+                    ]
+                cols: 15
+            title: baseLayer
+            $$hashKey: object:1686
+        title: Status
+        $$hashKey: object:1659
+    interactionHash:
+        866fc267-33fb-46e1-b7c5-18f83154f166:
+        -   targetList:
+            -   gadgetId: e5897c4c-b4b7-4b06-847d-3d9a8a0ab99e
+                overwriteField: operation_id
+            emiterField: operation_id
+        eea93c19-4d10-4458-9901-aca6c7cb2891:
+        -   targetList:
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: execution_id
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: execution_id
+            emiterField: execution_id
+        -   targetList:
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: process_id
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: process_id
+            emiterField: process_id
+        -   targetList:
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: data_date
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: data_date
+            emiterField: data_date
+        gadgetfilter_1649175216321:
+        -   targetList:
+            -   gadgetId: 6264dadd-65f0-4a32-b5e0-e350f4344ed8
+                overwriteField: process_id
+            emiterField: process_id
+        -   targetList:
+            -   gadgetId: 6264dadd-65f0-4a32-b5e0-e350f4344ed8
+                overwriteField: operation_status
+            emiterField: operation_status
+        -   targetList:
+            -   gadgetId: 6264dadd-65f0-4a32-b5e0-e350f4344ed8
+                overwriteField: operation_type
+            emiterField: operation_type
+        gadgetfilter_1646826475757:
+        -   targetList:
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: process_id
+            -   gadgetId: eea93c19-4d10-4458-9901-aca6c7cb2891
+                overwriteField: process_id
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: process_id
+            emiterField: process_id
+        -   targetList:
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: operation_id
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: operation_id
+            emiterField: operation_id
+        -   targetList:
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: data_date
+            -   gadgetId: eea93c19-4d10-4458-9901-aca6c7cb2891
+                overwriteField: data_date
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: data_date
+            emiterField: data_date
+        -   targetList:
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: execution_id
+            -   gadgetId: eea93c19-4d10-4458-9901-aca6c7cb2891
+                overwriteField: execution_id
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: execution_id
+            emiterField: execution_id
+        e5897c4c-b4b7-4b06-847d-3d9a8a0ab99e: [
+            ]
+        livehtml_1671733928388: [
+            ]
+    gridOptions:
+        displayGrid: onDrag&Resize
+        maxItemRows: 5000
+        outerMargin: true
+        disableWindowResize: false
+        minCols: 20
+        defaultItemCols: 1
+        disableLiveResize: true
+        maxItemArea: 25000
+        minItemRows: 1
+        emptyCellDragMaxCols: 5000
+        enableEmptyCellDrag: false
+        maxRows: 20
+        enableEmptyCellAlign: true
+        draggable:
+            delayStart: 100
+            ignoreContent: true
+            dragHandleClass: drag-handler
+            enabled: true
+        gridType: fit
+        minItemArea: 1
+        compactType: none
+        pushDirections:
+            east: true
+            south: true
+            north: true
+            west: true
+        disableLiveMove: true
+        disablePushOnResize: true
+        maxItemCols: 5000
+        margin: 3
+        minRows: 20
+        resizable:
+            delayStart: 0
+            enabled: true
+        swap: true
+        defaultItemRows: 1
+        enableEmptyCellContextMenu: false
+        enableEmptyCellDrop: true
+        scrollToNewItems: false
+        dragGadgetType: livehtml
+        fixedRowHeight: 250
+        minItemCols: 1
+        emptyCellDragMaxRows: 5000
+        disablePushOnDrag: true
+        pushResizeItems: false
+        mobileBreakpoint: 640
+        disableWarnings: false
+        fixedColWidth: 250
+        enableEmptyCellClick: false
+        maxCols: 20
+        pushItems: false
+    header:
+        backgroundColor: '#FFFFFF'
+        enable: true
+        pageColor: '#2e6c99'
+        iconColor: '#060E14'
+        logo:
+            height: 48
+        title: Process Log Dashboard
+        textColor: '#060E14'
+        height: 72
+    showfavoritesg: false
+    parameterHash:
+        data_date:
+        -   targetList:
+            -   gadgetId: 866fc267-33fb-46e1-b7c5-18f83154f166
+                overwriteField: data_date
+            -   gadgetId: 1546ff4c-993b-4d68-86c4-3c66dfe09de0
+                overwriteField: data_date
+            -   gadgetId: eea93c19-4d10-4458-9901-aca6c7cb2891
+                overwriteField: data_date
+            -   gadgetId: 110bf7c1-c219-4799-8712-d9150e16a16d
+                overwriteField: data_date
+            -   gadgetId: 6264dadd-65f0-4a32-b5e0-e350f4344ed8
+                overwriteField: data_date
+            -   gadgetId: livehtml_1651140617526
+                overwriteField: data_date
+            type: string
+            mandatory: true
+    updatedAt: 1671735033298
+headerlibs: !html |-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+generateImage: false
+accesses: [
+    ]
+public: false

@@ -1,0 +1,38 @@
+---
+createdAt: 1688459420679
+updatedAt: 1688459420679
+id: "eea93c19-4d10-4458-9901-aca6c7cb2891"
+identification: "tlogtimedetail"
+user: "orchestrator_user"
+type: "table"
+description: ""
+instance: false
+config:
+  tablePagination:
+    limit: "100"
+    page: 1
+    limitOptions:
+    - 5
+    - 10
+    - 20
+    - 50
+    - 100
+    style:
+      backGroundTHead: "#ffffff"
+      backGroundTFooter: "#ffffff"
+      trHeightHead: "40"
+      trHeightBody: "40"
+      trHeightFooter: "40"
+      textColorTHead: "#060e14"
+      textColorBody: "#555555"
+      textColorFooter: "#555555"
+    options:
+      rowSelection: false
+      multiSelect: false
+      autoSelect: false
+      decapitate: false
+      largeEditDialog: false
+      boundaryLinks: true
+      limitSelect: true
+      pageSelect: true
+public: false

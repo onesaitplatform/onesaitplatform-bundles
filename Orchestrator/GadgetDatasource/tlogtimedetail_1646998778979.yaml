@@ -1,0 +1,17 @@
+---
+createdAt: 1688459420707
+updatedAt: 1688459420707
+id: "7805e0f2-9ead-4711-98f3-3016fe157a02"
+identification: "tlogtimedetail_1646998778979"
+user: "orchestrator_user"
+mode: "query"
+query: "SELECT data_date, process_id, execution_id, round((last(timestamp) - first\
+  \ (timestamp))/60000,2) as min  FROM process_log AS c where process_id != '-' and\
+  \ process_id != '-' group by process_id, data_date, execution_id order by execution_id\
+  \ desc, data_date asc limit 1000"
+dbtype: "RTDB"
+ontology: "3c4a2cd9-bca7-4cbc-b44d-ee7e11a815c4"
+refresh: 0
+maxvalues: 1000
+description: "tlogtimedetail_1646998778979"
+config: null

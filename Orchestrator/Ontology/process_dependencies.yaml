@@ -1,0 +1,51 @@
+---
+createdAt: 1688384572461
+updatedAt: 1688543190080
+id: "a1097a58-2e2a-4f26-8283-5fa5ef499ab1"
+identification: "process_dependencies"
+user: "orchestrator_user"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "process_dependencies"
+  type: "object"
+  required:
+  - "process_id"
+  - "previous_processes"
+  - "next_processes"
+  properties:
+    process_id:
+      type: "string"
+    previous_processes:
+      type: "array"
+      items:
+        type: "string"
+    next_processes:
+      type: "array"
+      items:
+        type: "string"
+  description: "Entity for process orchestration. \nIndexes:\ndb.process_dependencies.createIndex({'process_id':1},{'unique':true})\n\
+    \n"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Entity for process orchestration. \r\nIndexes:\r\ndb.process_dependencies.createIndex({'process_id':1},{'unique':true})\r\
+  \n\r\n"
+metainf: "process,orchestrator"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

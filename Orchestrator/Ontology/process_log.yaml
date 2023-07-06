@@ -1,0 +1,63 @@
+---
+createdAt: 1688384442367
+updatedAt: 1688543151425
+id: "3c4a2cd9-bca7-4cbc-b44d-ee7e11a815c4"
+identification: "process_log"
+user: "orchestrator_user"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "process_log"
+  type: "object"
+  required:
+  - "process_id"
+  - "operation_id"
+  - "data_date"
+  - "message"
+  - "timestamp"
+  properties:
+    execution_id:
+      type: "string"
+    process_id:
+      type: "string"
+    operation_id:
+      type: "string"
+    data_date:
+      type: "string"
+    message:
+      type: "string"
+    timestamp:
+      type: "object"
+      required:
+      - "$date"
+      properties:
+        $date:
+          type: "string"
+          format: "date-time"
+  description: "Entity for process log. \nIndexes:\ndb.process_log.createIndex({'data_date':1,'process_id':1,'operation_id':1,'execution_id':1})\n\
+    db.process_log.createIndex({'data_date':1,'process_id':1,'execution_id':1})\n\
+    db.process_log.createIndex({'timestamp':1,'data_date':1})"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Entity for process log. \r\nIndexes:\r\ndb.process_log.createIndex({'data_date':1,'process_id':1,'operation_id':1,'execution_id':1})\r\
+  \ndb.process_log.createIndex({'data_date':1,'process_id':1,'execution_id':1})\r\n\
+  db.process_log.createIndex({'timestamp':1,'data_date':1})"
+metainf: "process,orchestrator"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

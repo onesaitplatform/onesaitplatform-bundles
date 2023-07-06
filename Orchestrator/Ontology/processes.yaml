@@ -1,0 +1,71 @@
+---
+createdAt: 1688384199910
+updatedAt: 1688543081722
+id: "22451f4d-c706-4221-bda4-798bed55ff6f"
+identification: "processes"
+user: "orchestrator_user"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "processes"
+  type: "object"
+  required:
+  - "process_id"
+  - "operation_id"
+  - "operation_identification"
+  - "operation_type"
+  - "operation_order"
+  - "previous_delete"
+  - "delete_condition"
+  - "target_entity"
+  - "parameters"
+  properties:
+    process_id:
+      type: "string"
+    operation_id:
+      type: "string"
+    operation_identification:
+      type: "string"
+    operation_type:
+      type: "string"
+      enum:
+      - "dataflow"
+      - "kpi"
+      - "delete"
+      - "notebook"
+    operation_order:
+      type: "integer"
+    previous_delete:
+      type: "boolean"
+    delete_condition:
+      type: "string"
+    target_entity:
+      type: "string"
+    parameters:
+      type: "string"
+    error_continue:
+      type: "boolean"
+  description: "Entity for process orchestration. \nIndexes:\ndb.processes.createIndex({'process_id':1,'operation_id':1},{'unique':true})\n"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Entity for process orchestration. \r\nIndexes:\r\ndb.processes.createIndex({'process_id':1,'operation_id':1},{'unique':true})\r\
+  \n"
+metainf: "process,orchestrator"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

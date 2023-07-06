@@ -1,0 +1,60 @@
+---
+createdAt: 1688459420674
+updatedAt: 1688459420674
+id: "e5897c4c-b4b7-4b06-847d-3d9a8a0ab99e"
+identification: "tlogtimeline"
+user: "orchestrator_user"
+type: "bar"
+description: ""
+instance: false
+config:
+  legend:
+    display: true
+    fullWidth: false
+    position: "top"
+    labels:
+      padding: 10
+      fontSize: 11
+      usePointStyle: false
+      boxWidth: 2
+  scales:
+    yAxes:
+    - id: "#0"
+      display: true
+      type: "linear"
+      position: "left"
+      scaleLabel:
+        labelString: ""
+        display: true
+        fontFamily: "Soho"
+        padding: 4
+      stacked: false
+      sort: true
+      ticks:
+        suggestedMin: "0"
+        suggestedMax: "1000"
+        maxTicksLimit: "10"
+      gridLines:
+        display: false
+    xAxes:
+    - stacked: false
+      sort: true
+      ticks:
+        fontFamily: "Soho"
+      scaleLabel:
+        display: true
+        labelString: ""
+        fontFamily: "Soho"
+        padding: 4
+      hideLabel: "1"
+      gridLines:
+        display: true
+        borderDash:
+        - 2
+        - 4
+        color: "#CCC"
+        zeroLineBorderDash:
+        - 2
+        - 4
+        zeroLineColor: "transparent"
+public: false

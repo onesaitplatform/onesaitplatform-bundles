@@ -1,0 +1,20 @@
+---
+createdAt: 1688459420718
+updatedAt: 1688459420718
+id: "dd15864c-cbad-4fc9-bc84-5182e29d5f2d"
+identification: "tlogstatus_1649177874599"
+user: "orchestrator_user"
+mode: "query"
+query: "select p.process_id,  \r\np.operation_id, l.status as operation_status,\r\n\
+  l.data_date as data_date, p.operation_identification, p.operation_type\r\nfrom processes\
+  \ as p\r\n left join\r\n(select process_id, operation_id, last(status) as status,\
+  \ data_date\r\nfrom process_log\r\nwhere process_id!='-' and operation_id!='-' and\
+  \ message not like '%not executed - previous%' \r\ngroup by process_id, operation_id,\
+  \ data_date\r\norder by timestamp asc) as l\r\n on p.process_id = l.process_id and\
+  \ p.operation_id = l.operation_id"
+dbtype: "RTDB"
+ontology: "22451f4d-c706-4221-bda4-798bed55ff6f"
+refresh: 0
+maxvalues: 1000
+description: "tlogs"
+config: null

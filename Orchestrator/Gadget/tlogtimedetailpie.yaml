@@ -1,0 +1,30 @@
+---
+createdAt: 1688459420682
+updatedAt: 1688459420682
+id: "110bf7c1-c219-4799-8712-d9150e16a16d"
+identification: "tlogtimedetailpie"
+user: "orchestrator_user"
+type: "pie"
+description: ""
+instance: false
+config:
+  legend:
+    display: false
+    fullWidth: false
+    position: "top"
+    labels:
+      padding: 10
+      fontSize: 11
+      usePointStyle: false
+      boxWidth: 1
+  elements:
+    arc:
+      borderWidth: 1
+      borderColor: "#fff"
+  maintainAspectRatio: false
+  responsive: true
+  responsiveAnimationDuration: 500
+  circumference: "6.283185307179586"
+  rotation: "6.283185307179586"
+  charType: "pie"
+public: false

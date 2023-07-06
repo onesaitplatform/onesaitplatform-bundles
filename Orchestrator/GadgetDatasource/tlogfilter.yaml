@@ -1,0 +1,16 @@
+---
+createdAt: 1688541933944
+updatedAt: 1688541933944
+id: "3a53c3be-ac00-414e-a71a-0c48dc03c18e"
+identification: "tlogfilter"
+user: "orchestrator_user"
+mode: "query"
+query: "select process_id, operation_id from process_log   where process_id != '-'\
+  \ and operation_id != '-'  group by process_id, operation_id  order by process_id,\
+  \ operation_id"
+dbtype: "RTDB"
+ontology: "3c4a2cd9-bca7-4cbc-b44d-ee7e11a815c4"
+refresh: 0
+maxvalues: 100
+description: "datasource for filtering"
+config: null

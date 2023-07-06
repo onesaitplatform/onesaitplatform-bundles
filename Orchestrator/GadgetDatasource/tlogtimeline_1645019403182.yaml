@@ -1,0 +1,16 @@
+---
+createdAt: 1688459420696
+updatedAt: 1688459420696
+id: "a9f62410-2484-47e1-9ec9-fb82bd0fbd2b"
+identification: "tlogtimeline_1645019403182"
+user: "orchestrator_user"
+mode: "query"
+query: "SELECT data_date, operation_id, (last(timestamp) - first (timestamp))/1000\
+  \ as seg  FROM process_log AS c group by operation_id, data_date order by data_date\
+  \ asc"
+dbtype: "RTDB"
+ontology: "3c4a2cd9-bca7-4cbc-b44d-ee7e11a815c4"
+refresh: 0
+maxvalues: 100
+description: "tlogtimeline_1645019403182"
+config: null

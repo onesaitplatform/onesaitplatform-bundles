@@ -1,0 +1,64 @@
+---
+createdAt: 1688384311686
+updatedAt: 1688543141381
+id: "3a68744a-10a6-482f-9ff4-7b2b32a3d742"
+identification: "process_status"
+user: "orchestrator_user"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "process_status"
+  type: "object"
+  required:
+  - "process_id"
+  - "start_date"
+  - "data_date"
+  - "status"
+  properties:
+    process_id:
+      type: "string"
+    start_date:
+      type: "object"
+      required:
+      - "$date"
+      properties:
+        $date:
+          type: "string"
+          format: "date-time"
+    end_date:
+      type: "object"
+      required:
+      - "$date"
+      properties:
+        $date:
+          type: "string"
+          format: "date-time"
+    data_date:
+      type: "string"
+      format: "date"
+    status:
+      type: "string"
+  description: "Entity for process orchestration. \nIndexes:\ndb.process_status.createIndex({'process_id':1,'data_date':1},{'unique':true})\n"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Entity for process orchestration. \r\nIndexes:\r\ndb.process_status.createIndex({'process_id':1,'data_date':1},{'unique':true})\r\
+  \n"
+metainf: "process,orchestrator"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null
