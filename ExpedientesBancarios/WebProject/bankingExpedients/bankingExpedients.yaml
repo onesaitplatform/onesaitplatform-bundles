@@ -1,0 +1,8 @@
+---
+createdAt: 1688630149127
+updatedAt: 1688630149127
+id: "6b7d9fef-ab2b-4c71-bee7-93b5b90ea552"
+identification: "bankingExpedients"
+user: "bancaexpedients"
+description: "Secured web application that allows access to dashboards of bank expedients"
+mainFile: "index.html"

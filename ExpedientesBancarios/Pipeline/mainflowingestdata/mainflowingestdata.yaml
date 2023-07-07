@@ -1,0 +1,10 @@
+---
+createdAt: 1688558797438
+updatedAt: 1688558797438
+id: "ed7bd172-2f6f-43fa-b585-14c2fb7258d0"
+identification: "mainflowingestdata"
+user: "bancaexpedients"
+idstreamsets: "mainflowin9c82f7b3-241d-4762-8754-fb1af5fdb1cc"
+pipelineAccesses: []
+public: false
+instance: "MASTER-DataflowInstance-1"

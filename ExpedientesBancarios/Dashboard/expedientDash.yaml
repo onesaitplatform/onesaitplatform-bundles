@@ -1,0 +1,2168 @@
+createdAt: 1688559432919
+updatedAt: 1688561870177
+id: e2912766-b375-4342-9dfc-314252fd98d5
+identification: expedientDash
+user: bancaexpedients
+description: expedient Dashboard
+jsoni18n: ''
+customcss: ''
+customjs: ''
+model:
+    navigation:
+        showBreadcrumbIcon: true
+        showBreadcrumb: true
+    pages:
+    -   combinelayers: false
+        background:
+            file: [
+                ]
+        selectedlayer: 0
+        icon: apps
+        layers:
+        -   gridboard:
+            -   $$hashKey: object:80
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: filtro (livehtml)
+                rows: 1
+                type: livehtml
+                $$hashKey: object:123
+                content: !html |-
+                    <!-- Write your HTML <div></div> and CSS <style></style> here -->
+                    <!--Focus here and F11 to full screen editor-->
+                    <style>
+                       .page-title-box {
+                          padding-bottom: 24px;
+                          margin-top: 8px
+                       }
+
+                       .align-items-center {
+                          align-items: center !important;
+                       }
+
+                       .justify-content-between {
+                          justify-content: space-between !important;
+                       }
+
+                       .d-flex {
+                          display: flex !important;
+                       }
+
+                       .page-title-right ol.breadcrumb {
+                          margin-bottom: 0;
+                       }
+
+                       .page-title-box .breadcrumb {
+                          background-color: transparent;
+                          padding: 0;
+                       }
+
+                       .breadcrumb {
+                          display: flex;
+                          flex-wrap: wrap;
+                          padding: 0.75rem 1rem;
+                          margin-bottom: 1rem;
+                          list-style: none;
+                       }
+
+                       .breadcrumb-item>a {
+                          color: #495057;
+                          font-size: 0.8125rem;
+                       }
+
+                       .breadcrumb-item.active {
+                          color: #74788d;
+                          font-size: 0.8125rem;
+                       }
+
+                       .font-size-16 {
+                          text-transform: uppercase;
+                          font-weight: 600;
+                          font-size: 16px !important;
+                          font-family: 'Poppins';
+                       }
+
+                       .no-shadow {
+                          box-shadow: none !important
+                       }
+                    </style>
+
+
+                    <div class="page-title-box d-flex align-items-center  gadget-header">
+                       <h4 class="mb-0 font-size-16">ENTIDAD</h4>
+                       <!--<div style="display: inline-grid;">-->
+                          <!--<label for="name" class="ods-form-item__label">Organization</label>-->
+                          <ods-select v-model="valueOrgID" :multiple="multiple" :disabled="disabled" :collapse-tags="collapseTags"
+                             :size="size" :clearable="clearable" :multiple-limit="multipleLimit" name="orgid" :placeholder="placeholder"
+                             :filterable="filterable" :allow-create="allowCreate" :remote="remote" :loading="loading"
+                             :loading-text="loadingText" :no-match-text="noMatchText" :no-data-text="noDataText"
+                             :popper-class="popperClass" :reserve-keyword="reserveKeyword" :default-first-option="defaultFirstOption"
+                             :popper-append-to-body="popperAppendToBody" :automatic-dropdown="automaticDropdown"
+                             :selectLabel="selectLabel" :rtl="rtl" @change="handleChangeORGID" @visible-change="handleVisibleChange"
+                             @remove-tag="handleRemoveTag" @clear="handleClearORGID" @blur="handleBlur" @focus="handleFocus"
+                             @filter="handleFilter" style="margin-left:40px">
+                             <ods-option v-for="item in optionsBanca" :key="item.value" :label="item.label" :value="item.value"
+                                :disabled="disabledOption">
+                             </ods-option>
+                          </ods-select>
+                       <!--</div>-->
+                       <!--<div style="display: inline-grid;">
+                          <label for="name" class="ods-form-item__label">Site</label>
+                          <ods-select v-model="valueSite" :multiple="multiple" :disabled="disabled" :collapse-tags="collapseTags"
+                             :size="size" :clearable="clearable" :multiple-limit="multipleLimit" name="orgid" :placeholder="placeholder"
+                             :filterable="filterable" :allow-create="allowCreate" :remote="remote" :loading="loading"
+                             :loading-text="loadingText" :no-match-text="noMatchText" :no-data-text="noDataText"
+                             :popper-class="popperClass" :reserve-keyword="reserveKeyword" :default-first-option="defaultFirstOption"
+                             :popper-append-to-body="popperAppendToBody" :automatic-dropdown="automaticDropdown"
+                             :selectLabel="selectLabel" :rtl="rtl" @change="handleChangeSite" @visible-change="handleVisibleChange"
+                             @remove-tag="handleRemoveTag" @clear="handleClearSite" @blur="handleBlur" @focus="handleFocus"
+                             @filter="handleFilter" style="margin-left:40px">
+                             <ods-option v-for="item in optionsSite" :key="item.value" :label="item.label" :value="item.value"
+                                :disabled="disabledOption">
+                             </ods-option>
+                          </ods-select>
+                       </div>
+
+
+                       <div style="display: inline-grid;">
+                          <label for="name" class="ods-form-item__label">Type</label>
+                          <ods-select v-model="valueType" :multiple="multiple" :disabled="disabled" :collapse-tags="collapseTags"
+                             :size="size" :clearable="clearable" :multiple-limit="multipleLimit" name="orgid" :placeholder="placeholder"
+                             :filterable="filterable" :allow-create="allowCreate" :remote="remote" :loading="loading"
+                             :loading-text="loadingText" :no-match-text="noMatchText" :no-data-text="noDataText"
+                             :popper-class="popperClass" :reserve-keyword="reserveKeyword" :default-first-option="defaultFirstOption"
+                             :popper-append-to-body="popperAppendToBody" :automatic-dropdown="automaticDropdown"
+                             :selectLabel="selectLabel" :rtl="rtl" @change="handleChangeType" @visible-change="handleVisibleChange"
+                             @remove-tag="handleRemoveTag" @clear="handleClearType" @blur="handleBlur" @focus="handleFocus"
+                             @filter="handleFilter" style="margin-left:40px">
+                             <ods-option v-for="item in optionsType" :key="item.value" :label="item.label" :value="item.value"
+                                :disabled="disabledOption">
+                             </ods-option>
+                          </ods-select>
+                       </div>
+                       <div style="display: inline-grid;">
+                          <label for="name" class="ods-form-item__label">Status</label>
+                          <ods-select v-model="valueStatus" :multiple="multiple" :disabled="disabled" :collapse-tags="collapseTags"
+                             :size="size" :clearable="clearable" :multiple-limit="multipleLimit" name="orgid" :placeholder="placeholder"
+                             :filterable="filterable" :allow-create="allowCreate" :remote="remote" :loading="loading"
+                             :loading-text="loadingText" :no-match-text="noMatchText" :no-data-text="noDataText"
+                             :popper-class="popperClass" :reserve-keyword="reserveKeyword" :default-first-option="defaultFirstOption"
+                             :popper-append-to-body="popperAppendToBody" :automatic-dropdown="automaticDropdown"
+                             :selectLabel="selectLabel" :rtl="rtl" @change="handleChangeStatus" @visible-change="handleVisibleChange"
+                             @remove-tag="handleRemoveTag" @clear="handleClearStatus" @blur="handleBlur" @focus="handleFocus"
+                             @filter="handleFilter" style="margin-left:40px">
+                             <ods-option v-for="item in optionsStatus" :key="item" :label="item" :value="item"
+                                :disabled="disabledOption">
+                             </ods-option>
+                          </ods-select>
+                       </div>-->
+                       <div class="page-title-right">
+                          <nav aria-label="breadcrumb" class="m-0">
+                             <ol class="breadcrumb">
+                                <li class="breadcrumb-item"> <a class="" href="/" target="_self" aria-current="location"> </a> </li>
+                             </ol>
+                          </nav>
+                       </div>
+                    </div>
+                nomargin: false
+                contentcode: !html |-
+                    //Write your Vue with ODS JSON controller code here
+                    //Focus here and F11 to full screen editor
+                    //This function will be call once to init components
+                    vm.vueconfig = {
+                      el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-header'),
+                      data: {
+                        ds: [],
+                        optionsOrgID: [],
+                        valueOrgID: [],
+                        optionsSite: [],
+                        valueSite: [],
+                        optionsBanca: [{'label':'Entidad1','value':'entidad1'},{'label':'Entidad2','value':'entidad2'},{'label':'Entidad3','value':'entidad3'}   ],
+
+                        valueStatus: [],
+                        optionsType: [],
+                        valueType: [],
+                        size: 'hecto',
+                        placeholder: 'Select',
+                        selectLabel: 'Organization',
+                        name: 'orgid',
+                        disabled: false,
+                        clearable: true,
+                        loading: false,
+                        loadingText: 'Loading',
+                        noMatchText: 'No matching data',
+                        noDataText: 'No data',
+                        popperClass: '',
+                        filterable: false,
+                        allowCreate: false,
+                        multiple: true,
+                        multipleLimit: 0,
+                        collapseTags: true,
+                        labelOptionGroup: null,
+                        disabledOptionGroup: null,
+                        valueOption: '',
+                        label: '',
+                        disabledOption: false,
+                        remote: false,
+                        reserveKeyword: false,
+                        defaultFirstOption: false,
+                        popperAppendToBody: true,
+                        automaticDropdown: false,
+                        accentBlock: false,
+                        rtl: false
+                      },
+                      methods: {
+                        drawVueComponent: function (newData, oldData) {
+
+                        },
+                        resizeEvent: function () {
+                          //Resize event
+                        },
+                        destroyVueComponent: function () {
+                          vm.vueapp.$destroy();
+                        },
+                        receiveValue: function (data) {
+                          //data received from datalink
+                        },
+                        sendValue: vm.sendValue,
+                        sendFilter: vm.sendFilter,
+                        gridsterClass(cssClass) {
+                          this.$el.parentElement.parentElement.parentElement.parentElement.className += ' ' + cssClass
+                        },
+                        handleChangeORGID: function (val) {
+                          if (val != null && val.length > 0) {
+                            this.sendFilter('entidad', "('" + val.join("','") + "')", 'IN');
+                          } else {
+                            this.sendFilter('entidad', null, 'IN');
+                          }
+
+                        },
+
+
+                        handleVisibleChange: function (e) {
+
+                        },
+                        handleRemoveTag: function (e) {
+
+                        },
+                        handleClearORGID: function (e) {
+                          this.sendFilter('entidad', null, 'IN');
+                         // this.updateSites();
+                         // this.updateType();
+                        },
+
+                         handleBlur: function (e) {
+
+                        }, handleFocus: function (e) {
+
+                        }, handleFilter: function (e) {
+
+                        },
+                        handleClick: function (e) {
+
+                        },
+
+
+                      },
+                      mounted() {
+                        var that = this;
+                        this.gridsterClass('no-shadow');
+
+
+
+                      }
+                    }
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                x: 0
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: filtro
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559481325
+                customMenuOptions: [
+                    ]
+                cols: 30
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: New Code (livehtml)
+                rows: 2
+                type: livehtml
+                $$hashKey: object:302
+                content: !html |-
+                    <style>
+                      .gadget-app { font-family: Poppins}
+                       gridster-item { box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%); }
+
+
+                      .card {   margin-top: 12px; }
+
+                    }
+                    .card-body {
+                        flex: 1 1 auto;
+                        padding: 1rem;
+                    }
+                    .mb-3 {
+                        margin-bottom: 1rem!important;
+                    }
+                    .align-items-center {
+                        align-items: center!important;
+                    }
+                    .d-flex {
+                        display: flex!important;
+                    }
+                    .avatar-xs {
+                        height: 2rem;
+                        width: 2rem;
+                    }
+                    .me-3 {
+                        margin-right: 1rem!important;
+                    }
+                    .font-size-14 {
+                        font-size: 14px!important;
+                         font-family: 'Poppins'
+                    }
+                    .mb-0 {
+                        margin-bottom: 0!important;
+                    }
+                    .bg-primary.bg-soft {
+                        background-color: rgba(85,110,230,.25)!important;
+                    }
+                    .font-size-18 {
+                        font-size: 18px!important;
+                        font-family: 'Poppins'
+                    }
+                    .avatar-title {
+                        align-items: center;
+                        background-color: #556ee6;
+                        color: #fff;
+                        display: flex;
+                        font-weight: 500;
+                        height: 100%;
+                        justify-content: center;
+                        width: 100%;
+                    }
+                    .rounded-circle {
+                        border-radius: 50%!important;
+                    }
+                    .text-primary {
+                        color: rgba(85,110,230,1)!important;
+                    }
+                    .ods-icon-xs { font-size: 1rem}
+
+                    .text-muted {
+                        color: #74788d!important;
+                    }
+                    .mt-4 {
+                        margin-top: 1.5rem!important;
+                    }
+                    .text-success {
+                        color: rgba(52,195,143,1)!important;
+                    }
+
+                    .ods-kpi-number { font-size: 1.22rem; font-weight: 500; color: #333; margin-top: 0; margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2;}
+
+                    .font-size-12 {
+                        font-size: 12px!important;
+                    }
+                    .badge-soft-success {
+                        color: #34c38f!important;
+                        background-color: rgba(52,195,143,.18)!important;
+                    }
+                    .badge-soft-warning {
+                        color: #f1b44c!important;
+                        background-color: rgba(241,180,76,.18)!important;
+                    }
+
+                    .badge {
+                        display: inline-block;
+                        padding: 0.25em 0.4em;
+                        font-size: 75%;
+                        font-weight: 500;
+                        line-height: 1;
+                        color: #fff;
+                        text-align: center;
+                        white-space: nowrap;
+                        vertical-align: baseline;
+                        border-radius: 0.25rem;
+                    }
+                    .ms-2 {
+                        margin-left: 0.5rem!important;
+                    }
+
+                    .text-truncate {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: 0.8125rem;
+                        margin-top: .2rem;
+                    }
+                    </style>
+
+                    <div class="gadget-app">
+                      <div class="card" >
+                        <div class="card-body">
+                          <div class="d-flex align-items-center mb-3">
+                            <div class="avatar-xs me-3">
+                              <span class="avatar-title rounded-circle bg-soft bg-primary text-primary font-size-18"><i class="ods-icon-calendar-ok ods-icon-xs"></i></span>
+                            </div>
+                            <h5 class="font-size-14 mb-0">Total Expedientes Entidad 1</h5>
+                          </div>
+                          <div class="text-muted mt-4" style="text-align: center;">
+                            <h4 class="ods-kpi-number"> {{kpis.ammount}} <i class="ods-icon-chevron-up-small ms-1 text-success"></i></h4>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                nomargin: false
+                contentcode: !html |
+                    //Write your Vue with ODS JSON controller code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+
+                    vm.vueconfig = {
+                       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-app'),
+                       data:{
+                          ds:[],
+                          kpis:
+                             {
+                                title: '',
+                                resume: '',
+                                ammount: '0',
+                                unit: '%',
+                                percentage: 0,
+                                triangle: true,
+                                href: '',
+                                accentBlock: false,
+                                size: 'large',
+                                icon: 'ods-icon-control'
+                             }
+                       },
+                       methods:{
+                          drawVueComponent: function(newData,oldData){
+                                this.kpis.ammount = newData[0].value;
+                               console.log(newData[0].value);
+
+
+                          },
+                          resizeEvent: function(){
+                             //Resize event
+                          },
+                          destroyVueComponent: function(){
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function(data){
+                             //data received from datalink
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter
+                       }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                datasource:
+                    name: expedient_totalExp
+                    refresh: 10
+                    id: 094b59dc-dd5e-4c43-a2ef-a2effbfe4f73
+                    type: query
+                x: 0
+                y: 1
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: New Code
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559539331
+                customMenuOptions: [
+                    ]
+                cols: 8
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: New Code (livehtml)
+                rows: 2
+                type: livehtml
+                $$hashKey: object:451
+                content: !html |-
+                    <style>
+                       .gadget-app {
+                          font-family: Poppins
+                       }
+
+                       gridster-item {
+                          box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
+                       }
+
+
+                       .card {
+                          margin-top: 12px;
+                       }
+
+                       }
+
+                       .card-body {
+                          flex: 1 1 auto;
+                          padding: 1rem;
+                       }
+
+                       .mb-3 {
+                          margin-bottom: 1rem !important;
+                       }
+
+                       .align-items-center {
+                          align-items: center !important;
+                       }
+
+                       .d-flex {
+                          display: flex !important;
+                       }
+
+                       .avatar-xs {
+                          height: 2rem;
+                          width: 2rem;
+                       }
+
+                       .me-3 {
+                          margin-right: 1rem !important;
+                       }
+
+                       .font-size-14 {
+                          font-size: 14px !important;
+                          font-family: 'Poppins'
+                       }
+
+                       .mb-0 {
+                          margin-bottom: 0 !important;
+                       }
+
+                       .bg-primary.bg-soft {
+                          background-color: rgba(85, 110, 230, .25) !important;
+                       }
+
+                       .font-size-18 {
+                          font-size: 18px !important;
+                          font-family: 'Poppins'
+                       }
+
+                       .avatar-title {
+                          align-items: center;
+                          background-color: #556ee6;
+                          color: #fff;
+                          display: flex;
+                          font-weight: 500;
+                          height: 100%;
+                          justify-content: center;
+                          width: 100%;
+                       }
+
+                       .rounded-circle {
+                          border-radius: 50% !important;
+                       }
+
+                       .text-primary {
+                          color: rgba(85, 110, 230, 1) !important;
+                       }
+
+                       .ods-icon-xs {
+                          font-size: 1rem
+                       }
+
+                       .text-muted {
+                          color: #74788d !important;
+                       }
+
+                       .mt-4 {
+                          margin-top: 1.5rem !important;
+                       }
+
+                       .text-success {
+                          color: rgba(52, 195, 143, 1) !important;
+                       }
+
+                       .ods-kpi-number {
+                          font-size: 1.22rem;
+                          font-weight: 500;
+                          color: #333;
+                          margin-top: 0;
+                          margin-bottom: 0.5rem;
+                          font-weight: 500;
+                          line-height: 1.2;
+                       }
+
+                       .font-size-12 {
+                          font-size: 12px !important;
+                       }
+
+                       .badge-soft-success {
+                          color: #34c38f !important;
+                          background-color: rgba(52, 195, 143, .18) !important;
+                       }
+
+                       .badge-soft-warning {
+                          color: #f1b44c !important;
+                          background-color: rgba(241, 180, 76, .18) !important;
+                       }
+
+                       .badge {
+                          display: inline-block;
+                          padding: 0.25em 0.4em;
+                          font-size: 75%;
+                          font-weight: 500;
+                          line-height: 1;
+                          color: #fff;
+                          text-align: center;
+                          white-space: nowrap;
+                          vertical-align: baseline;
+                          border-radius: 0.25rem;
+                       }
+
+                       .ms-2 {
+                          margin-left: 0.5rem !important;
+                       }
+
+                       .text-truncate {
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                          font-size: 0.8125rem;
+                          margin-top: .2rem;
+                       }
+                    </style>
+
+                    <div class="gadget-app">
+                       <div class="card">
+                          <div class="card-body">
+                             <div class="d-flex align-items-center mb-3">
+                                <div class="avatar-xs me-3">
+                                   <span class="avatar-title rounded-circle bg-soft bg-primary text-primary font-size-18"><i class="ods-icon-calendar-ok ods-icon-xs"></i></span>
+                                </div>
+                                <h5 class="font-size-14 mb-0">Total Expedientes Entidad 2</h5>
+                             </div>
+                             <div class="text-muted mt-4" style="text-align: center;">
+                                <h4 class="ods-kpi-number"> {{kpis.ammount}} <i class="ods-icon-chevron-up-small ms-1 text-success"></i>
+                                </h4>
+
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                nomargin: false
+                contentcode: !html |
+                    //Write your Vue with ODS JSON controller code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+
+                    vm.vueconfig = {
+                       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-app'),
+                       data: {
+                          ds: [],
+                          kpis:
+                          {
+                             title: '',
+                             resume: '',
+                             ammount: '0',
+                             unit: '%',
+                             percentage: 0,
+                             triangle: true,
+                             href: '',
+                             accentBlock: false,
+                             size: 'large',
+                             icon: 'ods-icon-control'
+                          }
+                       },
+                       methods: {
+                          drawVueComponent: function (newData, oldData) {
+                             if (newData != null && newData.length > 0) {
+                                for (var i = 0; i < newData.length; i++) {
+                                   if (newData[i].expedient_kpis.entidad == 'entidad2') {
+                                      this.kpis.ammount = newData[i].expedient_kpis.totalExpedientes;
+                                   }
+                                }
+                             }
+
+
+
+                          },
+                          resizeEvent: function () {
+                             //Resize event
+                          },
+                          destroyVueComponent: function () {
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function (data) {
+                             //data received from datalink
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter
+                       }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                datasource:
+                    name: expedient_kpis
+                    refresh: 0
+                    id: dd517b85-fe69-4250-ad19-836831c36257
+                    type: query
+                x: 8
+                y: 1
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: New Code
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559607508
+                customMenuOptions: [
+                    ]
+                cols: 7
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: New Code (livehtml)
+                rows: 2
+                type: livehtml
+                $$hashKey: object:594
+                content: !html |-
+                    <style>
+                      .gadget-app { font-family: Poppins}
+                       gridster-item { box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%); }
+
+
+                      .card {   margin-top: 12px; }
+
+                    }
+                    .card-body {
+                        flex: 1 1 auto;
+                        padding: 1rem;
+                    }
+                    .mb-3 {
+                        margin-bottom: 1rem!important;
+                    }
+                    .align-items-center {
+                        align-items: center!important;
+                    }
+                    .d-flex {
+                        display: flex!important;
+                    }
+                    .avatar-xs {
+                        height: 2rem;
+                        width: 2rem;
+                    }
+                    .me-3 {
+                        margin-right: 1rem!important;
+                    }
+                    .font-size-14 {
+                        font-size: 14px!important;
+                         font-family: 'Poppins'
+                    }
+                    .mb-0 {
+                        margin-bottom: 0!important;
+                    }
+                    .bg-primary.bg-soft {
+                        background-color: rgba(85,110,230,.25)!important;
+                    }
+                    .font-size-18 {
+                        font-size: 18px!important;
+                        font-family: 'Poppins'
+                    }
+                    .avatar-title {
+                        align-items: center;
+                        background-color: #556ee6;
+                        color: #fff;
+                        display: flex;
+                        font-weight: 500;
+                        height: 100%;
+                        justify-content: center;
+                        width: 100%;
+                    }
+                    .rounded-circle {
+                        border-radius: 50%!important;
+                    }
+                    .text-primary {
+                        color: rgba(85,110,230,1)!important;
+                    }
+                    .ods-icon-xs { font-size: 1rem}
+
+                    .text-muted {
+                        color: #74788d!important;
+                    }
+                    .mt-4 {
+                        margin-top: 1.5rem!important;
+                    }
+                    .text-success {
+                        color: rgba(52,195,143,1)!important;
+                    }
+
+                    .ods-kpi-number { font-size: 1.22rem; font-weight: 500; color: #333; margin-top: 0; margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2;}
+
+                    .font-size-12 {
+                        font-size: 12px!important;
+                    }
+                    .badge-soft-success {
+                        color: #34c38f!important;
+                        background-color: rgba(52,195,143,.18)!important;
+                    }
+                    .badge-soft-warning {
+                        color: #f1b44c!important;
+                        background-color: rgba(241,180,76,.18)!important;
+                    }
+
+                    .badge {
+                        display: inline-block;
+                        padding: 0.25em 0.4em;
+                        font-size: 75%;
+                        font-weight: 500;
+                        line-height: 1;
+                        color: #fff;
+                        text-align: center;
+                        white-space: nowrap;
+                        vertical-align: baseline;
+                        border-radius: 0.25rem;
+                    }
+                    .ms-2 {
+                        margin-left: 0.5rem!important;
+                    }
+
+                    .text-truncate {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: 0.8125rem;
+                        margin-top: .2rem;
+                    }
+                    </style>
+
+                    <div class="gadget-app">
+                      <div class="card" >
+                        <div class="card-body">
+                          <div class="d-flex align-items-center mb-3">
+                            <div class="avatar-xs me-3">
+                              <span class="avatar-title rounded-circle bg-soft bg-primary text-primary font-size-18"><i class="ods-icon-calendar-ok ods-icon-xs"></i></span>
+                            </div>
+                            <h5 class="font-size-14 mb-0">Total Expedientes Entidad 3</h5>
+                          </div>
+                          <div class="text-muted mt-4" style="text-align: center;">
+                            <h4 class="ods-kpi-number"> {{kpis.ammount}} <i class="ods-icon-chevron-up-small ms-1 text-success"></i></h4>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                nomargin: false
+                contentcode: !html |
+                    //Write your Vue with ODS JSON controller code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+
+                    vm.vueconfig = {
+                       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-app'),
+                       data:{
+                          ds:[],
+                          kpis:
+                             {
+                                title: '',
+                                resume: '',
+                                ammount: '0',
+                                unit: '%',
+                                percentage: 0,
+                                triangle: true,
+                                href: '',
+                                accentBlock: false,
+                                size: 'large',
+                                icon: 'ods-icon-control'
+                             }
+                       },
+                       methods:{
+                          drawVueComponent: function(newData,oldData){
+                             if (newData != null && newData.length > 0) {
+                                for (var i = 0; i < newData.length; i++) {
+
+                                   if (newData[i].expedient_kpis.entidad == 'entidad3') {
+                                      this.kpis.ammount = newData[i].expedient_kpis.totalExpedientes;
+                                   }
+                                }
+                             }
+
+
+
+                          },
+                          resizeEvent: function(){
+                             //Resize event
+                          },
+                          destroyVueComponent: function(){
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function(data){
+                             //data received from datalink
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter
+                       }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                datasource:
+                    name: expedient_kpis
+                    refresh: 0
+                    id: dd517b85-fe69-4250-ad19-836831c36257
+                    type: query
+                x: 15
+                y: 1
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: New Code
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559657104
+                customMenuOptions: [
+                    ]
+                cols: 8
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: New Code (livehtml)
+                rows: 3
+                type: livehtml
+                $$hashKey: object:646
+                content: !html |-
+                    <style>
+                      .gadget-app { font-family: Poppins}
+                       gridster-item { box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%); }
+
+
+                      .card {   margin-top: 12px; }
+
+                    }
+                    .card-body {
+                        flex: 1 1 auto;
+                        padding: 1rem;
+                    }
+                    .mb-3 {
+                        margin-bottom: 1rem!important;
+                    }
+                    .align-items-center {
+                        align-items: center!important;
+                    }
+                    .d-flex {
+                        display: flex!important;
+                    }
+                    .avatar-xs {
+                        height: 2rem;
+                        width: 2rem;
+                    }
+                    .me-3 {
+                        margin-right: 1rem!important;
+                    }
+                    .font-size-14 {
+                        font-size: 14px!important;
+                         font-family: 'Poppins'
+                    }
+                    .mb-0 {
+                        margin-bottom: 0!important;
+                    }
+                    .bg-primary.bg-soft {
+                        background-color: rgba(85,110,230,.25)!important;
+                    }
+                    .font-size-18 {
+                        font-size: 18px!important;
+                        font-family: 'Poppins'
+                    }
+                    .avatar-title {
+                        align-items: center;
+                        background-color: #556ee6;
+                        color: #fff;
+                        display: flex;
+                        font-weight: 500;
+                        height: 100%;
+                        justify-content: center;
+                        width: 100%;
+                    }
+                    .rounded-circle {
+                        border-radius: 50%!important;
+                    }
+                    .text-primary {
+                        color: rgba(85,110,230,1)!important;
+                    }
+                    .ods-icon-xs { font-size: 1rem}
+
+                    .text-muted {
+                        color: #74788d!important;
+                    }
+                    .mt-4 {
+                        margin-top: 1.5rem!important;
+                    }
+                    .text-success {
+                        color: rgba(52,195,143,1)!important;
+                    }
+
+                    .ods-kpi-number { font-size: 1.22rem; font-weight: 500; color: #333; margin-top: 0; margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2;}
+
+                    .font-size-12 {
+                        font-size: 12px!important;
+                    }
+                    .badge-soft-success {
+                        color: #34c38f!important;
+                        background-color: rgba(52,195,143,.18)!important;
+                    }
+                    .badge-soft-warning {
+                        color: #f1b44c!important;
+                        background-color: rgba(241,180,76,.18)!important;
+                    }
+
+                    .badge {
+                        display: inline-block;
+                        padding: 0.25em 0.4em;
+                        font-size: 75%;
+                        font-weight: 500;
+                        line-height: 1;
+                        color: #fff;
+                        text-align: center;
+                        white-space: nowrap;
+                        vertical-align: baseline;
+                        border-radius: 0.25rem;
+                    }
+                    .ms-2 {
+                        margin-left: 0.5rem!important;
+                    }
+
+                    .text-truncate {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: 0.8125rem;
+                        margin-top: .2rem;
+                    }
+                    </style>
+
+                    <div class="gadget-app">
+                      <div class="card" >
+                        <div class="card-body">
+                          <div class="d-flex align-items-center mb-3">
+                            <div class="avatar-xs me-3">
+                              <span class="avatar-title rounded-circle bg-soft bg-primary text-primary font-size-18"><i class="ods-icon-calendar-cancel ods-icon-xs"></i></span>
+                            </div>
+                            <h5 class="font-size-14 mb-0">Total Errores al crear Expedientes</h5>
+                          </div>
+                          <div class="text-muted mt-4" style="text-align: center;">
+                            <h4 class="ods-kpi-number"> {{kpis.ammount}} <i class="ods-icon-chevron-down-small ms-1 text-success"></i></h4>
+                            <div class="d-flex">
+                              <span class="badge badge-soft-warning font-size-12"> {{kpis.percentage}} % </span><span class="ms-2 text-truncate"> respecto al total</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                nomargin: false
+                contentcode: !html |
+                    //Write your Vue with ODS JSON controller code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+
+                    vm.vueconfig = {
+                       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-app'),
+                       data:{
+                          ds:[],
+                          kpis:
+                             {
+                                title: '',
+                                resume: '',
+                                ammount: '0',
+                                unit: '%',
+                                percentage: 0,
+                                triangle: true,
+                                href: '',
+                                accentBlock: false,
+                                size: 'large',
+                                icon: 'ods-icon-control'
+                             }
+                       },
+                       methods:{
+                          drawVueComponent: function(newData,oldData){
+                                this.kpis.ammount = newData[0].total;
+                                 var that = this
+                                vm.get("expedient_totalExp").then(data => {that.kpis.percentage = Math.round(((this.kpis.ammount * 100) /(data[0].value+this.kpis.ammount) + Number.EPSILON) * 100) / 100})
+                                console.log(newData[0].total);
+
+
+                          },
+                          resizeEvent: function(){
+                             //Resize event
+                          },
+                          destroyVueComponent: function(){
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function(data){
+                             //data received from datalink
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter
+                       }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                datasource:
+                    name: expedient_totalError
+                    refresh: 0
+                    id: 9428d3a7-c563-49c8-af3d-1493e00b6e1c
+                    type: query
+                x: 23
+                y: 1
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: New Code
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559663737
+                customMenuOptions: [
+                    ]
+                cols: 7
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: expbyday (livehtml)
+                rows: 6
+                type: livehtml
+                $$hashKey: object:876
+                content: !html |-
+                    <!--Focus here and F11 or F10 to full screen editor-->
+                    <!-- Write your CSS <style></style> here -->
+                    <style>
+                        .gadget-app { height: 100%; width:100%; }
+                        .ods-tabs__item { font-size: .95rem !important; }
+                    </style>
+                    <div class="gadget-app">
+                        <div style="height: 100%; padding: 0 1rem;" data-name="ODS_MIXED_CHART">
+                            <div class="ods-dataviz__header"><h2 class="ods-dataviz__title"> Total Exp por Día </h2></div>
+
+                            <div  style="height: 90%;width:100%;">
+                                 <div id="barsworksorders001" style="width:100%;height:100%;"></div>
+                            </div>
+                            <div v-else style="height: 100%; display: flex; justify-content: center; align-items: center">
+                                <div style="height: 100%;display: flex;justify-content: center;align-items: flex-start;">
+                                    <div style="display: flex;height: auto;flex-direction: column;align-items: center;">
+                                        <div class="ods-dataviz__header">
+                                            <h2 class="ods-dataviz__title"></h2>
+                                        </div>
+                                        <p style="margin-bottom: 1rem; margin-top: 55%">{{ noData }}</p>
+                                        <ods-icon name="error-alert" size="30" color="#060E14" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                nomargin: false
+                contentcode: !html |
+                    //Write your Vue with ODS JSON controller code here
+
+                    //Focus here and F11 or F10 to full screen editor
+
+                    //This function will be call once to init components
+
+                    vm.vueconfig = {
+                       el: document.getElementById(vm.id).querySelector('vuetemplate  .gadget-app'),
+                       data:{
+                          ds:[],
+                          noData: 'No Data Available',
+
+                          height: '300px',
+                          width: '100%',
+                          option:{},
+                          chart:{},
+                          showData:true,
+
+                    //switch
+                          value:0,
+                          disabled: false,
+                          id: 'switch001',
+                          labelText: '',
+                          activeText: 'Only Closed',
+                          inactiveText: 'All Work Orders',
+                          activeValue: '100',
+                          inactiveValue: '0',
+                          activeColor: '',
+                          inactiveColor: '',
+                          name: '',
+                          accentBlock: false
+
+
+                       },
+                       methods:{
+                          drawVueComponent: function(newData,oldData){
+                           this.showData=true;
+                             if(typeof newData!=='undefined' && newData!=null && newData.length>0){
+                              this.option.dataset[0].source=[];
+                                for (var i = 0 ;i<newData.length;i++){
+                                   var dat=[];
+                                   dat.push(newData[i].datet)
+                                   dat.push(newData[i].total)
+                                   this.option.dataset[0].source.push(dat);
+                                }
+                             }else{
+                                this.showData = false;
+                             }
+                             this.myChart.setOption(this.option);
+
+                             this.myChart.resize();
+
+                          },
+                          resizeEvent: function(){
+                             this.myChart.resize()
+                          },
+                          destroyVueComponent: function(){
+                             var that = this;
+                             window.removeEventListener('resize',that.myChart.resize)
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function(data){
+                             //data received from datalink
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter,
+                          handleChange:function(){
+                             if(this.value == 0){
+                                 this.sendFilter('STATUS',null,'IN');
+                             }else{
+                                this.sendFilter('STATUS',"('CLOSE','CERRADO')",'IN');
+                             }
+                          }
+                       },
+                       mounted(){
+                             var chartDom = document.getElementById('barsworksorders001');
+                              this.myChart = echarts.init(chartDom, null, {  renderer: 'canvas',  useDirtyRect: false});
+
+                             this.option = {
+
+                                toolbox: {
+                                   feature: {
+                                   dataZoom: {
+                                      yAxisIndex: 'none'
+                                   },
+
+                                   saveAsImage: {}
+                                   }
+                                },
+                                legend: {},
+                                tooltip: { trigger: 'item'},
+                                dataset:  [{
+                                    dimensions: ['datet','total'],
+                                   source: [
+
+                                   ]
+                                }],
+                                xAxis: { type: 'category', axisLabel: { interval: 0, rotate: 30 } },
+                                yAxis: {},
+                                grid: { containLabel: true,
+                                         top:35,left:5,bottom:20,right:5 },
+                                // Declare several bar series, each will be mapped
+                                // to a column of dataset.source by default.
+                                series: {
+                                   type: 'bar',
+                                   encode: { x: 'dated', y: 'total' },
+                                   color: [
+
+
+                                   '#234E63',
+                                   '#E5B75D',
+                                   '#61B3CB',
+                                   '#418A8B',
+                                   '#A2578D',
+                                   '#3982D0',
+                                   '#D96D73',
+                                   '#6DB6A1',
+                                   '#5A59A6',
+                                '#F78B41',
+                                   ''
+                                   ],
+                                    markLine: {
+                                      data: [{ type: 'average', name: 'Avg' }]
+                                   },markPoint: {
+                                   data: [
+                                   { type: 'max', name: 'Max' },
+                                   { type: 'min', name: 'Min' }
+                                   ]
+                                }
+                                }
+                             };
+
+                             this.option && this.myChart.setOption(this.option);
+                             var that = this;
+                             this.myChart.resize();
+                             this.myChart.on('click',   function (params) {
+                                if(params.data[0]!=null && typeof params.data[0]!=='undefined'){
+                                   that.sendFilter('datet',"'"+params.data[0]+"'",'=');
+                                }else{
+                                   that.sendFilter('datet',null,'=');
+                                }
+                             });
+                             this.showData = true;
+                             window.addEventListener('resize', that.myChart.resize);
+                       }
+                       ,
+                       computed: {
+
+                       }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                datasource:
+                    name: expedient_total_by_day
+                    refresh: 0
+                    id: aa600a84-9ec1-439c-ac65-75a2c89899e9
+                    type: query
+                x: 0
+                y: 12
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: expbyday
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559753930
+                customMenuOptions: [
+                    ]
+                cols: 8
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: listado errores (livehtml)
+                rows: 6
+                type: livehtml
+                $$hashKey: object:928
+                content: !html |-
+                    <!--Focus here and F11 or F10 to full screen editor-->
+                    <!-- Write your CSS <style></style> here -->
+                    <style>
+                       .good-th {
+                            user-select: none;
+                            text-align: left;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            padding: .5rem 0;
+                            background-color: var(--color-bg-secondary);
+                            border-bottom: 1px solid var(--color-border-hard-divisor);
+                            font-size:13px;
+                            font-weight:600;
+                       }
+                       .good-td {
+                            padding: 1rem 0;
+                            min-width: 0;
+                            box-sizing: border-box;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                            position: relative;
+                            border-bottom: 1px solid var(--color-border-hard-divisor);
+                            transition: background-color .25s ease;
+                            font-size:13px;
+                       }
+                       .good-td:hover { background-color: #f5f5f5; }
+
+                       .vgt-selection-info-row {
+                            background: white;
+                            padding: 12px 12px 0px 12px;
+                            font-size: 13px;
+                            border-top: 1px solid #dcdfe6;
+                            border-left: 1px solid #dcdfe6;
+                            border-right: 1px solid #dcdfe6;
+                            font-weight: 700;
+                            height: 50px;
+                        }
+                        .vgt-wrap__footer {
+                            color: #606266;
+                            padding: 1em;
+                            border: none;
+                            background: none;
+                        }
+                        .vgt-wrap__footer .footer__row-count__label {
+                            font-size: 14px;
+                            color: #909399;
+                            height: inherit!important;
+                        }
+                        .vgt-table.no-border td, .vgt-table.no-border th {
+                            border: none!important;
+                        }
+
+                    </style>
+                    <div class="gadget-app" style="margin-top:10px;">
+                        <vue-good-table
+                            v-if="table.rows.length > 0"
+                            ref="MyTable"
+                            @on-selected-rows-change="selectionChanged"
+                            @on-row-click="selectOne"
+                            :columns="table.columns"
+                            :rows="table.rows || []"
+                            :line-numbers="true"
+                            :sort-options="{ enabled: true, initialSortBy: {field: 'fechaInsercion', type: 'asc'} }"
+                            :search-options="{ enabled: true, trigger: 'enter', placeholder: 'Search this table'}"
+                            :pagination-options="{ enabled: true, nextLabel: 'next', prevLabel: 'prev', rowsPerPageLabel: 'Rows per page', ofLabel: 'of', allLabel: 'All', perPage: 10 }"
+                            :select-options="{ enabled: false, selectOnCheckboxOnly: true, selectionInfoClass: 'custom-class', selectionText: 'Filas Seleccionadas',    clearSelectionText: 'Borrar',   disableSelectInfo: false,  selectAllByGroup: true  }"
+                            :group-options="groupOptions"
+                            theme="polar-bear"
+                            max-height="400px"
+                            styleClass="vgt-table no-border striped">
+                            <div slot="selected-row-actions" style="padding: 0px; position: relative;top: -4px;right: 0px;">
+                                <ods-button type="primary" :size="'small'">S-Action 1</ods-button>
+                            </div>
+                            <!-- <div slot="table-actions" style="padding: 0px;position: relative;top: 4px;right: 8px;min-width: 150px;margin-left: 12px;">
+                                 <div v-if="isGroupedTable">
+                                    <ods-button type="secondary" :size="'small'" @click="$refs.MyTable.expandAll()"> Expand </ods-button>
+                                    <ods-button type="secondary" :size="'small'" @click="$refs.MyTable.collapseAll()"> Collapse</ods-button>
+                                    <ods-button type="secondary" :size="'small'" @click="toggleGroupBy('OFF')"> GroupBy OFF</ods-button>
+                                 </div>
+                                 <div v-else>
+                                     <ods-button type="secondary" :size="'small'"> Main Action </ods-button>
+                                     <ods-button type="secondary" :size="'small'" @click="toggleGroupBy('ON')"> GroupBy ON</ods-button>
+                                 </div>
+                            </div>-->
+                        </vue-good-table>
+                    </div>
+                nomargin: false
+                contentcode: !html |+
+                    //Write your Vue JSON controller code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+                    Vue.use(window['vue-good-table'])
+                    vm.vueconfig = {
+                       el: document.getElementById(vm.id).querySelector('vuetemplate  .gadget-app'),
+                       data: {
+                          table:{
+                              columns: [
+                                {
+                                label: 'ID',
+                                field: 'id.$oid',
+                                hidden: false,
+                                tooltip: 'Workorder number',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                },
+                                {
+                                label: 'ID EXPEDIENTE',
+                                field: 'ID_EXPEDIENTE',
+                                hidden: false,
+                                tooltip: 'Workorder number',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                },
+                                {
+                                label: 'REF EXPEDIENTE',
+                                field: 'REF_EXPEDIENTE',
+                                hidden: false,
+                                tooltip: 'Status',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                },
+                                {
+                                label: 'REF ORIGEN',
+                                field: 'REF_ORIGEN',
+                                hidden: false,
+                                tooltip: 'Status',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                },{
+                                label: 'ERROR',
+                                field: 'error',
+                                hidden: false,
+                                tooltip: 'Status',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                },{
+                                label: 'FECHA SOLICITUD',
+                                field: 'FECHA_SOLICITUD',
+                                type: 'date',
+                                dateInputFormat: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'',
+                                dateOutputFormat: 'dd/MM/yyyy HH:mm:ss',
+                                hidden: false,
+                                tooltip: 'Status date',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                },{
+                                label: 'FECHA ERROR CREACIÓN',
+                                field: 'fechaInsercion',
+                                type: 'date',
+                                dateInputFormat: 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'',
+                                dateOutputFormat: 'dd/MM/yyyy HH:mm:ss',
+                                hidden: false,
+                                tooltip: 'Status date',
+                                tdClass: 'good-td',
+                                thClass: 'good-th',
+                                }
+                             ],
+                             rows: [
+                             ]
+                          },
+                          grouped: [],
+                          groupField: 'ID_EXPEDIENTE',
+                          sortField: 'fechaInsercion',
+                          isGroupedTable: false,
+                          tableData: []
+                       },
+                       methods:{
+                          drawVueComponent: function(newData,oldData){
+                             debugger
+                       /*   if(newData!=null && newData.length>0){
+                             for(var i=0; i<newData.length;i++){
+
+                                newData[i].error = JSON.stringify(newData[i].error);
+                             }
+                          }*/
+                             this.table.rows = newData;
+                          },
+                          resizeEvent: function(){
+                             //Resize event
+                          },
+                          destroyVueComponent: function(){
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function(data){
+                             //data received from datalink
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter,
+                          // TABLE EVENTS METHODS
+                          selectionChanged(params) {
+                                // params.selectedRows - all rows that are selected (this page)
+                             console.log(JSON.stringify(params.selectedRows))
+                            },
+                          toggleGroupBy: function(state) {
+                             if (this.isGroupedTable === false) {
+                                this.isGroupedTable = true
+                                this.tableData = this.table.rows
+                                this.table.rows = this.groupby(this.table.rows,this.groupField,this.sortField)
+                             } else {
+                                this.isGroupedTable = false
+                                this.table.rows = this.tableData
+                                this.table.columns.filter(x => x.field === this.groupField).length > 0 ? this.table.columns.filter(x => x.field === this.groupField)[0].hidden = false : ''
+                             }
+                          },
+                          groupby: function (array, groupField, sortField) {
+                             // group by field for data
+                             if (array.length === 0 ) { return false }
+                             var groups = {}; // This object will end being keyed by groups, and elements will be arrays of the rows within the given array, which have been sorted by the sortField
+                             // Put all the rows into groups
+                             for (var i = 0; i < array.length; i++) {
+                                var row = array[i]
+                                var groupValue = row[groupField]
+                                groups[groupValue] = groups[groupValue] || []
+                                groups[groupValue].push(row)
+                             }
+                             // Sort each group
+                             for (var groupValue in groups) {
+                                groups[groupValue] = groups[groupValue].sort(function(a, b) {
+                                return a[sortField] - bID_EXPEDIENTE[sortField]
+                                })
+                             }
+
+                             const final = []
+                             for (const key in groups) {
+                                final.push({
+                                   mode: 'span', // span means this header will span all columns
+                                    label: key, // this is the label that'll be used for the header
+                                   score:  groups[key].reduce(function(prev, cur) { return prev + cur.score }, 0),
+                                    html: false,
+                                   children: groups[key]
+                                })
+                             }
+
+                             // Return the results
+                             this.table.columns.filter(x => x.field === groupField).length > 0 ? this.table.columns.filter(x => x.field === groupField)[0].hidden = true : ''
+                             return final
+                          },
+                          sumCount: function (rowObj) {
+                              console.log(rowObj)
+                              let sum = 0
+                              for (let i = 0; i < rowObj.children.length; i++) {
+                                   sum += rowObj.children[i].count
+                             }
+                              return sum
+                            },selectOne(payload) {
+                        //for select just one item
+
+                        if (!payload || !payload.row || !payload.row.vgtSelected) {
+                             vm.sendFilter('id',payload.row.ID_EXPEDIENTE);
+                        }else{
+                           vm.sendFilter('id',null);
+                       }
+
+                    }
+                       },
+                       computed: {
+                          groupOptions () {
+                             return this.isGroupedTable ? { enabled: this.isGroupedTable, collapsable: true } : {}
+                          }
+                       },
+                       mounted () {
+                          if (this.isGroupedTable) {
+                             this.table.rows = this.groupby(this.table.rows,'ID_EXPEDIENTE','ID_EXPEDIENTE')
+                          } else {
+                             this.table.rows = this.table.rows
+                          }
+                       }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+
+                subtype: vueJS
+                datasource:
+                    name: expedient_error_list
+                    refresh: 0
+                    id: 2f2cc070-684c-48d9-8f69-92d9b9cdaee7
+                    type: query
+                x: 8
+                y: 12
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: listado errores
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688559759623
+                customMenuOptions: [
+                    ]
+                cols: 22
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: expedient_mixed (mixed)
+                rows: 9
+                type: mixed
+                $$hashKey: object:405
+                content: mixed
+                nomargin: false
+                x: 0
+                y: 3
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: expedient_mixed
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: da55b2d5-0031-4236-9db2-70d2fbdecf58
+                customMenuOptions: [
+                    ]
+                cols: 15
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: Total Errores (pie)
+                rows: 5
+                type: pie
+                $$hashKey: object:490
+                content: pie
+                nomargin: false
+                x: 15
+                y: 3
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Total Errores
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 53e5bf27-7f0f-4b6e-ae61-fb58d68ff4c4
+                customMenuOptions: [
+                    ]
+                cols: 8
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: Proyección Errores a un mes (pie)
+                rows: 4
+                type: pie
+                $$hashKey: object:592
+                content: pie
+                nomargin: false
+                x: 15
+                y: 8
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: true
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: Proyección Errores a un mes
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 5a238eb8-2150-4628-8f8d-25bc7d9720b2
+                customMenuOptions: [
+                    ]
+                cols: 8
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: expedient_radar (radar)
+                rows: 8
+                type: radar
+                $$hashKey: object:660
+                content: radar
+                nomargin: false
+                x: 23
+                y: 4
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: expedient_radar
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 4c543fac-7b61-4548-bce5-15a4654c4b53
+                customMenuOptions: [
+                    ]
+                cols: 7
+            title: baseLayer
+            $$hashKey: object:23
+        title: New Page
+        $$hashKey: object:4
+    interactionHash:
+        livehtml_1688559753930:
+        -   targetList:
+            -   gadgetId: livehtml_1688559759623
+                overwriteField: datet
+            emiterField: datet
+        livehtml_1688559481325:
+        -   targetList:
+            -   gadgetId: da55b2d5-0031-4236-9db2-70d2fbdecf58
+                overwriteField: expedient_kpis.entidad
+            -   gadgetId: 53e5bf27-7f0f-4b6e-ae61-fb58d68ff4c4
+                overwriteField: expedient_kpis.entidad
+            -   gadgetId: 5a238eb8-2150-4628-8f8d-25bc7d9720b2
+                overwriteField: expedient_kpis.entidad
+            -   gadgetId: 4c543fac-7b61-4548-bce5-15a4654c4b53
+                overwriteField: expedient_kpis.entidad
+            emiterField: entidad
+        livehtml_1688559539331: [
+            ]
+        livehtml_1688559607508: [
+            ]
+        livehtml_1688559657104: [
+            ]
+        livehtml_1688559663737: [
+            ]
+        livehtml_1688559759623: [
+            ]
+        da55b2d5-0031-4236-9db2-70d2fbdecf58: [
+            ]
+        53e5bf27-7f0f-4b6e-ae61-fb58d68ff4c4: [
+            ]
+        5a238eb8-2150-4628-8f8d-25bc7d9720b2: [
+            ]
+        4c543fac-7b61-4548-bce5-15a4654c4b53: [
+            ]
+    gridOptions:
+        displayGrid: onDrag&Resize
+        maxItemRows: 5000
+        outerMargin: true
+        disableWindowResize: false
+        minCols: 30
+        defaultItemCols: 1
+        disableLiveResize: true
+        maxItemArea: 25000
+        minItemRows: 1
+        emptyCellDragMaxCols: 5000
+        enableEmptyCellDrag: false
+        maxRows: 60
+        enableEmptyCellAlign: true
+        draggable:
+            delayStart: 100
+            ignoreContent: true
+            dragHandleClass: drag-handler
+            enabled: true
+        gridType: scrollVertical
+        minItemArea: 1
+        compactType: none
+        api: {
+            }
+        pushDirections:
+            east: true
+            south: true
+            north: true
+            west: true
+        disableLiveMove: true
+        disablePushOnResize: true
+        maxItemCols: 5000
+        margin: 6
+        minRows: 60
+        resizable:
+            delayStart: 0
+            enabled: true
+        swap: true
+        defaultItemRows: 1
+        enableEmptyCellContextMenu: false
+        enableEmptyCellDrop: true
+        scrollToNewItems: false
+        dragGadgetType: livehtml
+        fixedRowHeight: 250
+        minItemCols: 1
+        emptyCellDragMaxRows: 5000
+        disablePushOnDrag: true
+        pushResizeItems: false
+        mobileBreakpoint: 640
+        disableWarnings: false
+        fixedColWidth: 250
+        enableEmptyCellClick: false
+        maxCols: 30
+        pushItems: false
+    header:
+        backgroundColor: '#FFFFFF'
+        enable: false
+        pageColor: '#2e6c99'
+        iconColor: '#060E14'
+        logo:
+            height: 48
+        title: My Dashboard
+        textColor: '#060E14'
+        height: 72
+    showfavoritesg: false
+    parameterHash: {
+        }
+    updatedAt: 1688561870080
+headerlibs: !html |-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap" rel="stylesheet">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/vue-good-table@2.19.1/dist/vue-good-table.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue-good-table@2.19.1/dist/vue-good-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script src="/controlpanel/static/vendor/jsoneditor/jsoneditor.js"></script>
+
+    <!-- import style -->
+
+    <style>
+        md-toolbar {
+        margin-bottom: -10px;
+        height: 40px;
+        margin-left: 20px;
+        margin-top: 10px
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        .loading-container {
+          width: 100%;
+          max-width: 40%;
+          text-align: center;
+          color: #fff;
+          position: relative;
+          margin: 0 32px;
+        }
+
+        .component {
+           width: 100%;
+          height: 100%;
+          display: block;
+          padding: 12px;
+        }
+
+
+        .loading-container:before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 3px;
+            background-color: #fff;
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+            animation: movingLine 2s infinite ease-in-out;
+          }
+
+        @keyframes movingLine {
+          0% {
+            opacity: 0;
+            width: 0;
+          }
+
+          33.3%, 66% {
+            opacity: 0.8;
+            width: 100%;
+          }
+
+          85% {
+            width: 0;
+            left: initial;
+            right: 0;
+            opacity: 1;
+          }
+
+          100% {
+          opacity: 0;
+          width: 0;
+          }
+        }
+
+        .loading-text {
+          font-size: 1vw;
+          line-height: 40px;
+          letter-spacing: 10px;
+          margin-bottom: 30px;
+          display: flex;
+          justify-content: space-evenly;
+        }
+
+        .loading-text span {
+            animation: moveLetters 2s infinite ease-in-out;
+            transform: translatex(0);
+            position: relative;
+            display: inline-block;
+            opacity: 0;
+            text-shadow: 0px 2px 10px rgba(46, 74, 81, 0.3);
+          }
+
+
+        .loading-text span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .loading-text span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-text span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .loading-text span:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .loading-text span:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .loading-text span:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .loading-text span:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .loading-text span:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+       .title-text {
+            width: 100%;
+            font-size: 4rem;
+            line-height: 75px;
+            letter-spacing: 0px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            color: white;
+            top: -10px;
+            font-weight: 600;
+            z-index: 200;
+        }
+
+        .icon-title {
+            margin-right: 12px;
+            top: -10%;
+            position: absolute;
+            left: -65%;
+            opacity: .3;
+            font-size: 2rem;
+            padding: 24px;
+            background: rgb(0 0 0 / 50%);
+            color: white;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        @keyframes moveLetters {
+          0% {
+            transform: translateX(-15vw);
+            opacity: 0;
+          }
+
+          33.3%, 66% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+
+          100% {
+            transform: translateX(15vw);
+            opacity: 0;
+          }
+        }
+
+        .component-card {
+          background-color: transparent;
+          color: #666;
+          padding: 0rem;
+          height: 100%;
+        }
+
+        .component-cards {
+          max-width: 100%;
+          height:100%;
+          margin: 0 auto;
+          display: grid;
+          gap: .5rem;
+          grid-template-columns: 1fr 2fr;
+        }
+
+        .card-only {
+          grid-template-columns: 1fr!important;
+        }
+
+        .component-title {
+          padding: 0 0 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-style: normal;
+            line-height: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+          .component-cards { grid-template-columns: 0 1fr }
+        }
+
+        @media (max-width: 900px) {
+          .component-cards { grid-template-columns: 1fr 3fr }
+        }
+        @media (min-width: 1200px) {
+          .component-cards { grid-template-columns: 1fr 2fr }
+        }
+
+      .ods-dataviz__title {
+          font-size: .85rem!important;
+          font-weight: 500;
+          color: #333;
+          text-align:center;
+      }
+
+      @keyframes fadeOut{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 0;}
+      }
+      @keyframes fadeIn{
+        from{opacity: 0;}
+        to{opacity: 1;}
+      }
+
+    </style>
+type: DASHBOARD
+generateImage: false
+accesses: [
+    ]
+public: false

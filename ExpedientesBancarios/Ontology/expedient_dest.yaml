@@ -1,0 +1,49 @@
+---
+createdAt: 1688473853015
+updatedAt: 1688473853015
+id: "54ccd435-d418-49d9-85fb-9a53b65e3877"
+identification: "expedient_dest"
+user: "bancaexpedients"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "expedient_dest"
+  type: "object"
+  required:
+  - "expedient_dest"
+  properties:
+    expedient_dest:
+      type: "string"
+      $ref: "#/datos"
+  datos:
+    description: "Properties for DataModel expedient_dest"
+    type: "object"
+    properties:
+      algo:
+        type:
+        - "string"
+        - "null"
+  description: "Entidad donde se almacenan los expedientes"
+  entitydclass: []
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Entidad donde se almacenan los expedientes"
+metainf: "expedient"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

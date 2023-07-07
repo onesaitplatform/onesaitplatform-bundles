@@ -1,0 +1,22 @@
+---
+createdAt: 1688473216972
+updatedAt: 1688473216972
+userId: "bancaexpedients"
+email: "bancaExpedients@minsait.com"
+role:
+  createdAt: 1648474626612
+  updatedAt: 1648474626731
+  id: "ROLE_DATASCIENTIST"
+  roleParent:
+    createdAt: 1648474626598
+    updatedAt: 1648474626598
+    id: "ROLE_DEVELOPER"
+    name: "Developer"
+    description: "Advanced User of the Platform"
+  name: "Analytics"
+  description: "Analytics User of the Platform"
+password: "abcdefghijklmnopqrstuvtczLx79vcn1RdC9qPuQw0EftWIVp9KIvhsDyF91AEKc="
+active: true
+fullName: "bancaexpedients"
+extraFields: null
+id: "bancaexpedients"

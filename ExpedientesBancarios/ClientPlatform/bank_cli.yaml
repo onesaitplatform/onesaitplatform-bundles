@@ -1,0 +1,51 @@
+---
+createdAt: 1688559032143
+updatedAt: 1688559032143
+id: "99b4be97-eeea-472f-91e5-e17ccc32f833"
+identification: "bank_cli"
+user: "bancaexpedients"
+clientPlatformOntologies:
+- createdAt: 1688559032177
+  updatedAt: 1688559032177
+  id: "5cf16860-9edd-4f2b-91f8-72db2c3d753d"
+  access: "ALL"
+  ontology: "59eb14c3-7aef-4596-a36f-86d44f201a8f"
+- createdAt: 1688559032181
+  updatedAt: 1688559032181
+  id: "d85ce60b-705f-4d93-95bf-5f01e2c9ee6a"
+  access: "ALL"
+  ontology: "54ccd435-d418-49d9-85fb-9a53b65e3877"
+- createdAt: 1688559032172
+  updatedAt: 1688559032172
+  id: "bbb4a86f-3cbf-4509-b2b0-bcb4f0de644e"
+  access: "ALL"
+  ontology: "6ec027b7-5847-4572-b8f3-26cfa06e4e8e"
+- createdAt: 1688559032186
+  updatedAt: 1688559032186
+  id: "2b7d03ed-b039-4baf-bf4e-d796a7897654"
+  access: "ALL"
+  ontology: "95aea39e-5d57-4870-a897-1d1605cd0c4c"
+- createdAt: 1688559032192
+  updatedAt: 1688559032192
+  id: "aef9b80b-5b00-4f3b-971a-ae124223b6fe"
+  access: "ALL"
+  ontology: "c3773158-b76d-4d3a-8e6d-9bcb703a6c14"
+tokens:
+- createdAt: 1688559032157
+  updatedAt: 1688559032157
+  id: "c6744550-943e-42d5-a8b3-e729766d1303"
+  tokenName: "129e6bf8342b4a6eaeb17e67e35f8600"
+  active: true
+clientConnections: []
+devices:
+- createdAt: 1688564612779
+  updatedAt: 1688629987989
+  id: "e9a0ca8b-e568-4afd-8f15-c071de3ed67c"
+  identification: "bank_cli:IoTClientID"
+  connected: false
+  status: "OK"
+  protocol: "REST"
+  disabled: false
+encryptionKey: "ca8446d6-8d17-4bd7-b9b8-5c710fe300aa"
+metadata: "bankexpedients=bankexpedients"
+description: "bank_cli"

@@ -1,0 +1,30 @@
+---
+createdAt: 1688560197999
+updatedAt: 1688560197999
+id: "53e5bf27-7f0f-4b6e-ae61-fb58d68ff4c4"
+identification: "expedient_pie"
+user: "bancaexpedients"
+type: "pie"
+description: ""
+instance: false
+config:
+  legend:
+    display: true
+    fullWidth: false
+    position: "right"
+    labels:
+      padding: 10
+      fontSize: 11
+      usePointStyle: false
+      boxWidth: 1
+  elements:
+    arc:
+      borderWidth: 1
+      borderColor: "#fff"
+  maintainAspectRatio: false
+  responsive: true
+  responsiveAnimationDuration: 500
+  circumference: "3.141592653589793"
+  rotation: "3.141592653589793"
+  charType: "doughnut"
+public: false

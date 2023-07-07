@@ -1,0 +1,15 @@
+---
+createdAt: 1688557860230
+updatedAt: 1688557860230
+id: "9b3e237f-7f81-4bd1-ad9a-93b0e537a87d"
+identification: "mixed"
+user: "bancaexpedients"
+mode: "query"
+query: "select * from expedient_kpis as c"
+dbtype: "RTDB"
+ontology: "59eb14c3-7aef-4596-a36f-86d44f201a8f"
+refresh: 0
+maxvalues: 100
+description: "mixed"
+config:
+  simpleMode: true

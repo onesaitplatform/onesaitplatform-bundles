@@ -1,0 +1,23 @@
+---
+createdAt: 1688560089038
+updatedAt: 1688560089038
+id: "43e1f7fc-8b3a-4692-9296-663c013dd65a"
+gadget: "da55b2d5-0031-4236-9db2-70d2fbdecf58"
+datasource: "9b3e237f-7f81-4bd1-ad9a-93b0e537a87d"
+config:
+  fields:
+  - "expedient_kpis.entidad"
+  - "expedient_kpis.totalExpedientes"
+  name: ""
+  config:
+    backgroundColor: "rgba(71,214,93,0.62)"
+    borderColor: "rgba(71,214,93,0.62)"
+    pointBackgroundColor: "rgba(71,214,93,0.62)"
+    pointHoverBackgroundColor: "rgba(71,214,93,0.62)"
+    yAxisID: "#0"
+    type: "bar"
+    fill: true
+    steppedLine: false
+    radius: "0"
+    pointRadius: "0"
+    pointHoverRadius: "0"

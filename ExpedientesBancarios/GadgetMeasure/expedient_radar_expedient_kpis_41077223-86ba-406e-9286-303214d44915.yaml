@@ -1,0 +1,12 @@
+---
+createdAt: 1688561116649
+updatedAt: 1688561116649
+id: "41077223-86ba-406e-9286-303214d44915"
+gadget: "4c543fac-7b61-4548-bce5-15a4654c4b53"
+datasource: "dd517b85-fe69-4250-ad19-836831c36257"
+config:
+  fields:
+  - "expedient_kpis.entidad"
+  - "expedient_kpis.mediaErroresD"
+  name: "Errores por Día"
+  config: {}

@@ -1,0 +1,49 @@
+---
+createdAt: 1688473917185
+updatedAt: 1688473917185
+id: "6ec027b7-5847-4572-b8f3-26cfa06e4e8e"
+identification: "expedient_error"
+user: "bancaexpedients"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "expedient_error"
+  type: "object"
+  required:
+  - "expedient_error"
+  properties:
+    expedient_error:
+      type: "string"
+      $ref: "#/datos"
+  datos:
+    description: "Properties for DataModel expedient_error"
+    type: "object"
+    properties:
+      algo:
+        type:
+        - "string"
+        - "null"
+  description: "Entidad donde se almacenan los expedientes que han dado algún fallo"
+  entitydclass: []
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Entidad donde se almacenan los expedientes que han dado algún fallo"
+metainf: "expedient"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

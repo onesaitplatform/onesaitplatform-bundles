@@ -1,0 +1,12 @@
+---
+createdAt: 1688561116659
+updatedAt: 1688561116659
+id: "ad9ce7e5-e235-42da-9c5f-246128f37cfd"
+gadget: "4c543fac-7b61-4548-bce5-15a4654c4b53"
+datasource: "dd517b85-fe69-4250-ad19-836831c36257"
+config:
+  fields:
+  - "expedient_kpis.entidad"
+  - "expedient_kpis.mediaCreacionD"
+  name: "Nuevos por Día"
+  config: {}

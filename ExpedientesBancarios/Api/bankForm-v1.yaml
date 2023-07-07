@@ -1,0 +1,55 @@
+---
+createdAt: 1688557478080
+updatedAt: 1688557517036
+id: "e931e433-ee41-42fe-b975-75a97e186309"
+identification: "bankForm"
+user: "bancaexpedients"
+ontology: "95aea39e-5d57-4870-a897-1d1605cd0c4c"
+ssl_certificate: false
+userApiAccesses: []
+numversion: 1
+description: "get data from entity expedient_form"
+category: "ALL"
+endpointExt: ""
+state: "PUBLISHED"
+metaInf: "bankForm"
+apiType: "INTERNAL_ONTOLOGY"
+swaggerJson: ""
+apiOperations:
+- createdAt: 1688557478094
+  updatedAt: 1688557478094
+  id: "d93ea255-6c9f-4696-a83a-3d5fbb6c4e54"
+  apiqueryparameters:
+  - createdAt: 1688557478095
+    updatedAt: 1688557478095
+    id: "22bb34b4-8e0f-4d79-80ed-7737a16236ea"
+    name: "targetdb"
+    dataType: "STRING"
+    description: ""
+    value: "rtdb"
+    condition: "CONSTANT"
+    headerType: "QUERY"
+  - createdAt: 1688557478095
+    updatedAt: 1688557478095
+    id: "4f75c859-01bc-404a-9ecb-77aad9c7ddfd"
+    name: "query"
+    dataType: "STRING"
+    description: ""
+    value: "Select expedient_form.data as data from expedient_form as c"
+    condition: "CONSTANT"
+    headerType: "QUERY"
+  - createdAt: 1688557478096
+    updatedAt: 1688557478096
+    id: "79821a23-9160-4586-a27c-c62cd72ba4da"
+    name: "queryType"
+    dataType: "STRING"
+    description: ""
+    value: "sql"
+    condition: "CONSTANT"
+    headerType: "QUERY"
+  identification: "formData"
+  description: "Form data"
+  operation: "GET"
+  path: "formData"
+  postProcess: ""
+public: false

@@ -1,0 +1,59 @@
+---
+createdAt: 1688560089022
+updatedAt: 1688560089022
+id: "da55b2d5-0031-4236-9db2-70d2fbdecf58"
+identification: "expedient_mixed"
+user: "bancaexpedients"
+type: "mixed"
+description: ""
+instance: false
+config:
+  legend:
+    display: false
+    fullWidth: false
+    labels:
+      padding: 10
+      fontSize: 11
+      usePointStyle: false
+      boxWidth: 2
+  scales:
+    yAxes:
+    - id: "#0"
+      display: true
+      type: "linear"
+      position: "left"
+      scaleLabel:
+        labelString: "Expedientes"
+        display: true
+        fontFamily: "Soho"
+        padding: 4
+      stacked: false
+      sort: true
+      ticks:
+        suggestedMin: "0"
+        suggestedMax: "0"
+        maxTicksLimit: 10
+      gridLines:
+        display: false
+    xAxes:
+    - stacked: false
+      sort: true
+      ticks:
+        fontFamily: "Soho"
+      scaleLabel:
+        display: true
+        labelString: "Entidad"
+        fontFamily: "Soho"
+        padding: 4
+      hideLabel: "1"
+      gridLines:
+        display: true
+        borderDash:
+        - 2
+        - 4
+        color: "#CCC"
+        zeroLineBorderDash:
+        - 2
+        - 4
+        zeroLineColor: "transparent"
+public: false

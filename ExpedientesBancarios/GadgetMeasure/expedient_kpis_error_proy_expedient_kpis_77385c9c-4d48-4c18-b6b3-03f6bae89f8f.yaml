@@ -1,0 +1,11 @@
+---
+createdAt: 1688560297262
+updatedAt: 1688560297262
+id: "77385c9c-4d48-4c18-b6b3-03f6bae89f8f"
+gadget: "5a238eb8-2150-4628-8f8d-25bc7d9720b2"
+datasource: "dd517b85-fe69-4250-ad19-836831c36257"
+config:
+  fields:
+  - "expedient_kpis.entidad"
+  - "expedient_kpis.totalExpedientesProy"
+  config: {}

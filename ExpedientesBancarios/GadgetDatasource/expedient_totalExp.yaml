@@ -1,0 +1,15 @@
+---
+createdAt: 1688557830294
+updatedAt: 1688557830294
+id: "094b59dc-dd5e-4c43-a2ef-a2effbfe4f73"
+identification: "expedient_totalExp"
+user: "bancaexpedients"
+mode: "query"
+query: "select count(*) from expedient_dest"
+dbtype: "RTDB"
+ontology: "54ccd435-d418-49d9-85fb-9a53b65e3877"
+refresh: 10
+maxvalues: 2000
+description: "expedient_totalExp"
+config:
+  simpleMode: true

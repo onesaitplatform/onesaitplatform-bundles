@@ -1,0 +1,16 @@
+---
+createdAt: 1688557747921
+updatedAt: 1688557747921
+id: "aa600a84-9ec1-439c-ac65-75a2c89899e9"
+identification: "expedient_total_by_day"
+user: "bancaexpedients"
+mode: "query"
+query: "select d.datet, count(d.datet) as total from  (select SUBSTRING(c.expedient_error.EXPEDIENTE.FECHA_SOLICITUD,\
+  \ 0, 10) as datet from expedient_error as c) as d group by d.datet order by d.datet\
+  \ asc"
+dbtype: "RTDB"
+ontology: "6ec027b7-5847-4572-b8f3-26cfa06e4e8e"
+refresh: 0
+maxvalues: 2000
+description: "expedient_total_by_day"
+config: null

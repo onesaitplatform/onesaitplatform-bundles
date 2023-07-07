@@ -1,0 +1,39 @@
+---
+createdAt: 1688474362573
+updatedAt: 1688629618564
+id: "c3773158-b76d-4d3a-8e6d-9bcb703a6c14"
+identification: "t_interviniente"
+user: "bancaexpedients"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "t_interviniente"
+  properties:
+    DESCRIPCION:
+      type: "string"
+    ID_TIPO_INTERVINIENTE:
+      type: "number"
+  description: "entidad catalogo tipos intervinientes"
+  entitydclass: []
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: false
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "entidad catalogo tipos intervinientes"
+metainf: "entidad catalogo tipos intervinientes"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

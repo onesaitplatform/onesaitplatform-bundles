@@ -1,0 +1,19 @@
+---
+createdAt: 1688557632946
+updatedAt: 1688557632946
+id: "2f2cc070-684c-48d9-8f69-92d9b9cdaee7"
+identification: "expedient_error_list"
+user: "bancaexpedients"
+mode: "query"
+query: "select * from (select c._id as id,SUBSTRING(c.expedient_error.EXPEDIENTE.FECHA_SOLICITUD,\
+  \ 0, 10) as datet , c.expedient_error.EXPEDIENTE.REF_EXPEDIENTE as REF_EXPEDIENTE\
+  \ ,    c.expedient_error.EXPEDIENTE.ID_EXPEDIENTE as ID_EXPEDIENTE ,    c.expedient_error.EXPEDIENTE.FECHA_SOLICITUD\
+  \ as FECHA_SOLICITUD,    c.expedient_error.error as error,    c.contextData.timestamp\
+  \ as fechaInsercion,    c.expedient_error.EXPEDIENTE.REF_ORIGEN as REF_ORIGEN from\
+  \ expedient_error as c) as d"
+dbtype: "RTDB"
+ontology: "6ec027b7-5847-4572-b8f3-26cfa06e4e8e"
+refresh: 0
+maxvalues: 100
+description: "expedient_error_list"
+config: null

@@ -1,0 +1,15 @@
+---
+createdAt: 1688557789155
+updatedAt: 1688557789155
+id: "9428d3a7-c563-49c8-af3d-1493e00b6e1c"
+identification: "expedient_totalError"
+user: "bancaexpedients"
+mode: "query"
+query: "select count(*) as total from expedient_error"
+dbtype: "RTDB"
+ontology: "6ec027b7-5847-4572-b8f3-26cfa06e4e8e"
+refresh: 0
+maxvalues: 2000
+description: "expedient_totalError\t"
+config:
+  simpleMode: true

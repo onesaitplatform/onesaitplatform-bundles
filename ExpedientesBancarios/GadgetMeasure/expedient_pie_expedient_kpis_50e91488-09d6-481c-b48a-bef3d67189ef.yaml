@@ -1,0 +1,11 @@
+---
+createdAt: 1688560198011
+updatedAt: 1688560198011
+id: "50e91488-09d6-481c-b48a-bef3d67189ef"
+gadget: "53e5bf27-7f0f-4b6e-ae61-fb58d68ff4c4"
+datasource: "dd517b85-fe69-4250-ad19-836831c36257"
+config:
+  fields:
+  - "expedient_kpis.entidad"
+  - "expedient_kpis.totalErrores"
+  config: {}

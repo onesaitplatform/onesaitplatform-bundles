@@ -1,0 +1,20 @@
+---
+createdAt: 1688640280651
+updatedAt: 1688640806401
+id: "a9bfc436-58bc-482d-8f2e-22c5b6fc065a"
+identification: "startexpedientsingest"
+user: "bancaexpedients"
+state: "START"
+port: 28003
+servicePort: 27003
+home: "/tmp/bancaexpedients"
+active: true
+accessToken: "Rmf2tyczRZbIDeMSShbZJV3KlkOUoCdAhYCBTzH6/7f1z1MpCL36h4X9zdQwvGUB8d5joa3mq+uSUbtr5bmHiOCBQTsj7KiqWatxaHa73+zQvfv7iRzJuOq/k2NOO8RohPR2LPROktFxJY/1aZfc5spx3N4hHPvrTBAeVxvTfSs="
+flows:
+- createdAt: 1688640954042
+  updatedAt: 1688640954042
+  id: "3eabf814-6ef0-4abb-9371-b4ab5b9780db"
+  identification: "start data ingest"
+  nodeRedFlowId: "3cc6ee09366b4a41"
+  active: true
+  nodes: []

@@ -1,0 +1,10 @@
+---
+createdAt: 1688558493601
+updatedAt: 1688558493601
+id: "e2e79972-55da-44cd-8aa2-c6ad8e91cb2b"
+identification: "client1Insert"
+user: "bancaexpedients"
+idstreamsets: "client1Ins63d4d390-fb25-4dea-b7e6-0d5cdb4f420a"
+pipelineAccesses: []
+public: false
+instance: "MASTER-DataflowInstance-1"

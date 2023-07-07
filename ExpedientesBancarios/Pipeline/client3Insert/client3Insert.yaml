@@ -1,0 +1,10 @@
+---
+createdAt: 1688558759540
+updatedAt: 1688558759540
+id: "29b436a3-d333-4755-a49b-9738318b9cc1"
+identification: "client3Insert"
+user: "bancaexpedients"
+idstreamsets: "client3Insa8d1ff02-91e9-438d-8bda-f2fa38b48e43"
+pipelineAccesses: []
+public: false
+instance: "MASTER-DataflowInstance-1"

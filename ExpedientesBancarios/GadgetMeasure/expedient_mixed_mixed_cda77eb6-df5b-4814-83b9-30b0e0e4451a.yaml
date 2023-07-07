@@ -1,0 +1,23 @@
+---
+createdAt: 1688560089055
+updatedAt: 1688560089055
+id: "cda77eb6-df5b-4814-83b9-30b0e0e4451a"
+gadget: "da55b2d5-0031-4236-9db2-70d2fbdecf58"
+datasource: "9b3e237f-7f81-4bd1-ad9a-93b0e537a87d"
+config:
+  fields:
+  - "expedient_kpis.entidad"
+  - "expedient_kpis.totalExpedientesProy"
+  name: "Total Exp."
+  config:
+    backgroundColor: "rgba(0,108,168,0.27)"
+    borderColor: "rgba(0,108,168,0.27)"
+    pointBackgroundColor: "rgba(0,108,168,0.27)"
+    pointHoverBackgroundColor: "rgba(0,108,168,0.27)"
+    yAxisID: "#0"
+    type: "line"
+    fill: true
+    steppedLine: false
+    radius: "1"
+    pointRadius: "1"
+    pointHoverRadius: "1"

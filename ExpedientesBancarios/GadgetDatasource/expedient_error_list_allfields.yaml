@@ -1,0 +1,15 @@
+---
+createdAt: 1688557682436
+updatedAt: 1688557682436
+id: "5a57a086-43fa-4c06-9e32-b62ac09b0e76"
+identification: "expedient_error_list_allfields"
+user: "bancaexpedients"
+mode: "query"
+query: "select * from expedient_error"
+dbtype: "RTDB"
+ontology: "6ec027b7-5847-4572-b8f3-26cfa06e4e8e"
+refresh: 0
+maxvalues: 1
+description: "expedient_error_list_allfields"
+config:
+  simpleMode: true

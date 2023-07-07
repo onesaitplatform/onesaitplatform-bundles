@@ -1,0 +1,67 @@
+---
+createdAt: 1688474082009
+updatedAt: 1688474162708
+id: "59eb14c3-7aef-4596-a36f-86d44f201a8f"
+identification: "expedient_kpis"
+user: "bancaexpedients"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "expedient_kpis"
+  type: "object"
+  required:
+  - "expedient_kpis"
+  properties:
+    expedient_kpis:
+      type: "string"
+      $ref: "#/datos"
+  datos:
+    description: "Properties for DataModel expedient_kpis"
+    type: "object"
+    required:
+    - "entidad"
+    - "totalExpedientes"
+    - "totalErrores"
+    - "mediaCreacionD"
+    - "mediaErroresD"
+    - "totalExpedientesProy"
+    - "totalErroresProy"
+    properties:
+      entidad:
+        type: "string"
+      totalExpedientes:
+        type: "number"
+      totalErrores:
+        type: "number"
+      mediaCreacionD:
+        type: "number"
+      mediaErroresD:
+        type: "number"
+      totalExpedientesProy:
+        type: "number"
+      totalErroresProy:
+        type: "number"
+  description: "Registro de los datos de los kpis de expedientes"
+  entitydclass: []
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "Registro de los datos de los kpis de expedientes"
+metainf: "expedient_kpis"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

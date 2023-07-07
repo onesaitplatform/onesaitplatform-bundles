@@ -1,0 +1,49 @@
+---
+createdAt: 1688473976343
+updatedAt: 1688474185744
+id: "95aea39e-5d57-4870-a897-1d1605cd0c4c"
+identification: "expedient_form"
+user: "bancaexpedients"
+jsonSchema:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "expedient_form"
+  type: "object"
+  required:
+  - "expedient_form"
+  properties:
+    expedient_form:
+      type: "string"
+      $ref: "#/datos"
+  datos:
+    description: "Properties for DataModel expedient_form"
+    type: "object"
+    required:
+    - "data"
+    properties:
+      data:
+        type: "string"
+  description: "datos de formularios de expedientes"
+  entitydclass: []
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: true
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "datos de formularios de expedientes"
+metainf: "expedient_form"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+partitionKey: "/id"
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null
