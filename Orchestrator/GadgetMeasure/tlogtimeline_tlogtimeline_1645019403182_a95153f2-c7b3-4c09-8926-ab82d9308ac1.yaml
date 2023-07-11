@@ -1,0 +1,16 @@
+---
+createdAt: 1688972765363
+updatedAt: 1688972765363
+id: "a95153f2-c7b3-4c09-8926-ab82d9308ac1"
+gadget: "e5897c4c-b4b7-4b06-847d-3d9a8a0ab99e"
+datasource: "a9f62410-2484-47e1-9ec9-fb82bd0fbd2b"
+config:
+  fields:
+  - "data_date"
+  - "seg"
+  name: "Task"
+  config:
+    backgroundColor: "rgba(0,108,168,0.62)"
+    borderColor: "rgba(0,108,168,0.62)"
+    pointBackgroundColor: "rgba(0,108,168,0.62)"
+    yAxisID: "#0"

@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765364
+updatedAt: 1688972765364
+id: "0d1010fe-9e4c-4578-a849-9f514aabd64b"
+gadget: "1546ff4c-993b-4d68-86c4-3c66dfe09de0"
+datasource: "f2a791d3-e9a4-452f-86bf-bd9e8416b313"
+config:
+  fields:
+  - "timestamp.$date"
+  name: "Date"
+  config:
+    position: "0"

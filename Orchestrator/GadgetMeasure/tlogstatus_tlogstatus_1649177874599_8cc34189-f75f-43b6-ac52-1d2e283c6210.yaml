@@ -1,0 +1,12 @@
+---
+createdAt: 1688972916573
+updatedAt: 1688972916573
+id: "8cc34189-f75f-43b6-ac52-1d2e283c6210"
+gadget: "6264dadd-65f0-4a32-b5e0-e350f4344ed8"
+datasource: "dd15864c-cbad-4fc9-bc84-5182e29d5f2d"
+config:
+  fields:
+  - "operation_identification"
+  name: "Operation Identification"
+  config:
+    position: "2"

@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765366
+updatedAt: 1688972765366
+id: "19d0b2c4-2871-449b-b7d8-0f3ab4650beb"
+gadget: "1546ff4c-993b-4d68-86c4-3c66dfe09de0"
+datasource: "f2a791d3-e9a4-452f-86bf-bd9e8416b313"
+config:
+  fields:
+  - "message"
+  name: "Log Message"
+  config:
+    position: "1"

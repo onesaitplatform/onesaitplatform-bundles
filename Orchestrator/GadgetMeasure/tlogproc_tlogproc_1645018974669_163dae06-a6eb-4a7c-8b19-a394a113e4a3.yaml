@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765354
+updatedAt: 1688972765354
+id: "163dae06-a6eb-4a7c-8b19-a394a113e4a3"
+gadget: "866fc267-33fb-46e1-b7c5-18f83154f166"
+datasource: "7dd32ebd-ce30-4f14-b669-7c3f54d23877"
+config:
+  fields:
+  - "operation_id"
+  name: "Task"
+  config:
+    position: "1"

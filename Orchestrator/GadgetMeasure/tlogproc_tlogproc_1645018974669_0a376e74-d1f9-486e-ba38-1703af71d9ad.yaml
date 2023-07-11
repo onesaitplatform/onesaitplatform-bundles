@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765351
+updatedAt: 1688972765351
+id: "0a376e74-d1f9-486e-ba38-1703af71d9ad"
+gadget: "866fc267-33fb-46e1-b7c5-18f83154f166"
+datasource: "7dd32ebd-ce30-4f14-b669-7c3f54d23877"
+config:
+  fields:
+  - "message"
+  name: ""
+  config:
+    position: "3"

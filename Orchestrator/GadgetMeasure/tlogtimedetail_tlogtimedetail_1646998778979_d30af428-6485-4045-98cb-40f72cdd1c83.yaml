@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765371
+updatedAt: 1688972765371
+id: "d30af428-6485-4045-98cb-40f72cdd1c83"
+gadget: "eea93c19-4d10-4458-9901-aca6c7cb2891"
+datasource: "7805e0f2-9ead-4711-98f3-3016fe157a02"
+config:
+  fields:
+  - "min"
+  name: "Time (min)"
+  config:
+    position: "2"

@@ -1,0 +1,11 @@
+---
+createdAt: 1688972765374
+updatedAt: 1688972765374
+id: "9b48a0bd-fade-4390-87e1-009769df3d29"
+gadget: "110bf7c1-c219-4799-8712-d9150e16a16d"
+datasource: "03dc8a2d-3640-44ca-8a29-ee6bd2a544ac"
+config:
+  fields:
+  - "operation_id"
+  - "min"
+  config: {}

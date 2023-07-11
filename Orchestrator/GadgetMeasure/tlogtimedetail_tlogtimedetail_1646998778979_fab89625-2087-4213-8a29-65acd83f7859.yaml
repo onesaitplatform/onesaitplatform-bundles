@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765373
+updatedAt: 1688972765373
+id: "fab89625-2087-4213-8a29-65acd83f7859"
+gadget: "eea93c19-4d10-4458-9901-aca6c7cb2891"
+datasource: "7805e0f2-9ead-4711-98f3-3016fe157a02"
+config:
+  fields:
+  - "process_id"
+  name: "Process"
+  config:
+    position: "1"

@@ -1,0 +1,12 @@
+---
+createdAt: 1688972916545
+updatedAt: 1688972916545
+id: "e890f1dd-cfb5-4b6b-9556-485bcb9d7253"
+gadget: "6264dadd-65f0-4a32-b5e0-e350f4344ed8"
+datasource: "dd15864c-cbad-4fc9-bc84-5182e29d5f2d"
+config:
+  fields:
+  - "operation_type"
+  name: "Operation Type"
+  config:
+    position: "4"

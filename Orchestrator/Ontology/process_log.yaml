@@ -1,6 +1,6 @@
 ---
-createdAt: 1688384442367
-updatedAt: 1688543151425
+createdAt: 1688723243900
+updatedAt: 1688972680639
 id: "3c4a2cd9-bca7-4cbc-b44d-ee7e11a815c4"
 identification: "process_log"
 user: "orchestrator_user"
@@ -43,6 +43,7 @@ contextDataEnabled: true
 rtdbClean: false
 rtdbCleanLapse: "NEVER"
 rtdbToHdb: false
+rtdbToHdbStorage: "MONGO_GRIDFS"
 description: "Entity for process log. \r\nIndexes:\r\ndb.process_log.createIndex({'data_date':1,'process_id':1,'operation_id':1,'execution_id':1})\r\
   \ndb.process_log.createIndex({'data_date':1,'process_id':1,'execution_id':1})\r\n\
   db.process_log.createIndex({'timestamp':1,'data_date':1})"

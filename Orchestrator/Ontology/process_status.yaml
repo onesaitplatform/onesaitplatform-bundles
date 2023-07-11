@@ -1,6 +1,6 @@
 ---
-createdAt: 1688384311686
-updatedAt: 1688543141381
+createdAt: 1688723243912
+updatedAt: 1688972680637
 id: "3a68744a-10a6-482f-9ff4-7b2b32a3d742"
 identification: "process_status"
 user: "orchestrator_user"
@@ -45,6 +45,7 @@ contextDataEnabled: true
 rtdbClean: false
 rtdbCleanLapse: "NEVER"
 rtdbToHdb: false
+rtdbToHdbStorage: "MONGO_GRIDFS"
 description: "Entity for process orchestration. \r\nIndexes:\r\ndb.process_status.createIndex({'process_id':1,'data_date':1},{'unique':true})\r\
   \n"
 metainf: "process,orchestrator"

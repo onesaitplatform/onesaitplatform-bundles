@@ -1,0 +1,12 @@
+---
+createdAt: 1688972916561
+updatedAt: 1688972916561
+id: "00824036-28c8-4f29-bee8-59d06626dae9"
+gadget: "6264dadd-65f0-4a32-b5e0-e350f4344ed8"
+datasource: "dd15864c-cbad-4fc9-bc84-5182e29d5f2d"
+config:
+  fields:
+  - "operation_status"
+  name: "Operation Status"
+  config:
+    position: "3"

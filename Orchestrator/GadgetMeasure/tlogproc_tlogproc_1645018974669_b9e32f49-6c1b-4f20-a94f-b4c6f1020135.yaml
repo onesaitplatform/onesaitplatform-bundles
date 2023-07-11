@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765361
+updatedAt: 1688972765361
+id: "b9e32f49-6c1b-4f20-a94f-b4c6f1020135"
+gadget: "866fc267-33fb-46e1-b7c5-18f83154f166"
+datasource: "7dd32ebd-ce30-4f14-b669-7c3f54d23877"
+config:
+  fields:
+  - "seg"
+  name: "Time (s)"
+  config:
+    position: "2"

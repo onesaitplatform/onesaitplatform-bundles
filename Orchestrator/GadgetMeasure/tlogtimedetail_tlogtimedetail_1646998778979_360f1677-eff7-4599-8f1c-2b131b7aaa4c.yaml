@@ -1,0 +1,12 @@
+---
+createdAt: 1688972765369
+updatedAt: 1688972765369
+id: "360f1677-eff7-4599-8f1c-2b131b7aaa4c"
+gadget: "eea93c19-4d10-4458-9901-aca6c7cb2891"
+datasource: "7805e0f2-9ead-4711-98f3-3016fe157a02"
+config:
+  fields:
+  - "execution_id"
+  name: "Execution ID"
+  config:
+    position: "3"

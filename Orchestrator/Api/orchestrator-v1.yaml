@@ -1,0 +1,68 @@
+---
+createdAt: 1688973250786
+updatedAt: 1688973250786
+id: "c839b9bf-87ad-4d6c-9213-c556ffc14dc7"
+identification: "orchestrator"
+user: "orchestrator_user"
+ssl_certificate: false
+userApiAccesses: []
+numversion: 1
+description: ""
+category: "ALL"
+endpointExt: "http://flowengineservice:5050/orchestrator"
+state: "CREATED"
+apiType: "NODE_RED"
+apiOperations:
+- createdAt: 1688973250849
+  updatedAt: 1688973250849
+  id: "dd89b351-cb20-46c9-a82f-03e04518b32c"
+  apiqueryparameters:
+  - createdAt: 1688973250850
+    updatedAt: 1688973250850
+    id: "a8a4f3c1-5044-4e34-a91c-34929753f3f6"
+    name: "body"
+    dataType: "STRING"
+    description: ""
+    value: ""
+    headerType: "BODY"
+  identification: "execute"
+  description: "API to start orchestrator execution"
+  operation: "POST"
+  endpoint: "/741ce3d3e0431c/execute/"
+  path: "/execute/"
+- createdAt: 1688973250846
+  updatedAt: 1688973250846
+  id: "2713cbd6-9fed-46ff-bf02-172974f7c10d"
+  apiqueryparameters:
+  - createdAt: 1688973250848
+    updatedAt: 1688973250848
+    id: "5a882e98-a232-4ec1-8b02-dc79e624d853"
+    name: "body"
+    dataType: "STRING"
+    description: ""
+    value: ""
+    headerType: "BODY"
+  identification: "executeProcess"
+  description: "API to start only one process execution"
+  operation: "POST"
+  endpoint: "/d84bf9def62328/executeProcess/"
+  path: "/executeProcess/"
+- createdAt: 1688973250851
+  updatedAt: 1688973250851
+  id: "32faaab2-e829-4e36-b5e0-11f90205d064"
+  apiqueryparameters:
+  - createdAt: 1688973250852
+    updatedAt: 1688973250852
+    id: "6601648e-4a39-478a-ba2e-5bee4217d610"
+    name: "body"
+    dataType: "STRING"
+    description: ""
+    value: ""
+    headerType: "BODY"
+  identification: "executeOperation"
+  description: "API to start only one operation execution"
+  operation: "POST"
+  endpoint: "/c28841289e647/executeOperation/"
+  path: "/executeOperation/"
+public: false
+ontology: null

@@ -1,0 +1,36 @@
+---
+createdAt: 1688469979665
+updatedAt: 1688470629678
+id: "d229ed8f-5309-4932-9971-a473a617120f"
+identification: "kpi_test"
+user: "orchestrator_user"
+jsonSchema:
+  properties:
+    data:
+      type: "string"
+  type: "object"
+  description: "Info kpi_test"
+  $schema: "http://json-schema.org/draft-04/schema#"
+  title: "kpi_test"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: false
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+description: "kpi_test"
+metainf: "kpi_test"
+ontologyUserAccesses: []
+ontologyKPI: "9804885c-3c02-456a-ae69-79b50baf1b72"
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+supportsJsonLd: false
+jsonLdContext: ""
+enableDataClass: false
+public: false
+ontologyAI: null
+ontologyTimeSeries: null
