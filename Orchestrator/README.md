@@ -22,7 +22,7 @@ Este activo está compuesto por un conjunto de flujos desarrollados en el módul
 
 Para realizar un seguimiento de las distintas ejecuciones se dispone de un dashboard creado en plataforma en el que dada una fecha se podrá visualizar tanto el log como el estado de la ejecución.
 
-(./bundle.png)
+![Dashboard](./bundle_extras/dashboard.png)
 
 
 Más información en el [link](https://onesaitplatform-es.refined.site/space/DOC/3456860333)
