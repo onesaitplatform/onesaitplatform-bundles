@@ -1,0 +1,14 @@
+---
+createdAt: 1688729771279
+updatedAt: 1688729771279
+id: "e8fa5e40-a70a-499d-99b0-0b576154c4af"
+identification: "AEMET_ULTIMO_DATO"
+user: "administrator"
+mode: "query"
+query: "select * from AEMETD order by fecha desc"
+dbtype: "RTDB"
+ontology: "93d7b95b-b90a-49ed-8ec8-5e18434343e7"
+refresh: 0
+maxvalues: 1
+description: "AEMET METEO ULTIMO DATO"
+config: null

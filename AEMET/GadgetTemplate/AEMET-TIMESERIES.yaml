@@ -1,0 +1,1146 @@
+createdAt: 1688729771273
+updatedAt: 1688729771273
+id: 8902ba3c-02b7-4011-bd27-f0270df2f8ea
+identification: AEMET-TIMESERIES
+user: administrator
+description: TIMESERIES CHART FOR AEMET
+type: vueJSODS
+template: !html |-
+    <style>
+       .gadget-timeseries {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 12px;
+          font-family: var(--main-font-family, 'Poppins');
+          overflow: hidden;
+          margin-top: 12px;
+          padding: 16px;
+       }
+
+       .bg-loading-gadget-timeseries3 {
+          background-color: #D96D73 !important;
+          animation: fadeOut 1 3s ease-in;
+       }
+
+       .bg-loaded-gadget-timeseries3 {
+          background-color: #FFF !important;
+          animation: fadeIn 1 1s ease-in;
+       }
+
+       .bg-loading-gadget-timeseries2 {
+          background-color: #323d57 !important;
+          animation: fadeOut 1 3s ease-in;
+       }
+
+       .bg-loaded-gadget-timeseries2 {
+          background-color: #FFF !important;
+          animation: fadeIn 1 1s ease-in;
+       }
+
+       .bg-loading-gadget-timeseries {
+          background-color: #3f51b5 !important;
+          animation: fadeOut 1 3s ease-in;
+       }
+
+       .bg-loaded-gadget-timeseries {
+          background-color: #FFF !important;
+       }
+
+       .btn-light-excel {
+          color: #1e90ff !important;
+          background-color: #ffffff !important;
+          border-color: #b0b0b0 !important;
+       }
+
+       .noData {
+          max-width: 100%;
+          height: calc(100%);
+          margin: 0 auto;
+          display: grid;
+          gap: 0.5rem;
+          grid-template-columns: 1fr;
+          width: 100%;
+       }
+
+       .widget-maximize {
+          left: 0px !important;
+          top: 0px !important;
+          width: 97% !important;
+          height: 100% !important;
+          z-index: 500;
+       }
+    </style>
+    <!--Focus here and F11 to full screen editor-->
+    <div class="gadget-timeseries" :style="gadgetLoaded">
+       <div v-if="loading" :class="loadingSize ? 'loading-container loading-container-sm' : 'loading-container'">
+          <div :class="loadingSize ? 'title-text title-text-sm' : 'title-text'">
+             <i :class="loadingSize ? 'ods-icon-clock icon-title icon-title-sm' : 'ods-icon-clock icon-title'"></i>
+             {{loadingTitle}}
+          </div>
+          <div :class="loadingSize ? 'loading-text loading-text-sm' : 'loading-text'">
+             <span>C</span>
+             <span>A</span>
+             <span>R</span>
+             <span>G</span>
+             <span>A</span>
+             <span>N</span>
+             <span>D</span>
+             <span>O</span>
+          </div>
+       </div>
+       <!-- COMPONENT BEGIN -->
+       <div class="component" v-else>
+          <h3 class="component-title" v-if="component.showTitle">{{component.title}}</h3>
+          <div class="component-cards" :style="setGridLayout">
+             <div class="component-card summary" v-if="component.summary.show" :style="setComponentLayout('summary')">
+                <!--SUMMARY BEGIN -->
+                <div class="component-card_header" v-if="component.summary.showTitle">
+                   <h4 class="component-card_title">{{component.summary.title}}</h4>
+                </div>
+                <!--SUMMARY INDICATORS -->
+                <div class="component-indicators" :style="componentIndicators"
+                   v-if="timeSerie.kpiDefinition.length > 0">
+                   <div class="component-indicator" v-for="kpi in timeSerie.kpis" :key="kpi.id">
+                      <div>
+                         <p class="text-muted mb-1">{{kpi.label}}</p>
+                         <h5 class="component-indicator-value"> {{kpi.value}}
+                            <span :title=" kpi.title" :class="kpi.direction + ' font-size-13'" v-if="kpi.percent"> {{kpi.percent}}% <i :class="kpi.arrow + ' ms-1'"></i></span>
+                         </h5>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <!-- SUMMARY END -->
+             <div class="component-card chart" v-if="component.chart.show" :style="setComponentLayout('chart')">
+                <!-- CHART BEGIN -->
+                <div class="component-card_header" v-if="component.chart.showTitle">
+                   <h4 class="component-card_title">{{component.chart.title}}</h4>
+                </div>
+                <!-- CHART OPTIONS -->
+                <div class="chart-options ms-auto">
+                   <div class="toolbar button-items text-end">
+                      <button type="button" title="Exportar a Excel" class="btn-chart btn-light-excel btn-sm" v-if="component.exportToExcel" @click="exportExcel(dataForExcel)"> EXCEL </button>
+                      <button type="button" title="Restaurar" class="btn-chart btn-light btn-sm" v-if="timeSerie.timeBtn.length > 0" @click="timeSeries('ALL')"> ALL </button>
+                      <button type="button" class="btn-chart btn-light btn-sm" v-for="item in timeSerie.timeBtn" @click="timeSeries(item.label,item.range)"> {{item.range ? item.range + ' ' + item.label : item.label}} </button>
+                   </div>
+                </div>
+                <!-- ODS TIMESERIES CHART v-if="ds.length > 0" -->
+                <ods-dataviz-bar v-if="chartShow" :data="chartData" :options="apiOptions" merge-options="true"
+                   :render-type="renderType" :horizontal="horizontal" :height="height || '100%'" :width="width"
+                   :animation="animation" :top-space="topSpace" :right-space="rightSpace" :bottom-space="bottomSpace"
+                   :left-space="leftSpace" autoresize>
+                </ods-dataviz-bar>
+                <!-- ODS TIMESERIES CHART -->
+                <div v-else class="noData">
+                   <div style="height: 100%;display: flex;justify-content: center;align-items: flex-start;">
+                      <div style="display: flex;height: auto;flex-direction: column;align-items: center;">
+                         <p style="margin-bottom: 1rem; margin-top: 25%">{{ noData }}</p>
+                         <ods-icon name="error-alert" size="30" color="#404040" />
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- COMPONENT END -->
+       </div>
+templateJS: !html |-
+    // GADGET TIMESERIES ------
+    vm.vueconfig = {
+       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-timeseries'),
+       data: {
+          ds: [],
+          maskId: 'gadget-timeseries2',
+          elClass: '',
+          containerClass: '',
+          background: '#323d57',
+          backgroundLoaded: '#FFF',
+          loaderActive: vm.tparams.parameters.component.loader.loading,
+          loading: vm.tparams.parameters.component.loader.loading,
+          loadingTitle: vm.tparams.parameters.component.loader.title,
+          loadingSize: vm.tparams.parameters.component.loader.size,
+          noData: 'No se han encontrado datos con los filtros actuales.',
+          chartShow: true,
+          customStyles: { 'background-color': '#323d57!important', 'animation': 'fadeOut 1 3s ease-in' },
+          customStylesLoaded: { 'background-color': '#FFF!important', 'animation': 'fadeIn 1 1s ease-in' },
+          // Component
+          component: {
+             showTitle: vm.tparams.parameters.component.showTitle,
+             title: vm.tparams.parameters.component.title || 'COMPONENTE TIMESERIES',
+             grid: vm.tparams.parameters.component.grid,
+             exportToExcel: vm.tparams.parameters.component.exportToExcel,
+             summary: {
+                show: vm.tparams.parameters.component.summary.show,
+                showTitle: vm.tparams.parameters.component.summary.showTitle,
+                title: vm.tparams.parameters.component.summary.title || 'TimeSeries Summary',
+                style: JSON.parse(vm.tparams.parameters.component.summary.style) || {},
+                order: vm.tparams.parameters.component.summary.order
+             },
+             chart: {
+                show: vm.tparams.parameters.component.chart.show,
+                showTitle: vm.tparams.parameters.component.chart.showTitle,
+                title: vm.tparams.parameters.component.chart.title,
+                showToolBox: vm.tparams.parameters.component.chart.showToolbox,
+                style: JSON.parse(vm.tparams.parameters.component.chart.style) || {},
+                order: vm.tparams.parameters.component.chart.order
+             }
+          },
+          // TIMESERIE
+          timeSerie: {
+             // TEMPORAL MAIN DATA SERIES CONF.
+             dataKey: vm.tparams.parameters.axes.xAxis.dateKey,
+             initFormat: vm.tparams.parameters.timeseries.initFormat,
+             endFormat: vm.tparams.parameters.timeseries.endFormat,
+             defaultType: vm.tparams.parameters.timeseries.defaultType,
+             defaultRange: vm.tparams.parameters.timeseries.defaultRange,
+             minDate: 0,
+             maxDate: 0,
+             defaultData: [],
+             rangeType: 'PAST', // [PAST,CURRENT,INIT] -> (PAST) 3M: 3 months ago from now. , (CURRENT) 3M: 3 months from current month to future, (INIT) 3M: 3 months from January from current YEAR
+             limit: 5000,
+             locale: vm.tparams.parameters.timeseries.locale,
+             series: (vm.tparams.parameters.timeseries.series.serie).map(function (item) {
+                let isArea = item.type === 'area'
+                let isLine = item.type === 'line'
+                var item = {
+                   field: item.field,
+                   percentTotal: item.percentTotal,
+                   name: item.name,
+                   stack: item.stack,
+                   type: item.type === 'bar' ? 'bar' : item.type === 'line' ? 'line' : item.type === 'area' ? 'line' : 'bar',
+                   unit: item.unit,
+                   color: item.color,
+                   values: [],
+                   data: [],
+                   operation: item.operation,
+                   filterSerie: item.filterField ? { field: item.filterField, op: item.filterOp, v: item.filterValue } : null,
+
+
+                }
+                if (isArea) {
+                   item.areaStyle = { color: item.color, opacity: 0.15 }
+                }
+                if (isLine || isArea) {
+                   item.smooth = .4
+                }
+                return item
+             }),
+             timeBtn: vm.tparams.parameters.timeseries.series.timeButtons || [],
+             kpiDefinition: vm.tparams.parameters.timeseries.indicators.kpiIndicators || [],
+             /*[
+                { id: 0, label: 'Today', date: 'today', op: '=', dynamicDate: true, type: 'D', operation: 'count', percent: true },
+                { id: 1, label: '06 Jul.', date: '20220706', op: '=', dynamicDate: false, type: 'D', operation: 'count', percent: true },
+                { id: 2, label: 'This Month', date: 'thisMonth', op: '=', dynamicDate: true, type: 'M', operation: 'count', percent: true },
+                { id: 3, label: 'This Year', date: 'thisYear', op: '=', dynamicDate: true, type: 'Y', operation: 'count', percent: true }
+             ],*/
+             kpis: [] // kpi results, kpi = { label, v(value), percent, arrow } fill dynamically from kpiDefinition
+          },
+          axis: [],
+          allData: [],
+          // CHART
+          renderType: 'svg',
+          horizontal: false,
+          height: '92%',
+          width: '100%',
+          topSpace: 25,
+          rightSpace: 10,
+          bottomSpace: 0,
+          leftSpace: 0,
+          animation: true,
+          chartData: {
+             xAxis: [],
+             lines: []
+          }
+       },
+       methods: {
+          drawVueComponent: function (newData, oldData) {
+             //This will be call on new data
+             if (!newData || newData.length === 0) { this.chartShow = false } else { this.chartShow = true }
+             this.ds = newData.length > 0 ? this.timeSerieSetup(newData) : []
+             if (this.ds.length === 0) { this.timeSerie.defaultData.length = 0; this.allData.length = 0 }
+             this.timeSeries(this.timeSerie.defaultType, this.timeSerie.defaultRange)
+          },
+          // TIMESERIES --------------------------------------------------------------------------------------------------------------------
+          // SETUP: add dates to data, setup range periode min and max and also store data in timeSerie
+          timeSerieSetup(data, field) {
+             if (data.length === 0) { return [] }
+             // este ejemplo tiene un campo muy raro, pero lo normal sería pasar el field y substituir el x.VEGA2_ALARMS.alarmgroup.split("_")[1]
+             var data = data.map(x => ({ ...x, date: parseInt(moment(x[this.timeSerie.dataKey], this.timeSerie.initFormat).format(this.timeSerie.endFormat)), year: parseInt(moment(x[this.timeSerie.dataKey], this.timeSerie.initFormat).format('YYYY')), month: parseInt(moment(x[this.timeSerie.dataKey], this.timeSerie.initFormat).format('YYYYMM')), day: parseInt(moment(x[this.timeSerie.dataKey], this.timeSerie.initFormat).format('YYYYMMDD')), hour: parseInt(moment(x[this.timeSerie.dataKey], this.timeSerie.initFormat).format('YYYYMMDDHH')), minute: parseInt(moment(x[this.timeSerie.dataKey], this.timeSerie.initFormat).format('YYYYMMDDHHmm')) })).filter((x, i) => { if (i <= (this.timeSerie.limit - 1)) { return true } })
+
+             this.timeSerie.defaultData = data
+
+             // get start and end periodees by type
+             var moments = this.timeSerie.defaultData.map(d => moment(d.hour, 'YYYYMMDDHH'))
+             this.timeSerie.minDate = moment.min(moments)
+             this.timeSerie.maxDate = moment.max(moments)
+
+             return data
+          },
+          timeSeries(type, range) {
+             // console.log('Time Series: ', type, ' Range: ', range)
+             if (!type) { type = this.timeSerie.defaultType }
+             if (this.timeSerie.defaultData.length === 0) { this.ds.length = 0; return false; } else { this.ds = this.timeSerie.defaultData }
+
+             // init timeSerie series data
+             for (let i = 0; i < this.timeSerie.series.length; i++) { this.timeSerie.series[i].values.length = 0 }
+
+             // switch type
+             switch (type) {
+                case 'Y':
+                   // console.log('TIMESERIE FOR YEARS')
+                   this.ds = this.handleDataTimeSerie('Y', +range)
+                   break
+                case 'M':
+                   // console.log('TIMESERIE FOR MONTHS')
+                   this.ds = this.handleDataTimeSerie('M', +range)
+                   break
+                case 'D':
+                   // console.log('TIMESERIE FOR DAYS')
+                   this.ds = this.handleDataTimeSerie('D', +range)
+                   break
+                case 'H':
+                   // console.log('TIMESERIE FOR HOURS')
+                   this.ds = this.handleDataTimeSerie('H', +range)
+                   break
+                case 'ALL':
+                   this.ds = this.timeSerie.defaultType === 'Y' ? this.handleDataTimeSerie('Y', this.timeSerie.defaultRange) : this.timeSerie.defaultType === 'M' ? this.handleDataTimeSerie('M', this.timeSerie.defaultRange) : this.timeSerie.defaultType === 'D' ? this.handleDataTimeSerie('D', this.timeSerie.defaultRange) : this.timeSerie.defaultType === 'H' ? this.handleDataTimeSerie('H', this.timeSerie.defaultRange) : []
+             }
+          },
+          // HANDLE AND PRODUCE DATA FOR EACH TYPE
+          // HANDLE GENERIC
+          handleDataTimeSerie(type, range) {
+
+             var series = this.timeSerie.series
+             var data = this.timeSerie.defaultData
+             var AXIS = type === 'Y' ? this.generateYears() : type === 'M' ? this.generateMonths() : type === 'D' ? this.generateDays() : type === 'H' ? this.generateHours() : type === 'm' ? this.generateMinutes() : []
+             var dateField = type === 'Y' ? 'year' : type === 'M' ? 'month' : type === 'D' ? 'day' : type === 'H' ? 'hour' : type === 'm' ? 'hour' : ''
+             if (range && typeof range === 'number') { AXIS = AXIS.slice(-range) }
+             this.axis = AXIS
+
+             // FOR AXIS AND SERIES
+             for (let i = 0; i < AXIS.length; i++) {
+                for (let y = 0; y < series.length; y++) {
+                   var operation = series[y].operation
+                   var field = series[y].field
+                   var totalField = series[y].percentTotal ? series[y].percentTotal : field
+                   var filter = series[y].filterSerie ? series[y].filterSerie : null
+                   var checkSum = false
+
+                   // OPERATIONS
+                   // SUM
+                   if (operation.toUpperCase() === 'SUM') {
+                      if (filter) {
+                         // SUM WITH FILTER
+                         checkSum = data.filter(x => x[dateField] === parseInt(AXIS[i]) && x[filter.field] === filter.v).length > 0
+                         if (checkSum) {
+                            series[y].values.push(data.filter(x => x[dateField] === parseInt(AXIS[i]) && x[filter.field] === filter.v).map(y => parseFloat(y[field])).reduce((x, y) => x + y, 0))
+                         } else { series[y].values.push(0) }
+                      }
+                      else {
+                         // SUM WITH ONLY DATE
+                         checkSum = data.filter(x => x[dateField] === parseInt(AXIS[i])).length > 0
+                         if (checkSum) {
+                            series[y].values.push(data.filter(x => x[dateField] === parseInt(AXIS[i])).map(y => parseFloat(y[field])).reduce((x, y) => x + y, 0))
+                         } else { series[y].values.push(0) }
+                      }
+                   } else if (operation.toUpperCase() === 'PERCENT') {
+                      // PERCENT
+                      if (data.filter(x => x[dateField] === parseInt(AXIS[i])).length > 0) {
+                         var total = data.filter(x => x[dateField] === parseInt(AXIS[i])).map(y => y[totalField]).reduce((x, y) => x + y, 0)
+                         series[y].values.push(total > 0 ? Number(((data.filter(x => x[dateField] === parseInt(AXIS[i])).map(y => y[field]).reduce((x, y) => x + y, 0) * 100) / total).toFixed(2)) : 0)
+                      } else { series[y].values.push(0) }
+                   } else if (operation.toUpperCase() === 'AVG') {
+                      if (filter) {
+                         // AVG with filter
+                         checkSum = data.filter(x => x[dateField] === parseInt(AXIS[i]) && x[filter.field] === filter.v).length > 0
+                         if (checkSum) {
+                            series[y].values.push(data.filter(x => x[dateField] === parseInt(AXIS[i]) && x[filter.field] === filter.v).map(y => y[field]).reduce((acc, v, i, a) => (acc + v / a.length), 0))
+                         } else { series[y].values.push(0) }
+
+                      } else {
+                         // AVG without filter
+                         checkSum = data.filter(x => x[dateField] === parseInt(AXIS[i])).length > 0
+                         if (checkSum) {
+                            series[y].values.push(data.filter(x => x[dateField] === parseInt(AXIS[i])).map(y => parseFloat(y[field])).reduce((acc, v, i, a) => (acc + v / a.length), 0))
+                         } else { series[y].values.push(0) }
+                      }
+
+
+                   } else if (operation.toUpperCase() === 'COUNT') {
+                      // COUNT
+                      if (filter) {
+                         // COUNT WITH FILTER
+                         checkSum = data.filter(x => x[dateField] === parseInt(AXIS[i]) && x[filter.field] === filter.v).length > 0
+                         if (checkSum) {
+                            series[y].values.push(data.filter(x => x[dateField] === parseInt(AXIS[i]) && x[filter.field] === filter.v).length)
+                         } else { series[y].values.push(0) }
+                      } else {
+                         // COUNT WITH ONLY DATE
+                         checkSum = data.filter(x => x[dateField] === parseInt(AXIS[i])).length > 0
+                         if (checkSum) {
+                            series[y].values.push(data.filter(x => x[dateField] === parseInt(AXIS[i])).length)
+                         } else { series[y].values.push(0) }
+                      }
+                   }
+                }
+             }
+             // add all data to lines
+             var allData = []
+             for (let z = 0; z < series.length; z++) {
+                // MAX AND MIN for INTERVALS
+                series[z].max = Math.max(...series[z].values)
+                series[z].min = Math.min(...series[z].values)
+                series[z].total = series[z].values.reduce((a, b) => a + b, 0)
+                series[z].data = series[z].values
+                series[z].unit = this.timeSerie.series[z].unit || ''
+                series[z].color = this.timeSerie.series[z].color || ''
+
+                //allData.push({name:series[z].name, values: series[z].values , max: series[z].max, min: series[z].min, total: series[z].total })
+                allData.push(series[z])
+             }
+
+             this.allData = allData
+
+             // APPLY CHART
+             // apply time format to AXIS
+             AXIS = this.axisFormatter(AXIS, type)
+             this.chartData.xAxis = AXIS
+             this.chartData.lines = this.allData
+
+             // CHECK FOR KPI AND SUMMARY
+             if ((this.timeSerie.kpiDefinition && this.timeSerie.kpiDefinition.length > 0) && this.component.summary.show) {
+                this.getKpiIndicators(data)
+             }
+          },
+          // GENERATE ARRAY OF MONTHS
+          generateMonths(format) {
+             if (!format) { format = 'YYYYMM' }
+             const months = []
+             var dateStart = moment(this.timeSerie.minDate.format(format), format)
+             var dateEnd = moment(this.timeSerie.maxDate.format(format), format)
+             while (dateEnd.diff(dateStart, 'months') >= 0) {
+                months.push(dateStart.format(format))
+                dateStart.add(1, 'month')
+             }
+             return months
+          },
+
+          // GENERATE ARRAY OF YEARS
+          generateYears(format) {
+             if (!format) { format = 'YYYY' }
+             const years = []
+             var dateStart = moment(this.timeSerie.minDate.format(format), format)
+             var dateEnd = moment(this.timeSerie.maxDate.format(format), format)
+             while (dateEnd.diff(dateStart, 'years') >= 0) {
+                years.push(dateStart.format(format))
+                dateStart.add(1, 'year')
+             }
+             this.test = years
+             return years
+          },
+
+          // GENERATE ARRAY OF DAYS
+          generateDays(format) {
+             if (!format) { format = 'YYYYMMDD' }
+             const days = []
+             var dateStart = moment(this.timeSerie.minDate.format(format), format)
+             var dateEnd = moment(this.timeSerie.maxDate.format(format), format)
+             while (dateEnd.diff(dateStart, 'days') >= 0) {
+                days.push(dateStart.format(format))
+                dateStart.add(1, 'day')
+             }
+             return days
+          },
+
+          // GENERATE ARRAY OF HOURS
+          generateHours(format) {
+             if (!format) { format = 'YYYYMMDDHH' }
+             const hours = []
+             var dateStart = moment(this.timeSerie.minDate.format(format), format)
+             var dateEnd = moment(this.timeSerie.maxDate.format(format), format)
+             while (dateEnd.diff(dateStart, 'hour') >= 0) {
+                hours.push(dateStart.format(format))
+                dateStart.add(1, 'hour')
+             }
+             return hours
+          },
+
+          // TIME FORMATTER for AXIS
+          axisFormatter(data, type) {
+             moment.locale(this.timeSerie.locale || 'en')
+             var formattedData = data || []
+             var currentYear = moment().year()
+             if (data.length === 0) { return data }
+             var date = ''
+             var formattedData = data.map(function (item) {
+                date = ''
+                if (type === 'Y') {
+                   return item
+                } else if (type === 'M') {
+                   if (currentYear === moment(item, 'YYYYMM').year()) {
+                      date = moment(item, 'YYYYMM').format('MMM')
+                      return date.charAt(0).toUpperCase() + date.slice(1)
+                   }
+                   else {
+                      date = moment(item, 'YYYYMM').format('MMM YY')
+                      return date.charAt(0).toUpperCase() + date.slice(1)
+                   }
+                } else if (type === 'D') {
+                   if (currentYear === moment(item, 'YYYYMMDD').year()) {
+                      date = moment(item, 'YYYYMMDD').format('DD MMM')
+                      return date.slice(0, 3) + date.charAt(3).toUpperCase() + date.slice(4)
+                   }
+                   else {
+                      date = moment(item, 'YYYYMMDD').format('DD MMM YY')
+                      return date.slice(0, 3) + date.charAt(3).toUpperCase() + date.slice(4)
+                   }
+                } else if (type === 'H') {
+                   if (currentYear === moment(item, 'YYYYMMDDHH').year()) {
+                      return 'Hora ' + moment(item, 'YYYYMMDDHH').format('HH DD/MM')
+                   }
+                   else {
+                      return 'Hora ' + moment(item, 'YYYYMMDDHH').format('HH DD/MM/YY')
+                   }
+                } else if (type === 'm') {
+                   if (currentYear === moment(item, 'YYYYMMDDHHmm').year()) {
+                      return moment(item, 'YYYYMMDDHHmm').format('HH:mm DD')
+                   }
+                   else {
+                      return moment(item, 'YYYYMMDDHHmm').format('HH:mm - DD/MM/YY')
+                   }
+                }
+             })
+
+             // return formatted data
+             return formattedData
+          },
+
+          // GET A DYNAMIC DATE a.k.a Today, and return date in desired format
+          getDynamicDate(date, format) {
+
+             var dateFormat = format === 'Y' ? 'YYYY' : format === 'M' ? 'YYYYMM' : format === 'D' ? 'YYYYMMDD' : format === 'H' ? 'YYYYMMDDHH' : 'YYYYMMDD'
+             var dynamicDates = {
+                today: moment().format(dateFormat).toString(),
+                yesterday: moment().subtract(1, 'day').format(dateFormat).toString(),
+                tomorrow: moment().add(1, 'day').format(dateFormat).toString(),
+                startWeek: moment().startOf('week').format('dddd') === 'Sunday' ? moment().startOf('week').add('d', 1).format(dateFormat).toString() : moment().startOf('week').format(dateFormat).toString(),
+                endWeek: moment().endOf('week').format(dateFormat).toString(),
+                oneWeekAgo: moment().subtract(7, 'day').format(dateFormat).toString(),
+                thisMonth: moment().format(dateFormat),
+                startMonth: moment().startOf('month').format(dateFormat).toString(),
+                endMonth: moment().subtract(1, 'month').startOf('month').format(dateFormat).toString(),
+                oneMonthsAgo: moment().subtract(1, 'months').format(dateFormat).toString(),
+                firstDayMonthAgo: moment().subtract(1, 'months').startOf('month').format(dateFormat),
+                  firstDayTwoMonthsAgo: moment().subtract(2, 'months').startOf('month').format(dateFormat),
+                twoMonthsAgo: moment().subtract(2, 'months').format(dateFormat).toString(),
+                threeMonthsAgo: moment().subtract(3, 'months').format(dateFormat).toString(),
+                sixMonthsAgo: moment().subtract(6, 'months').format(dateFormat).toString(),
+                nineMonthsAgo: moment().subtract(9, 'months').format(dateFormat).toString(),
+                yearAgo: moment().subtract(1, 'year').format(dateFormat).toString(),
+                startYear: moment().startOf('year').format(dateFormat).toString(),
+                thisYear: moment().format(dateFormat).toString()
+             }
+             if (!dynamicDates[date]) { return '' } else { return dynamicDates[date] }
+          },
+
+          // GET DATA AND MOUNT KPI INDICATORS FOR TIMESERIES
+          getKpiIndicators(data) {
+             var kpiDefinition = this.timeSerie.kpiDefinition
+             var item = {}
+             var datevalue = 0
+             var dateCount = 0
+             var percent = [] // [percentValue, arrowType ]
+             var arrow = ''
+
+             this.timeSerie.kpis.length = 0 // init KPIs
+
+             for (let i = 0; i < kpiDefinition.length; i++) {
+                var kpi = kpiDefinition[i]
+                var dateField = kpi.type === 'Y' ? 'year' : kpi.type === 'M' ? 'month' : kpi.type === 'D' ? 'day' : kpi.type === 'H' ? 'hour' : ''
+                item = {}
+                // COUNT
+                if (kpi.operation === 'count') {
+                   datevalue = kpi.dynamicDate ? parseInt(this.getDynamicDate(kpi.date, kpi.type)) : parseInt(kpi.date)
+                   dateCount = data.filter(x => x[dateField] === parseInt(datevalue)).length
+                   if (kpi.percent) { percent = this.calcPercent(data, datevalue, kpi.type, dateCount) } else { percent = '' }
+                   item = { label: kpi.label, value: dateCount, percent: percent[0], arrow: percent[1], direction: percent[2], title: percent[3] }
+                   this.timeSerie.kpis.push(item)
+                }
+                //FILTER (PENDIENTE)
+                if (kpi.operation === 'filter') {
+                   if (kpi.context.op === 'eq') {
+                      this.kpis[kpi.kpiId].ammount = data.filter(x => x[kpi.context.field] === kpi.context.value).length > 0 ? data.filter(x => x[kpi.context.field] === kpi.context.value).length : '---'
+                   } else if (kpi.context.op === 'include') {
+                      this.kpis[kpi.kpiId].ammount = data.filter(x => (x[kpi.context.field]).toLowerCase().includes(kpi.context.value)).length > 0 ? data.filter(x => (x[kpi.context.field]).toLowerCase().includes(kpi.context.value)).length : '---'
+                   }
+
+                }
+             }
+          },
+
+          // calc percent from value, date -> get same date 1 year before
+          calcPercent(data, date, format, val) {
+             var arrow = ''
+             var direction = ''
+             var title = ''
+             var dateFormat = format === 'Y' ? 'YYYY' : format === 'M' ? 'YYYYMM' : format === 'D' ? 'YYYYMMDD' : format === 'H' ? 'YYYYMMDDHH' : 'YYYYMMDD'
+             var dateField = format === 'Y' ? 'year' : format === 'M' ? 'month' : format === 'D' ? 'day' : format === 'H' ? 'hour' : ''
+             var period = parseInt(moment(date, dateFormat).subtract(1, 'year').format(dateFormat).toString())
+             var periodValue = data.filter(x => x[dateField] === parseInt(period)).length
+             if (periodValue === 0) { return ['', '', '', ''] }
+             // percent val - periodValue --> V, abs(V) --> V*100/periodValue
+             var V = val - periodValue
+             if (V < 0) { arrow = 'ods-icon-chevron-down-small'; direction = 'text-danger' } else { arrow = 'ods-icon-chevron-up-small'; direction = 'text-success' }
+             var percent = (Math.abs(V) * 100) / periodValue
+             title = 'current: ' + date + ' last period: ' + period + ', ' + percent.toFixed(2) + '%'
+             title += direction === 'text-danger' ? ' less' : ' more'
+
+             // return percent array of data
+             return [percent.toFixed(2), arrow, direction, title]
+          },
+
+          resizeEvent: function () {
+             //Resize event
+          },
+
+          destroyVueComponent: function () {
+             vm.vueapp.$destroy();
+          },
+
+          // COMPONENT API
+          setComponentLayout(item) {
+             if (this.component[item].style && this.component[item].order) {
+                this.component[item].style.order = this.component[item].order // add order to style
+                return this.component[item].style
+             } else {
+                if (this.component[item].order) { return { order: this.component[item].order } } else { return {} }
+             }
+          },
+          maskComponent() {
+             if (this.loaderActive) {
+                this.elClass = this.$el.parentElement.className
+                this.containerClass = this.$el.parentElement.parentElement.className
+                this.$el.parentElement.className = this.$el.parentElement.className + ' bg-loading-' + this.maskId
+                this.$el.parentElement.parentElement.className = this.$el.parentElement.parentElement.className + ' bg-loading-' + this.maskId
+             }
+          },
+          unmaskComponent() {
+             this.$el.parentElement.className = this.elClass + ' bg-loaded-' + this.maskId
+             this.$el.parentElement.parentElement.className = this.containerClass + ' bg-loaded-' + this.maskId
+          },
+          loaded() {
+             this.loading = false
+             if (this.loaderActive) { this.unmaskComponent() }
+          },
+          gridsterClass() {
+             if (this.$el.closest('GRIDSTER-ITEM') && Object.keys(this.customStyles).length > 0) {
+                Object.keys(this.customStyles).forEach(key => {
+                   this.$el.closest('GRIDSTER-ITEM').style.setProperty(key, this.customStyles[key])
+                })
+             }
+          },
+          loaded() {
+             this.loading = false
+             this.unmaskComponent()
+          },
+          exportExcel(dataForExcel) {
+             const data = XLSX.utils.json_to_sheet(dataForExcel)
+             const workbook = XLSX.utils.book_new()
+             const filename = this.component.chart.title.length > 31 ? this.component.chart.title.substr(0, 31) : this.component.chart.title
+             XLSX.utils.book_append_sheet(workbook, data, filename)
+             XLSX.writeFile(workbook, `${filename}.xlsx`)
+          },
+       },
+       computed: {
+          gadgetLoaded() {
+             return !this.loading ? { background: this.backgroundLoaded } : { background: this.background }
+          },
+          componentIndicators() {
+             var grid = ''
+             for (let i = 0; i < this.timeSerie.kpiDefinition.length; i++) { grid += '1fr ' }
+             var layout = { gridTemplateColumns: grid + ' !important' }
+             return layout
+          },
+          setGridLayout() {
+             var layout = !this.component.summary.show ? { gridTemplateColumns: '1fr!important' } : (this.component.grid && this.component.grid !== '') ? { gridTemplateColumns: this.component.grid + '!important' } : { gridTemplateColumns: '1fr 2fr' }
+             return layout
+          },
+          // export to excel preparation
+          dataForExcel() {
+             return this.chartData.lines.map((serie, i) => {
+                const data = serie.values.map((e, i) => ({ [this.chartData.xAxis[i]]: e, })).reduce((acc, curr, i) => ({ ...acc, [`${Object.keys(curr)}`]: Object.values(curr)[0], }), {})
+                return { ['']: serie.name, ...data }
+             })
+          },
+          // calculate interval for chart visualization
+          calculatedInterval() {
+             return 'auto'
+          },
+          // echarts additional or computed options
+          apiOptions() {
+             var app = this
+             return {
+                tooltip: {
+                   trigger: 'axis',
+                   axisPointer: {
+                      // Use axis to trigger tooltip
+                      type: 'line' // 'shadow' as default; can also be 'line' or 'shadow'
+                   },
+                   formatter: function (params) {
+                      var formattedStr = '<span style="margin-bottom:6px; font-weight:bold">' + params[0].axisValue + ':</span><br>'
+                      var formattedNumber = 0
+                      for (let i = 0; i < params.length; i++) {
+                         formattedNumber = !isNaN(params[i].value) ? params[i].value.toFixed(2) : ' - '
+                         formattedStr += '<span style="padding:12px 8px"><span style="height: 12px; width: 12px;border-radius: 50%;display: inline-block; margin-right: 4px; background-color:' + params[i].color + '">&nbsp;</span><span style="display: inline-block; position:relative; top:-3px">' + params[i].seriesName + ': ' + '<span style="font-weight:bold">' + formattedNumber + app.timeSerie.series[params[i].seriesIndex].unit + '</span></span></span><br>'
+                      }
+                      return formattedStr
+                   },
+                   textStyle: {
+                      fontStyle: "normal",
+                      fontWeight: "normal",
+                      fontSize: 12,
+                      fontFamily: "'Manrope Regular',Poppins, Arial"
+                   }
+                },
+                xAxis: {
+                   type: 'category',
+                   data: this.chartData.xAxis,
+                   axisLabel: {
+                      show: true,
+                      interval: this.calculatedInterval,
+                      rotate: this.chartData.xAxis.length < 15 ? 0 : 30
+                   }
+                },
+                yAxis: [
+                   {
+                      type: 'value',
+                      name: vm.tparams.parameters.axes.yAxis.label || '',
+                      nameLocation: 'end',
+                      nameTextStyle: {
+                         color: 'rgba(0, 0, 0, 1)',
+                         fontStyle: 'normal',
+                         fontWeight: 'bold',
+                         fontFamily: "'Manrope Regular',Poppins, Arial",
+                         align: 'left'
+                      }
+                      // TO-DO: multiple y axis and apply min,max and interval
+                   }
+                ],
+                series: this.timeSerie.series,
+                legend: {
+                   type: 'scroll',
+                   orient: 'horizontal',
+                   top: -5,
+                   itemHeight: 10,
+                   itemWidth: 14,
+                   itemGap: 12,
+                   icon: "circle"
+                },
+                dataZoom: {
+                   start: 0,
+                   end: 100,
+                   type: "inside"
+                },
+                toolbox: this.component.chart.showToolBox ? { show: true, orient: "vertical", itemSize: 10, itemGap: 6, top: "7%", right: "-8", showTitle: true, feature: { magicType: { type: ["line", "bar", "stack"] }, restore: {}, dataZoom: { yAxisIndex: 'none' }, saveAsImage: {} } } : {}
+             }
+          }
+       },
+       filters: {
+          moment: function (date) {
+             return moment(date, 'YYYYMMDD').format('DD/MM/YYYY')
+          }
+       },
+       mounted() {
+          this.maskComponent()
+          setTimeout(() => this.loaded(), 1500)
+       }
+    }
+
+    //Init Vue app
+    vm.vueapp = new Vue(vm.vueconfig);
+
+
+    //This function will be call when receiving a value from vm.sendValue(idGadgetTarget,data)
+    vm.receiveValue = function (data) {
+       console.log('Received value: ', data)
+    };
+headerlibs: !html ""
+config:
+    gform:
+    -   id: 8
+        type: section
+        elements:
+        -   id: 4
+            type: checkbox
+            name: showTitle
+            default: true
+            title: TITLE?
+        -   id: 1
+            type: input-text
+            name: title
+            default: ''
+            title: TITLE
+        -   id: 1
+            type: input-text
+            name: grid
+            default: 1fr
+            title: GRID
+        -   id: 4
+            type: checkbox
+            name: exportToExcel
+            default: false
+            title: EXPORT TO EXCEL?
+        -   id: 8
+            type: section
+            elements:
+            -   id: 4
+                type: checkbox
+                name: show
+                default: true
+                title: SHOW SUMMARY?
+            -   id: 4
+                type: checkbox
+                name: showTitle
+                default: true
+                title: TITLE?
+            -   id: 1
+                type: input-text
+                name: title
+                default: ''
+                title: TITLE
+            -   id: 3
+                type: selector
+                name: order
+                options:
+                -   value: '1'
+                    text: '1'
+                -   value: '2'
+                    text: '2'
+                title: ORDER
+                default: '1'
+            -   id: 1
+                type: input-text
+                name: style
+                default: '{ "background": "#fff", "borderBottom": "1px solid #CCC",
+                    "padding": "12px 0 0 12px", "height": "90px" }'
+                title: STYLE (css object)
+            name: summary
+            title: SUMMARY (indicators)
+        -   id: 8
+            type: section
+            elements:
+            -   id: 4
+                type: checkbox
+                name: show
+                default: true
+                title: SHOW CHART?
+            -   id: 4
+                type: checkbox
+                name: showTitle
+                default: false
+                title: TITLE?
+            -   id: 1
+                type: input-text
+                name: title
+                default: ''
+                title: TITLE
+            -   id: 4
+                type: checkbox
+                name: showToolbox
+                default: true
+                title: TOOLBOX?
+            -   id: 3
+                type: selector
+                name: order
+                options:
+                -   value: '1'
+                    text: '1'
+                -   value: '2'
+                    text: '2'
+                title: ORDER
+                default: '2'
+            -   id: 1
+                type: input-text
+                name: style
+                default: '{ "background": "#fff", "minHeight": "210px", "maxHeight":
+                    "85%" }'
+                title: STYLE (css object)
+            name: chart
+            title: CHART
+        -   id: 8
+            type: section
+            elements:
+            -   id: 1
+                type: input-text
+                name: title
+                default: Serie Temporal
+                title: LOADER TITLE
+            -   id: 4
+                type: checkbox
+                name: loading
+                default: true
+                title: LOADER ACTIVE?
+            -   id: 4
+                type: checkbox
+                name: size
+                default: false
+                title: LOAD MIN SIZE?
+            name: loader
+            title: LOADER
+        name: component
+        title: GADGET
+    -   id: 8
+        type: section
+        elements:
+        -   id: 8
+            type: section
+            elements:
+            -   id: 1
+                type: input-text
+                name: label
+                default: ''
+                title: LABEL
+            -   id: 6
+                type: ds-field
+                name: dateKey
+                title: TIME FIELD
+            -   id: 4
+                type: checkbox
+                name: showZoom
+                default: false
+                title: ZOOM?
+            name: xAxis
+            title: X AXIS
+        -   id: 8
+            type: section
+            elements:
+            -   id: 1
+                type: input-text
+                name: label
+                default: ''
+                title: LABEL
+            -   id: 2
+                type: input-number
+                name: min
+                default: '0'
+                title: MIN
+                min: '0'
+            -   id: 2
+                type: input-number
+                name: max
+                default: ''
+                title: MAX
+            -   id: 2
+                type: input-number
+                name: interval
+                default: '0'
+                title: INTERVAL
+            name: yAxis
+            title: Y AXIS
+        name: axes
+        title: AXES
+    -   id: 8
+        type: section
+        elements:
+        -   id: 1
+            type: input-text
+            name: initFormat
+            default: YYYY-MM-DD[T]HH:mm:ss
+            title: INIT FORMAT
+        -   id: 1
+            type: input-text
+            name: endFormat
+            default: YYYYMMDDHHmmss
+            title: END FORMAT
+        -   id: 3
+            type: selector
+            name: defaultType
+            options:
+            -   value: Y
+                text: Year
+            -   value: M
+                text: Month
+            -   value: D
+                text: Day
+            -   value: H
+                text: Hour
+            -   value: m
+                text: Minutes
+            -   value: s
+                text: Seconds
+            title: TYPE
+            default: M
+        -   id: 3
+            type: selector
+            name: locale
+            options:
+            -   value: es
+                text: ES
+            -   value: en
+                text: EN
+            title: LOCALE
+            default: es
+        -   id: 8
+            type: section
+            elements:
+            -   id: 9
+                type: section-array
+                elements:
+                -   id: 6
+                    type: ds-field
+                    name: field
+                    title: FIELD
+                -   id: 1
+                    type: input-text
+                    name: unit
+                    default: ''
+                    title: FIELD UNIT
+                -   id: 1
+                    type: input-text
+                    name: name
+                    default: ''
+                    title: NAME
+                -   id: 1
+                    type: input-text
+                    name: stack
+                    default: ''
+                    title: STACK (Id)
+                -   id: 3
+                    type: selector
+                    name: type
+                    options:
+                    -   value: bar
+                        text: BAR
+                    -   value: line
+                        text: LINE
+                    -   value: area
+                        text: AREA (line)
+                    title: CHART TYPE
+                    default: bar
+                -   id: 5
+                    type: color-picker
+                    name: color
+                    default: rgba(30, 144, 255, 1)
+                    title: COLOR
+                -   id: 3
+                    type: selector
+                    name: operation
+                    options:
+                    -   value: avg
+                        text: AVERAGE
+                    -   value: count
+                        text: COUNT
+                    -   value: sum
+                        text: SUM
+                    -   value: percent
+                        text: PERCENT
+                    title: OPERATION
+                    default: avg
+                -   id: 6
+                    type: ds-field
+                    name: filterField
+                    title: 'FILTER '
+                -   id: 3
+                    type: selector
+                    name: filterOp
+                    options:
+                    -   value: eq
+                        text: =
+                    title: OP
+                    default: eq
+                -   id: 1
+                    type: input-text
+                    name: filterValue
+                    default: ''
+                    title: VALUE
+                -   id: 1
+                    type: input-text
+                    name: percentTotal
+                    default: ''
+                    title: 'PERCENT TOTAL FIELD ( if operation is PERCENT) '
+                name: serie
+                title: SERIE
+            -   id: 9
+                type: section-array
+                elements:
+                -   id: 3
+                    type: selector
+                    name: label
+                    options:
+                    -   value: Y
+                        text: Year
+                    -   value: M
+                        text: Month
+                    -   value: D
+                        text: Day
+                    -   value: H
+                        text: Hour
+                    title: LABEL
+                -   id: 2
+                    type: input-number
+                    name: range
+                    default: ''
+                    title: RANGE
+                    min: '1'
+                name: timeButtons
+                title: TIME BUTTONS
+            name: series
+            title: TIME SERIES
+        -   id: 8
+            type: section
+            elements:
+            -   id: 9
+                type: section-array
+                elements:
+                -   id: 10
+                    type: autogenerate-id
+                    name: id
+                    prefix: ''
+                    title: Id
+                -   id: 1
+                    type: input-text
+                    name: label
+                    default: ''
+                    title: LABEL
+                -   id: 1
+                    type: input-text
+                    name: date
+                    default: ''
+                    title: 'DATE (static: yyyymmdd, or dynamic: today,thisMonth,...)'
+                -   id: 4
+                    type: checkbox
+                    name: dynamicDate
+                    default: false
+                    title: Dynamic Date?
+                -   id: 3
+                    type: selector
+                    name: type
+                    options:
+                    -   value: Y
+                        text: Year
+                    -   value: M
+                        text: Month
+                    -   value: D
+                        text: Day
+                    title: TYPE
+                -   id: 3
+                    type: selector
+                    name: operation
+                    options:
+                    -   value: count
+                        text: COUNT
+                    title: OPERATION
+                -   id: 4
+                    type: checkbox
+                    name: percent
+                    default: false
+                    title: PERCENT?
+                name: kpiIndicators
+                title: KPI INDICATORS
+            name: indicators
+            title: TIMESERIES INDICATORS
+        name: timeseries
+        title: TIME SERIES SETUP
+public: false

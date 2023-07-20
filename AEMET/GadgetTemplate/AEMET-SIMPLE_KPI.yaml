@@ -1,0 +1,372 @@
+createdAt: 1688729771274
+updatedAt: 1688729771274
+id: ff685fb4-83e6-488a-a91d-056249a693b0
+identification: AEMET-SIMPLE_KPI
+user: administrator
+description: AEMET SIMPLE KPI INDICATOR
+type: vueJS
+template: !html |-
+    <style>
+       .widget-maximize {
+          left: 0px !important;
+          top: 0px !important;
+          width: 97% !important;
+          height: 100% !important;
+          z-index: 500;
+       }
+    </style>
+    <!--Focus here and F11 to full screen editor-->
+    <div class="component-simplekpi">
+       <div v-if="loading" class="skeleton skeleton-min">
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+       </div>
+       <!-- COMPONENT BEGIN -->
+       <div class="component" v-else :style="setComponentStyle">
+          <h3 class="component-title" v-if="component.showTitle">{{component.title}}</h3>
+          <div class="component-cards" :style="setGridLayout">
+             <div class="component-card summary" v-if="component.summary.show" :style="setComponentLayout('summary')">
+                <!--SUMMARY BEGIN -->
+                <div class="component-card_header" v-if="component.summary.showTitle">
+                   <h4 class="component-card_title">{{component.summary.title}}</h4>
+                </div>
+                <div class="component__data">
+                   <div class="component__data-info">
+                      <div class="component__period">
+                         <span class="component__kpi-text" :title="kpiLabel">{{kpiLabel}}</span>
+                      </div>
+                      <strong class="component__kpi-value" :class="setKpiSizeClass">{{ kpiValue !== '---' ? Number(kpiValue).toLocaleString() : kpiValue }} <abbr>{{ kpiUnit }}</abbr> </strong>
+                      <div class="component__kpi-desc font-size-12" v-if="showKpiDesc" style="display: inline-block!important">{{getDynamicDate(kpiDesc)}} </div>
+                   </div>
+                </div>
+             </div>
+             <!-- SUMMARY END -->
+             <div class="component-card chart" v-if="component.chart.show" :style="setComponentLayout('chart')">
+                <!-- CHART BEGIN -->
+                <div class="component-card_header" v-if="component.chart.showTitle">
+                   <h4 class="component-card_title">{{component.chart.title}}</h4>
+                </div>
+                <div v-if="showKpiIcon" class="d-flex" :class="component.chart.order === 1 ? 'align-items-left' : 'align-items-right'">
+                   <div class="avatar-sm">
+                      <span class="avatar-title rounded-circle" :style="setKpiAvatar"><i :class="kpiIcon ? kpiIcon + ' w-icon-sm' : 'wi wi-barometer w-icon-sm'"></i></span>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- COMPONENT END -->
+       </div>
+    </div>
+templateJS: !html |
+    // BASE SIMPLE_KPI COMPONENT
+
+    vm.vueconfig = {
+        el: document.querySelector('#' + vm.id + ' vuetemplate .component-simplekpi'),
+        data: {
+            ds: [],
+            maskId: 'component-simplekpi',
+            elClass: '',
+            containerClass: '',
+            background: '#FFF',
+            backgroundLoaded: '#FFF',
+            loading: true,
+            loadingTitle: 'Simple KPI',
+            formatted: 0,
+            filters:[],
+
+            // SIMPLE KPI PARAMETERS -----------------------------------------------------
+            // {"parameters":{"datasource":{"kpiField":null,"kpiOperation":"sum"},"setup":{"kpiLabel":"","kpiUnit":"","showKpiDesc":false,"kpiDesc":"","showKpiIcon":false,"kpiIconPosition":"left","kpiIcon":"wi wi-barometer"},"advanced":{"component":"{}"}}}
+
+            kpiLabel: vm.tparams.parameters.setup.kpiLabel || '',
+            showKpiDesc: vm.tparams.parameters.setup.showKpiDesc,
+            kpiDesc: vm.tparams.parameters.setup.kpiDesc || '',
+            kpiBg: vm.tparams.parameters.setup.kpiIconBg,
+            kpiIcon: vm.tparams.parameters.setup.kpiIcon,
+            showKpiIcon: vm.tparams.parameters.setup.showKpiIcon,
+            kpiSize: 'kpi-value-md', // pendiente
+            kpiValue: 0,
+            kpiUnit: vm.tparams.parameters.setup.kpiUnit || '',
+            kpiField: vm.tparams.parameters.datasource.kpiField,
+            kpiMaxField: vm.tparams.parameters.datasource.kpiMaxField,
+            kpiOperation: vm.tparams.parameters.datasource.kpiOperation || 'sum',
+            kpiIconPosition: vm.tparams.parameters.setup.kpiIconPosition || 'left',
+            kpiFormat: vm.tparams.parameters.datasource.kpiFormat || 'compact',
+            kpiExclude: vm.tparams.parameters.datasource.kpiExclude || false,
+            kpiExcludeFilter: vm.tparams.parameters.datasource.kpiExcludeFilter || false,
+
+            // --------------------------------------------------------------------------
+
+        },
+        methods: {
+            drawVueComponent: function (newData, oldData) {
+                //This will be call on new data
+                if (vm.datastatus && vm.datastatus.length > 0) { this.filters = vm.datastatus} else { this.filters = [] }
+                this.calculateKpi(newData, this.kpiOperation)
+            },
+            resizeEvent: function () {
+                //Resize event
+            },
+            destroyVueComponent: function () {
+                vm.vueapp.$destroy();
+            },
+            receiveValue: function (data) {
+                //data received from datalink
+            },
+            sendValue: vm.sendValue,
+            sendFilter: vm.sendFilter,
+            setComponentLayout(item) {
+                if (this.component[item].style && this.component[item].order) {
+                    this.component[item].style.order = this.component[item].order // add order to style
+                    return this.component[item].style
+                } else {
+                    if (this.component[item].order) { return { order: this.component[item].order } } else { return {} }
+                }
+            },
+            loaded() {
+                this.loading = false
+            },
+            // CALCULATE OPERATION KPI
+            calculateKpi(data, operation) {
+
+                var value = 0
+                if (data.length === 0) { this.kpiValue = 0; return false }
+
+                // operation functions
+                const count = arr => this.kpiField.includes('.') ? arr.map(x => x[this.kpiField.split('.')[0]][this.kpiField.split('.')[1]]).length : arr.map(x => x[this.kpiField]).length
+                const sum = arr => this.kpiField.includes('.') ? arr.map(x => x[this.kpiField.split('.')[0]][this.kpiField.split('.')[1]]).reduce((a, b) => a + b) : arr.map(x => parseInt(x[this.kpiField])).reduce((a, b) => a + b)
+                const avg = arr => this.kpiField.includes('.') ? arr.map(x => x[this.kpiField.split('.')[0]][this.kpiField.split('.')[1]]).reduce((acc, v, i, a) => (acc + v / a.length), 0) : arr.map(x => parseInt(x[this.kpiField])).reduce((acc, v, i, a) => (acc + v / a.length), 0)
+                const min = arr => this.kpiField.includes('.') ? Math.min(...arr.map(x => x[this.kpiField.split('.')[0]][this.kpiField.split('.')[1]])) : Math.min(...arr.map(x => x[this.kpiField]))
+                const max = arr => this.kpiField.includes('.') ? Math.max(...arr.map(x => x[this.kpiField.split('.')[0]][this.kpiField.split('.')[1]])) : Math.max(...arr.map(x => x[this.kpiField]))
+                const percent = arr => {
+                var percent = 0
+                var field = this.kpiField
+                var totalField = this.kpiMaxField ? this.kpiMaxField : field
+                var total = arr.map(x => x[totalField]).reduce((x, y) => x + y, 0)
+                percent = total > 0 ? Number(((arr.map(x => x[field]).reduce((x, y) => x + y, 0) * 100) / total)) : 0
+                return percent
+             }
+                const format = (value, format) => { return format === 'raw' ? value : format === 'absolute' ? Math.ceil(value) :  (value).toFixed(2)  }
+
+                // get operations
+                switch (operation) {
+                    case 'average':
+                        this.kpiValue = this.kpiExclude && data.length > 1 ? '---' : this.kpiExcludeFilter && this.filters.length === 0 ? '---' : format(avg(data), this.kpiFormat)
+                        break;
+                    case 'count':
+                        this.kpiValue = this.kpiExclude && data.length > 1 ? '---' : this.kpiExcludeFilter && this.filters.length === 0 ? '---' : format(count(data), this.kpiFormat)
+                        break;
+                    case 'sum':
+                        this.kpiValue = this.kpiExclude && data.length > 1 ? '---' : this.kpiExcludeFilter && this.filters.length === 0 ? '---' : format(sum(data), this.kpiFormat)
+                        break;
+                    case 'max':
+                        this.kpiValue = this.kpiExclude && data.length > 1 ? '---' : this.kpiExcludeFilter && this.filters.length === 0 ? '---' : format(max(data), this.kpiFormat)
+                        break;
+                    case 'min':
+                        this.kpiValue = this.kpiExclude && data.length > 1 ? '---' : this.kpiExcludeFilter && this.filters.length === 0 ? '---' : format(min(data), this.kpiFormat)
+                        break;
+                    case 'percent':
+                        this.kpiValue = this.kpiExclude && data.length > 1 ? '---' : this.kpiExcludeFilter && this.filters.length === 0 ? '---' : format(percent(data), this.kpiFormat)
+                }
+            },
+            // GET A DYNAMIC DATE a.k.a Today, and return date in desired format
+            getDynamicDate(format) {
+
+                //var dateFormat = format === 'Y' ? 'YYYY' : format === 'M' ? 'YYYYMM' : format === 'D' ? 'YYYYMMDD' : format === 'H' ? 'YYYYMMDDHH' : 'YYYYMMDD'
+                var dateFormat = 'DD/MM/YYYY'
+                if(format.includes('#')){
+                    let positionInitialText = format.indexOf('(')
+                    let chainText = format.slice(0,positionInitialText)
+                    let positionInitialDate = format.indexOf('#');
+                    let positionFinalDate = format.indexOf(')');
+                    var chainDate = format.slice(positionInitialDate + 1, positionFinalDate)
+
+                    var dynamicDates = {
+                        today: moment().format(dateFormat).toString(),
+                        yesterday: moment().subtract(1, 'day').format(dateFormat).toString(),
+                        tomorrow: moment().add(1, 'day').format(dateFormat).toString(),
+                        startWeek: moment().startOf('week').format('dddd') === 'Sunday' ? moment().startOf('week').add('d', 1).format(dateFormat).toString() : moment().startOf('week').format(dateFormat).toString(),
+                        endWeek: moment().endOf('week').format(dateFormat).toString(),
+                        oneWeekAgo: moment().subtract(7, 'day').format(dateFormat).toString(),
+                        thisMonth: moment().format(dateFormat),
+                        startMonth: moment().startOf('month').format(dateFormat).toString(),
+                        endMonth: moment().subtract(1, 'month').startOf('month').format(dateFormat).toString(),
+                        oneMonthsAgo: moment().subtract(1, 'months').format(dateFormat).toString(),
+                        firstDayMonthAgo: moment().subtract(1, 'months').startOf('month').format(dateFormat),
+                        firstDayTwoMonthsAgo: moment().subtract(2, 'months').startOf('month').format(dateFormat),
+                        twoMonthsAgo: moment().subtract(2, 'months').format(dateFormat).toString(),
+                        threeMonthsAgo: moment().subtract(3, 'months').format(dateFormat).toString(),
+                        sixMonthsAgo: moment().subtract(6, 'months').format(dateFormat).toString(),
+                        nineMonthsAgo: moment().subtract(9, 'months').format(dateFormat).toString(),
+                        yearAgo: moment().subtract(1, 'year').format(dateFormat).toString(),
+                        startYear: moment().startOf('year').format(dateFormat).toString(),
+                        thisYear: moment().format(dateFormat).toString()
+                    }
+                    if (!dynamicDates[chainDate]) { return chainText } else { return chainText + ' (' + dynamicDates[chainDate] + ')'}
+                }else{
+                return format
+             }
+            }
+        },
+        computed: {
+            setGridLayout () {
+                var layout = !this.component.summary.show ? { gridTemplateColumns: '1fr!important' } : (this.component.grid && this.component.grid !== '') ? { gridTemplateColumns: this.component.grid + '!important' } : { gridTemplateColumns: '1fr 2fr' }
+                return layout
+            },
+            setComponentStyle () {
+                var styleSettings = this.kpiIconPosition === 'left' ? { 'margin-top': '18px', 'margin-left': '8px'} : { 'margin-top': '18px', 'margin-right': '8px'}
+                return styleSettings
+            },
+            setKpiAvatar() {
+                return { 'background-color': this.kpiBg ? this.kpiBg + '!important' : 'rgba(200, 224, 222, 1)!important', 'animation': this.kpiAnimation ? this.kpiAnimation : 'pulse-blue 2s infinite' }
+            },
+            setKpiSizeClass() {
+                return this.kpiSize ? this.kpiSize : 'kpi-value-sm'
+            },
+            // KPI COMPONENT ----- (can be modified in advanced configuration) ------
+            component() {
+                return {
+                    showTitle: false,
+                    title: 'COMPONENT TITLE - SIMPLE KPI',
+                    grid: '50px 1fr',
+                    summary: {
+                        show: true,
+                        showTitle: false,
+                        title: 'KPI Simple',
+                        style: { background: 'transparent' },
+                        order: this.kpiIconPosition === 'left' ? 2 : 1
+                    },
+                    chart: {
+                        show: this.showKpiIcon,
+                        showTitle: false,
+                        title: 'KPI Icon: ',
+                        style: { background: 'transparent' },
+                        order: this.kpiIconPosition === 'left' ? 1 : 2
+                    }
+                }
+            },
+        },
+        mounted() {
+            setTimeout(() => this.loaded(), 1500)
+        }
+    }
+
+    //Init Vue app
+    vm.vueapp = new Vue(vm.vueconfig);
+headerlibs: !html ""
+config:
+    gform:
+    -   id: 8
+        type: section
+        elements:
+        -   id: 6
+            type: ds-field
+            name: kpiField
+            title: KPI Field
+        -   id: 3
+            type: selector
+            name: kpiOperation
+            options:
+            -   value: count
+                text: COUNT
+            -   value: average
+                text: AVERAGE
+            -   value: sum
+                text: SUM
+            -   value: max
+                text: MAX
+            -   value: min
+                text: MIN
+            -   value: percent
+                text: PERCENT
+            title: KPI Operation
+            default: sum
+        -   id: 4
+            type: checkbox
+            name: kpiExclude
+            default: false
+            title: Exclude Multiple Registers
+        -   id: 4
+            type: checkbox
+            name: kpiExcludeFilter
+            default: false
+            title: Exclude if not filter
+        -   id: 1
+            type: input-text
+            name: kpiMaxField
+            default: ''
+            title: KPI Max Field (PERCENT)
+        -   id: 3
+            type: selector
+            name: kpiFormat
+            options:
+            -   value: raw
+                text: Raw
+            -   value: compact
+                text: Compact
+            -   value: absolute
+                text: Absolute
+            title: KPI FORMAT
+            default: compact
+        name: datasource
+        title: ORIGEN DE DATOS
+    -   id: 8
+        type: section
+        elements:
+        -   id: 1
+            type: input-text
+            name: kpiLabel
+            default: ''
+            title: KPI Label
+        -   id: 1
+            type: input-text
+            name: kpiUnit
+            default: ''
+            title: KPI Unidad
+        -   id: 4
+            type: checkbox
+            name: showKpiDesc
+            default: false
+            title: Mostrar Descripción?
+        -   id: 1
+            type: input-text
+            name: kpiDesc
+            default: ''
+            title: KPI Description
+        -   id: 4
+            type: checkbox
+            name: showKpiIcon
+            default: false
+            title: Mostrar Icono?
+        -   id: 3
+            type: selector
+            name: kpiIconPosition
+            options:
+            -   value: left
+                text: Left
+            -   value: right
+                text: Right
+            title: KPI Icon posición
+            default: left
+        -   id: 1
+            type: input-text
+            name: kpiIcon
+            default: wi wi-barometer
+            title: KPI Icono
+        -   id: 5
+            type: color-picker
+            name: kpiIconBg
+            default: rgba(200, 224, 222, 1)
+            title: KPI Icono Color Fondo
+        name: setup
+        title: SETUP
+    -   id: 8
+        type: section
+        elements:
+        -   id: 1
+            type: input-text
+            name: component
+            default: '{}'
+            title: KPI Componente Configuración
+        name: advanced
+        title: CONFIGURACION AVANZADA
+public: false

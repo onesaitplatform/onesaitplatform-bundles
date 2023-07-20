@@ -1,0 +1,38 @@
+---
+createdAt: 1688729771250
+updatedAt: 1688729771250
+id: "cae6b0b4-3b35-44fb-b97e-295259815cce"
+identification: "AEMET_PROVINCIAS"
+user: "administrator"
+jsonSchema:
+  properties:
+    nombre:
+      type: "string"
+    provincia:
+      type: "string"
+  type: "object"
+  description: "Info AEMET_PROVINCIAS"
+  $schema: "http://json-schema.org/draft-04/schema#"
+  title: "AEMET_PROVINCIAS"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: false
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+rtdbToHdbStorage: "MONGO_GRIDFS"
+description: "AEMET DATA FROM PENDATA"
+metainf: "imported,json"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+supportsJsonLd: false
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

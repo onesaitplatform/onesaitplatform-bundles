@@ -1,0 +1,12 @@
+---
+createdAt: 1688730980052
+updatedAt: 1688730980052
+id: "52a8457e-1a0c-4cb2-85b9-39a366acd72b"
+gadget: "6c817087-3b23-4f9c-83c3-a3511a5b1b3d"
+datasource: "ae453fab-b318-49c0-89cd-a08b86be4a39"
+config:
+  fields:
+  - "nombre"
+  name: "Nombre"
+  config:
+    position: "1"

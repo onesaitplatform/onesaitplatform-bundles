@@ -1,0 +1,107 @@
+---
+createdAt: 1688729771284
+updatedAt: 1688729771284
+id: "77baa2d4-c6a1-4da4-bda8-619280a2aef6"
+identification: "AEMET-dashboards"
+description: "AEMET DASHBOARD STYLEs"
+model:
+  header:
+    backgroundColor: "hsla(0, 0%, 100%, 0)"
+    enable: false
+    pageColor: "hsl(205, 35%, 48%)"
+    iconColor: "hsl(206, 4%, 38%)"
+    logo:
+      height: 48
+    title: "AEMET - ONESAIT PLATFORM DASHBOARDS SYTLES AND COMPONENTS"
+    textColor: "hsl(206, 5%, 43%)"
+    height: 52
+  navigation:
+    showBreadcrumbIcon: false
+    showBreadcrumb: false
+  pages:
+  - title: "Main"
+    icon: "apps"
+    background:
+      file: []
+    layers:
+    - gridboard:
+      - {}
+      title: "baseLayer"
+      $$hashKey: "object:23"
+    selectedlayer: 0
+    combinelayers: false
+    $$hashKey: "object:4"
+  gridOptions:
+    displayGrid: "onDrag&Resize"
+    maxItemRows: 1000
+    outerMargin: true
+    disableWindowResize: false
+    minCols: 50
+    defaultItemCols: 1
+    disableLiveResize: true
+    maxItemArea: 25000
+    minItemRows: 1
+    emptyCellDragMaxCols: 1000
+    enableEmptyCellDrag: false
+    maxRows: 110
+    enableEmptyCellAlign: true
+    draggable:
+      delayStart: 100
+      ignoreContent: true
+      dragHandleClass: "drag-handler"
+      enabled: true
+    gridType: "verticalFixed"
+    minItemArea: 1
+    compactType: "none"
+    api: {}
+    pushDirections:
+      east: true
+      south: true
+      north: true
+      west: true
+    disableLiveMove: true
+    disablePushOnResize: true
+    maxItemCols: 1000
+    margin: 16
+    minRows: 80
+    resizable:
+      delayStart: 0
+      enabled: true
+    swap: true
+    defaultItemRows: 1
+    enableEmptyCellContextMenu: false
+    enableEmptyCellDrop: true
+    scrollToNewItems: false
+    dragGadgetType: "livehtml"
+    fixedRowHeight: 35
+    minItemCols: 1
+    emptyCellDragMaxRows: 1000
+    disablePushOnDrag: true
+    pushResizeItems: false
+    mobileBreakpoint: 640
+    disableWarnings: false
+    fixedColWidth: 45
+    enableEmptyCellClick: false
+    maxCols: 49
+    pushItems: false
+  editButtonsIframe:
+    urlParameterButton: true
+    trashButton: false
+    editGadgetMenu: true
+    closeButton: true
+    configButton: true
+    dataLinkButton: true
+    addElementButton: true
+    moveToolBarButton: true
+    active: true
+    filterGadgetMenu: true
+  interactionHash:
+    "1": []
+headerlibs: "<!-- DASHBOARD STYLES -->\r\n<link href=\"/web/web-resources-AEMET/libs/css/dashboard.css\"\
+  \ rel=\"stylesheet\">\r\n<link href=\"/web/web-resources-AEMET/fonts/fonts.css\"\
+  \ rel=\"stylesheet\">\r\n\r\n<!-- ADDITIONAL STYLES: weather icons, openlayers (map)\
+  \ -->\r\n<link href=\"/web/web-resources-AEMET/fonts/css/weather-icons.min.css\"\
+  \ rel=\"stylesheet\">\r\n<link href=\"/web/web-resources-AEMET/libs/css/ol.css\"\
+  \ rel=\"stylesheet\">\r\n\r\n<!-- ADDITIONAL SCRIPTS: excel export, openlayers -->\r\
+  \n<script src=\"/web/web-resources-AEMET/libs/js/xlsx.full.min.js\"></script>\r\n\
+  <script src=\"/webweb-resources-AEMET/libs/js/ol.js\"></script>"

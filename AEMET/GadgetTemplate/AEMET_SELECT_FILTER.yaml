@@ -1,0 +1,206 @@
+createdAt: 1688729771275
+updatedAt: 1688729771275
+id: 66e88bb0-edfd-4823-89c1-5a41f32e4579
+identification: AEMET_SELECT_FILTER
+user: administrator
+description: AEMET SELECT FILTER (just single select)
+type: vueJSODS
+template: !html |-
+    <!-- GADGET SIMPLE SELECTOR FILTER -->
+    <div class="select-filter">
+        <div class="filter">
+            <ods-select v-model="formdata[filter.model]" :multiple="filter.multiple" :size="filter.size" :clearable="filter.clearable" :name="filter.name" :placeholder="filter.placeholder" :filterable="filter.filterable" @change="handleFilter()">
+                <ods-option v-for="item in filter.options" :key="item.value" :label="item.label" :value="item.value"></ods-option>
+            </ods-select>
+        </div>
+    </div>
+
+    <!-- GADGET STYLES -->
+    <style>
+    .gadget-app {
+        width: 100%;
+        height: 100%;
+    }
+    .select-filter {
+        margin: 8px 12px;
+        padding: 8px;
+    }
+    </style>
+templateJS: !html |
+    //Write your Vue with ODS JSON controller code here
+
+    //Focus here and F11 or F10 to full screen editor
+
+    //This function will be call once to init components
+
+    vm.vueconfig = {
+       el: document.getElementById(vm.id).querySelector('vuetemplate .select-filter'),
+       data:{
+          ds:[],
+          // FILTER PROPERTIES
+          filter: {
+              model: vm.tparams.parameters.setup.model,
+              size: vm.tparams.parameters.setup.size,
+              placeholder: vm.tparams.parameters.setup.placeholder,
+              label: vm.tparams.parameters.setup.label,
+              filterable: vm.tparams.parameters.setup.filterable,
+              clearable: vm.tparams.parameters.setup.clearable,
+              multiple: vm.tparams.parameters.setup.multiple,
+              sendFilter: vm.tparams.parameters.filters.sendFilter,
+              sendValue: vm.tparams.parameters.filters.sendValue,
+              filterValue: vm.tparams.parameters.filters.filterValue,
+              filterType: vm.tparams.parameters.filters.filterType,
+              filterLabel: vm.tparams.parameters.filters.filterLabel,
+              options: []
+          },
+          formdata:{
+          }
+       },
+       methods:{
+          drawVueComponent: function(newData,oldData){
+             //This will be call on new data
+             this.fillData(newData)
+          },
+          resizeEvent: function(){
+             //Resize event
+          },
+          destroyVueComponent: function(){
+             vm.vueapp.$destroy();
+          },
+          receiveValue: function(data){
+             //data received from datalink
+          },
+          sendValue: vm.sendValue,
+          sendFilter: vm.sendFilter,
+          // SET VALUE
+          setValue () {
+             if (this.filter.multiple){
+                if (this.formdata[this.filter.model].length === 0) return null
+                return this.filter.filterType === 'string' ? '("' + this.formdata[this.filter.model].join('","') + '")' : '(' + this.formdata[this.filter.model].join(',') + ')'
+             } else {
+                return this.formdata[this.filter.model] === '' ? null : this.formdata[this.filter.model]
+             }
+          },
+          // FILL DATA
+          fillData (data) {
+              var app = this
+              console.log('Fill data in selector -->')
+              if (data.length > 0) {
+                  this.filter.options = data.map(o => { return { label: o[app.filter.filterLabel], value: o[app.filter.filterValue] } })
+              } else {
+                  this.filter.options = []
+              }
+
+          },
+          // HANDLE FILTER
+          handleFilter() {
+
+             var op = this.filter.multiple ? 'IN' : '='
+             var filterValue = this.setValue()
+
+             console.log('Handle Filter -->')
+             if (this.sendFilter) {
+               vm.sendFilter(this.filter.filterValue, filterValue, op)
+             }
+             if (this.sendValue) {
+               vm.sendValue(this.filter.model,this.formdata[this.filter.model])
+             }
+          }
+       },
+       created () {
+           this.$set(this.formdata, this.filter.model, this.filter.multiple ? [] : '')
+       }
+    }
+
+    //Init Vue app
+    vm.vueapp = new Vue(vm.vueconfig);
+headerlibs: !html ""
+config:
+    gform:
+    -   id: 8
+        type: section
+        elements:
+        -   id: 3
+            type: selector
+            name: size
+            options:
+            -   value: micro
+                text: Micro 72px
+            -   value: deci
+                text: Deci 152px
+            -   value: hecto
+                text: Hecto 204px
+            -   value: mega
+                text: Mega 304px
+            -   value: hexa
+                text: Hexa 432px
+            -   value: default
+                text: Default 100%
+            title: Size
+            default: default
+        -   id: 1
+            type: input-text
+            name: placeholder
+            default: Seleccionar
+            title: PlaceHolder
+        -   id: 1
+            type: input-text
+            name: label
+            default: ''
+            title: Label
+        -   id: 1
+            type: input-text
+            name: model
+            default: selector
+            title: Model
+        -   id: 4
+            type: checkbox
+            name: filterable
+            default: true
+            title: Filterable
+        -   id: 4
+            type: checkbox
+            name: clearable
+            default: true
+            title: Clearable
+        -   id: 4
+            type: checkbox
+            name: multiple
+            default: false
+            title: Multiple
+        name: setup
+        title: SETUP
+    -   id: 8
+        type: section
+        elements:
+        -   id: 4
+            type: checkbox
+            name: sendFilter
+            default: true
+            title: Send Filter?
+        -   id: 4
+            type: checkbox
+            name: sendValue
+            default: false
+            title: Send Value?
+        -   id: 6
+            type: ds-field
+            name: filterValue
+            title: Option Value
+        -   id: 3
+            type: selector
+            name: filterType
+            options:
+            -   value: string
+                text: STRING
+            -   value: number
+                text: Number
+            title: Option Type
+            default: string
+        -   id: 6
+            type: ds-field
+            name: filterLabel
+            title: Option label
+        name: filters
+        title: FILTERS
+public: false

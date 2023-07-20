@@ -1,0 +1,12 @@
+---
+createdAt: 1688730980077
+updatedAt: 1688730980077
+id: "aee5b75e-e6e7-4223-b96d-1d792d7b7cdc"
+gadget: "6c817087-3b23-4f9c-83c3-a3511a5b1b3d"
+datasource: "ae453fab-b318-49c0-89cd-a08b86be4a39"
+config:
+  fields:
+  - "indicativo"
+  name: "Indicativo"
+  config:
+    position: "3"

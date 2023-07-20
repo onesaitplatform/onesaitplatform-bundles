@@ -1,0 +1,15 @@
+---
+createdAt: 1688729771276
+updatedAt: 1688729771276
+id: "ae453fab-b318-49c0-89cd-a08b86be4a39"
+identification: "AEMET_ESTACIONES"
+user: "administrator"
+mode: "query"
+query: "select * from AEMET_Estaciones where provincia IN ('VALENCIA','MADRID','CASTELLON')\
+  \ order by provincia asc"
+dbtype: "RTDB"
+ontology: "fcba5488-2019-45d9-a0db-80075757cce9"
+refresh: 0
+maxvalues: 1000
+description: "AEMET ESTACIONES "
+config: null

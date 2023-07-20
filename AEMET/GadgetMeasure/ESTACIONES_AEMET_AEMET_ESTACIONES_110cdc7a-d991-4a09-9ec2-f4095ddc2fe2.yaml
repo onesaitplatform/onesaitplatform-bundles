@@ -1,0 +1,12 @@
+---
+createdAt: 1688730980065
+updatedAt: 1688730980065
+id: "110cdc7a-d991-4a09-9ec2-f4095ddc2fe2"
+gadget: "6c817087-3b23-4f9c-83c3-a3511a5b1b3d"
+datasource: "ae453fab-b318-49c0-89cd-a08b86be4a39"
+config:
+  fields:
+  - "altitud"
+  name: "Altura"
+  config:
+    position: "2"

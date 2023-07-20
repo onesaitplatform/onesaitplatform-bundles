@@ -1,0 +1,14 @@
+---
+createdAt: 1688729771277
+updatedAt: 1688729771277
+id: "bf7b01ea-82e1-4aa5-9896-05b8c66e06dd"
+identification: "AEMET_PROVINCIAS"
+user: "administrator"
+mode: "query"
+query: "select * from AEMET_PROVINCIAS order by nombre asc"
+dbtype: "RTDB"
+ontology: "cae6b0b4-3b35-44fb-b97e-295259815cce"
+refresh: 0
+maxvalues: 100
+description: "AEMET PROVINCIAS"
+config: null

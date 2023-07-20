@@ -1,0 +1,174 @@
+createdAt: 1688729771272
+updatedAt: 1688729771272
+id: b09e5bc6-44e0-498b-9a0b-75a6affe0a1e
+identification: AEMET-HEADER
+user: administrator
+description: HEADER for AEMET Dashboards
+type: vueJSODS
+template: !html |-
+    <style>
+       .page-title-box {
+          padding-bottom: 0px;
+          margin: 0px 24px 0px 0px;
+       }
+
+       .align-items-center {
+          align-items: center !important;
+       }
+
+       .justify-content-between {
+          justify-content: space-between !important;
+       }
+
+       .d-flex {
+          display: flex !important;
+       }
+
+       .page-title-right ol.breadcrumb {
+          margin-bottom: 0;
+       }
+
+       .page-title-box .breadcrumb {
+          background-color: transparent;
+          padding: 0;
+       }
+
+       .breadcrumb {
+          display: flex;
+          flex-wrap: wrap;
+          padding: 0.75rem 1rem;
+          margin-bottom: 1rem;
+          list-style: none;
+       }
+
+       .breadcrumb-item>a {
+          color: #495057;
+          font-size: 0.8125rem;
+          font-family: var(--main-font-family, 'Poppins');
+       }
+
+       .breadcrumb-item.active {
+          color: #74788d;
+          font-size: 0.8125rem;
+       }
+
+       .font-size-15 {
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 15px !important;
+          font-family: var(--main-font-family, 'Poppins');
+       }
+
+       .no-shadow {
+          box-shadow: none !important
+       }
+    </style>
+    <div class="page-title-box d-flex align-items-center justify-content-between gadget-header" :style="{'margin-top': headerTop + 'px', 'margin-left': headerLeft + 'px'}">
+        <img v-if="showLogo" :src="logoSrc" :title="headerTitle" class="logo" :style="{ width: logoWidth + 'px', height: 'auto', position: 'absolute', top: headerTop + 'px', left: headerLeft + 'px' }">
+       <h4 class="mb-0 font-size-15" :style="showLogo ? {'margin-left': titleMargin, 'margin-top': '15px'} : {margin: '0px'}">{{headerTitle}}</h4>
+       <div class="page-title-right">
+          <nav aria-label="breadcrumb" class="m-0" v-if="showHeaderBreadcrum">
+             <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                   <a class="" href="#" target="_self" aria-current="location">{{headerBreadcrum}} </a>
+                </li>
+             </ol>
+          </nav>
+       </div>
+    </div>
+templateJS: !html |-
+    vm.vueconfig = {
+       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-header'),
+       data:{
+          ds:[],
+          headerTitle: vm.tparams.parameters.headerTitle,
+          showLogo: vm.tparams.parameters.showLogo,
+          logoWidth: vm.tparams.parameters.logoWidth,
+          logoSrc: vm.tparams.parameters.logoSrc,
+            showHeaderBreadcrum: vm.tparams.parameters.showHeaderBreadcrum,
+          headerBreadcrum: 'Dashboards / ' + vm.tparams.parameters.headerBreadcrum,
+          headerTop: vm.tparams.parameters.headerTop,
+          headerLeft: vm.tparams.parameters.headerLeft
+
+       },
+       computed: {
+          titleMargin () {
+             let espace = parseInt(this.logoWidth) + 15
+             return espace + 'px'
+          }
+       },
+       methods:{
+          drawVueComponent: function(newData,oldData){
+             //This will be call on new data
+          },
+          resizeEvent: function(){
+             //Resize event
+          },
+          destroyVueComponent: function(){
+             vm.vueapp.$destroy();
+          },
+          receiveValue: function(data){
+             //data received from datalink
+          },
+          sendValue: vm.sendValue,
+          sendFilter: vm.sendFilter,
+          gridsterClass (cssClass) {
+             if (this.$el.closest('GRIDSTER-ITEM')) { this.$el.closest('GRIDSTER-ITEM').className += ' ' + cssClass }
+          }
+       },
+       mounted () {
+          this.gridsterClass('no-shadow')
+       }
+    }
+    //Init Vue app
+    vm.vueapp = new Vue(vm.vueconfig);
+headerlibs: !html ""
+config:
+    gform:
+    -   id: 1
+        type: input-text
+        name: headerTitle
+        default: AEMET - DASHBOARD
+        title: HEADER TITLE
+    -   id: 4
+        type: checkbox
+        name: showLogo
+        default: true
+        title: SHOW LOGO?
+    -   id: 2
+        type: input-number
+        name: logoWidth
+        default: '100'
+        title: LOGO WIDTH
+        min: '100'
+        max: '250'
+    -   id: 1
+        type: input-text
+        name: logoSrc
+        default: /web/web-resources-AEMET/images/aemet-logo.png
+        title: LOGO
+    -   id: 4
+        type: checkbox
+        name: showHeaderBreadcrum
+        default: true
+        title: SHOW BREADCRUM?
+    -   id: 1
+        type: input-text
+        name: headerBreadcrum
+        default: Home
+        title: HEADER BREADCRUM
+    -   id: 2
+        type: input-number
+        name: headerTop
+        default: '0'
+        title: TOP (px)
+        min: '0'
+        max: '100'
+    -   id: 2
+        type: input-number
+        name: headerLeft
+        default: '0'
+        title: LEFT (px)
+        min: '0'
+        max: '100'
+public: false

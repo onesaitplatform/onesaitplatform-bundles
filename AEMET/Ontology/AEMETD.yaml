@@ -1,0 +1,74 @@
+---
+createdAt: 1688729771238
+updatedAt: 1688729771238
+id: "93d7b95b-b90a-49ed-8ec8-5e18434343e7"
+identification: "AEMETD"
+user: "administrator"
+jsonSchema:
+  properties:
+    fecha:
+      type: "string"
+    indicativo:
+      type: "string"
+    nombre:
+      type: "string"
+    provincia:
+      type: "string"
+    altitud:
+      type: "string"
+    tmed:
+      type: "string"
+    prec:
+      type: "string"
+    tmin:
+      type: "string"
+    horatmin:
+      type: "string"
+    tmax:
+      type: "string"
+    horatmax:
+      type: "string"
+    dir:
+      type: "string"
+    velmedia:
+      type: "string"
+    racha:
+      type: "string"
+    horaracha:
+      type: "string"
+    sol:
+      type: "string"
+    presMax:
+      type: "string"
+    horaPresMax:
+      type: "string"
+    presMin:
+      type: "string"
+    horaPresMin:
+      type: "string"
+  type: "object"
+  description: "Info AEMETD"
+  $schema: "http://json-schema.org/draft-04/schema#"
+  title: "AEMETD"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: false
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+rtdbToHdbStorage: "MONGO_GRIDFS"
+description: "AEMET DATA FROM PENDATA"
+metainf: "imported,json"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+supportsJsonLd: false
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

@@ -1,0 +1,1485 @@
+createdAt: 1688729771281
+updatedAt: 1688731047608
+id: 36ffd939-8d3d-4d86-ad1c-e74533828a10
+identification: AEMET-1
+user: administrator
+description: DASHBOARD AEMET OPENDATA
+jsoni18n: ''
+customcss: ''
+customjs: ''
+model:
+    navigation:
+        showBreadcrumbIcon: false
+        showBreadcrumb: false
+    pages:
+    -   combinelayers: false
+        background:
+            file: [
+                ]
+        selectedlayer: 0
+        icon: apps
+        layers:
+        -   gridboard:
+            -   $$hashKey: object:75
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-FOOTER
+                padding: 0
+                backgroundColor: hsla(0, 0%, 100%, 0)
+                notshowDotsMenu: true
+                tparams:
+                    parameters:
+                        copyright: 'AEMET - Onesait Platform Dashboards '
+                        engage:
+                            show: true
+                            description: Engage Menu es un menú de enlaces que se
+                                queda fijo en el centro de la página, a l borde derecho
+                                o izquierdo y que contiene enlaces configurados
+                            links:
+                            -   label: ''
+                                url: ''
+                                target: _blank
+                            position: right
+                hideBadges: true
+                prettyTitle: New inline AEMET-FOOTER (livehtml)
+                rows: 1
+                type: livehtml
+                params:
+                    parameters:
+                        copyright: 'El Tiempo AEMET - Onesait Platform Dashboards '
+                        engage:
+                            show: true
+                            description: Engage Menu es un menú de enlaces que se
+                                queda fijo en el centro de la página, a l borde derecho
+                                o izquierdo y que contiene enlaces configurados
+                            links:
+                            -   label: AEMET
+                                url: https://www.aemet.es/es/portada
+                                target: _blank
+                            -   label: AEMET OpenData
+                                url: https://opendata.aemet.es/centrodedescargas/productosAEMET?
+                                target: _blank
+                            position: right
+                $$hashKey: object:142
+                nomargin: false
+                subtype: vueJS
+                x: 0
+                y: 29
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: New inline AEMET-FOOTER
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688385042599
+                tempId: 25dd460a-b2a4-4c0b-97bc-b67315be4f88
+                customMenuOptions: [
+                    ]
+                cols: 36
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 0
+                template: AEMET-HEADER
+                padding: 0
+                backgroundColor: hsla(0, 0%, 100%, 0)
+                notshowDotsMenu: true
+                tparams:
+                    parameters:
+                        headerBreadcrum: Home
+                        showHeaderBreadcrum: true
+                        headerTitle: AEMET - DASHBOARD
+                hideBadges: true
+                prettyTitle: AEMET-HEADER (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    parameters:
+                        headerBreadcrum: Home
+                        headerTop: '12'
+                        showLogo: true
+                        logoWidth: '100'
+                        logoSrc: /web/web-resources-AEMET/images/aemet-logo.png
+                        showHeaderBreadcrum: false
+                        headerLeft: '12'
+                        headerTitle: 'AEMET - DASHBOARD DATOS DEL TIEMPO '
+                $$hashKey: object:177
+                nomargin: false
+                subtype: vueJSODS
+                x: 0
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: AEMET-HEADER
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688386044563
+                tempId: b09e5bc6-44e0-498b-9a0b-75a6affe0a1e
+                customMenuOptions: [
+                    ]
+                cols: 25
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-SIMPLE_KPI
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                tparams:
+                    datasource:
+                        name: AEMET-TMAX
+                        refresh: 0
+                        id: 75b79d36-4333-49dd-b576-da34b347966b
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiField: tmax
+                            kpiOperation: average
+                            kpiFormat: compact
+                            kpiMaxField: ''
+                        setup:
+                            kpiLabel: Temperatura Máxima
+                            kpiUnit: º
+                            kpiDesc: Día de Hoy
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(200, 224, 222, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-barometer
+                hideBadges: true
+                prettyTitle: TMAX (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_DIARIO
+                        refresh: 0
+                        id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiExclude: false
+                            kpiField: tmax
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                            kpiExcludeFilter: false
+                        setup:
+                            kpiLabel: Temperatura Máxima
+                            kpiUnit: ºC
+                            kpiDesc: ' Media (#today)'
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(13, 42, 70, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-thermometer
+                $$hashKey: object:183
+                nomargin: false
+                subtype: vueJS
+                datasource:
+                    name: AEMET_DIARIO
+                    refresh: 0
+                    id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                    type: query
+                x: 0
+                y: 2
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: TMAX
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688390059904
+                tempId: ff685fb4-83e6-488a-a91d-056249a693b0
+                customMenuOptions: [
+                    ]
+                cols: 7
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 4
+                padding: 0
+                backgroundColor: hsla(0, 0%, 100%, 0)
+                notshowDotsMenu: true
+                hideBadges: true
+                prettyTitle: WeatherCast (livehtml)
+                rows: 30
+                type: livehtml
+                $$hashKey: object:416
+                content: !html |-
+                    <!--Focus here and F11 or F10 to full screen editor-->
+                    <style>
+                       .bg-gadget {
+                          background: #373B44;
+                          /* fallback for old browsers */
+                          background: -webkit-linear-gradient(to top, #4286f4, #373B44);
+                          /* Chrome 10-25, Safari 5.1-6 */
+                          background: linear-gradient(to top, #4286f4, #373B44);
+                          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                          animation: fadeOut 1 3s ease-in;
+                          color: white;
+                       }
+
+                       p.time {
+                          color: white;
+                          position: relative;
+                          float: right;
+                          padding: 12px;
+                          right: 12px;
+                          top: 12px;
+                       }
+
+                       .time {
+                          font-size: 1.5em;
+                          font-family: Poppins;
+                       }
+
+                       .shadow {
+                          text-shadow: 0 0 15px rgba(100, 100, 100, 0.75);
+                       }
+
+                       header h1 {
+                          font-size: 1.5rem;
+                          font-weight: 600;
+                          background-image: linear-gradient(to bottom, #eff1f5, #FFF);
+                          color: transparent;
+                          background-clip: text;
+                          -webkit-background-clip: text;
+                          padding: 12px;
+                          position: relative;
+                          float: left;
+                          top: 12px;
+                          left: 12px;
+                          text-shadow: 0 0 15px rgb(191 217 227 / 60%);
+                       }
+
+                       header small {
+                          position: absolute;
+                          float: left;
+                          top: 62px;
+                          left: 24px;
+                          color: #d5d1d1;
+                          font-family: Poppins;
+                          font-size: 90%;
+                       }
+
+                       /* card glass */
+                       p:not(:last-child) {
+                          margin-bottom: 1.5em;
+                       }
+
+                       .glass {
+                          display: flex;
+                          align-items: flex-start;
+                          justify-content: flex-start;
+                          min-height: 134px;
+                          padding: 30px;
+                          color: #224;
+                          column-gap: 12px;
+                       }
+
+                       .card-glass {
+                          min-height: 175px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: space-between;
+                          max-width:98%;
+                          height: auto;
+                          padding: 24px;
+                          border: 1px solid rgba(255, 255, 255, 0.30);
+                          border-radius: 20px;
+                          background-color: rgba(255, 255, 255, 0.10);
+                          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+                          backdrop-filter: blur(15px);
+                       }
+
+                       .card-glass p {
+                          font-family: Poppins, Serif;
+                          font-size: .850rem;
+                          line-height: 18px;
+                          color: #FAFAFA;
+                       }
+
+                       .card-glass ul > li {
+                          font-family: Poppins, Serif;
+                          font-size: .850rem;
+                          line-height: 24px;
+                          color: #FAFAFA;
+                       }
+
+
+
+                       .card-full {
+                          width: 100%
+                       }
+
+                       .card-half {
+                          width: 50%
+                       }
+
+                       .card-tri {
+                          width: 32%
+                       }
+
+                       .card-quarter {
+                          width: 23.5%
+                       }
+
+                       .card-glass-xs {
+                          min-height: 90px;
+                       }
+
+                       .card-transparent {
+                          background-color: rgba(255, 255, 255, 0.1);
+                       }
+
+                       .card-glass-icon {
+                          font-size: 3rem;
+                          color: whitesmoke;
+                          position: absolute;
+                          float: left;
+                       }
+
+                       .card-glass-footer {
+                          font-size: 0.65em;
+                          color: #446;
+                       }
+                       .card-glass-list-icon {
+                          position: relative;
+                          top: 3px;
+                       }
+                    </style>
+                    <div class="gadget-app">
+                       <div class="weather-header" style="height: 90px">
+                          <header>
+                             <h1>IndraCompany, Alcobendas</h1>
+                             <small>Madrid, España</small>
+                          </header>
+                          <div class="clock">
+                             <p class="time shadow">{{currentTime}}</p>
+                          </div>
+                       </div>
+                       <section>
+                          <div class="glass" style="width: 100%">
+                             <div class="card-glass card-full card-transparent card-glass-xs">
+                                <span class="card-glass-icon"><i class="wi wi-day-cloudy"></i></span>
+                                <p style="position: relative; margin-left: 5rem;"><strong style="font-size: 3rem;">29º</strong>Alcobendas</p>
+                             </div>
+                          </div>
+                          <div class="glass">
+                          <div class="card-glass card-full card-glass-xs">
+                                <p>AEMET Información del tiempo en  <strong>Alcobendas</strong>.</p>
+                             </div>
+                          </div>
+                       </section>
+                       <section>
+                          <div class="glass">
+                             <div class="card-glass card-full">
+                                <p>Este Dashboard ha sido Importado/Exportado vía Bundle. Utiliza varios recursos de la plataforma onesait Platform como son: <br>
+                                <ul style="padding: 12px; color: white" >
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> Ontologías</li>
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> Dashboard</li>
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> Gadget Templates (componentes visuales Configurables)</li>
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> DataSources: Fuentes de datos / consultas </li>
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> DataLinks: Filtros entre componentes</li>
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> Proyecto Web: con múltiples recursos utilizados</li>
+                                   <li><i class="ods-icon-arrow-right-small card-glass-list-icon"></i> Librerías JS y CSS</li>
+                                </ul>
+                                </p>
+                             </div>
+                          </div>
+                       </section>
+                       <!--<section>
+                          <div class="glass">
+                             <div class="card-glass card-quarter">
+                                <p>A glass-like card to demonstrate the <strong>Glassmorphism UI design</strong> trend.</p>
+                             </div>
+                             <div class="card-glass card-quarter">
+                                <p>A glass-like card to demonstrate the <strong>Glassmorphism UI design</strong> trend.</p>
+                             </div>
+                             <div class="card-glass card-quarter">
+                                <p>A glass-like card to demonstrate the <strong>Glassmorphism UI design</strong> trend.</p>
+                             </div>
+                             <div class="card-glass card-quarter">
+                                <p>A glass-like card to demonstrate the <strong>Glassmorphism UI design</strong> trend.</p>
+                             </div>
+                          </div>
+                       </section> -->
+                    </div>
+                nomargin: false
+                contentcode: !html |
+                    //Write your Vue JSON controller code here
+
+                    //Focus here and F11 to full screen editor
+
+                    //This function will be call once to init components
+                    const getCurrentTime = () => moment().format("hh:mm:ss a")
+
+                    vm.vueconfig = {
+                       el: document.getElementById(vm.id).querySelector('vuetemplate  .gadget-app'),
+                       data:{
+                          ds:[],
+                          currentTime: ''
+                       },
+                       methods:{
+                          drawVueComponent: function(newData,oldData){
+                             //This will be call on new data
+                          },
+                          resizeEvent: function(){
+                             //Resize event
+                          },
+                          destroyVueComponent: function(){
+                             vm.vueapp.$destroy();
+                          },
+                          receiveValue: function(data){
+                             //data received from datalink
+                          },
+                          maskComponent () {
+                             this.elClass = this.$el.parentElement.className
+                             this.containerClass = this.$el.parentElement.parentElement.className
+                             this.$el.parentElement.className = this.$el.parentElement.className + ' bg-gadget'
+                             this.$el.parentElement.parentElement.className = this.$el.parentElement.parentElement.className + ' bg-gadget'
+                          },
+                          updateCurrentTime() {
+                                this.currentTime = getCurrentTime()
+                          },
+                          sendValue: vm.sendValue,
+                          sendFilter: vm.sendFilter
+                       },
+                       mounted () {
+                          this.maskComponent()
+                       },
+                       created() {
+                            setInterval(() => this.updateCurrentTime(), 1000)
+                        }
+                    }
+
+                    //Init Vue app
+                    vm.vueapp = new Vue(vm.vueconfig);
+                subtype: vueJS
+                x: 36
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: WeatherCast
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: livehtml_1688458347571
+                customMenuOptions: [
+                    ]
+                cols: 13
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-SIMPLE_KPI
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                tparams:
+                    datasource:
+                        name: AEMET_ULTIMA
+                        refresh: 0
+                        id: 1e1d8b8b-d281-4790-99df-42edc29052b5
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiField: tmin
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                        setup:
+                            kpiLabel: Temperatura Mínima
+                            kpiUnit: º
+                            kpiDesc: '#today'
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(30, 144, 255, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi-thermometer-exterior
+                hideBadges: true
+                prettyTitle: TMIN (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_DIARIO
+                        refresh: 0
+                        id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiExclude: false
+                            kpiField: tmin
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                            kpiExcludeFilter: false
+                        setup:
+                            kpiLabel: Temperatura Mínima
+                            kpiUnit: ºC
+                            kpiDesc: Media (#today)
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(13, 42, 70, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-thermometer-exterior
+                $$hashKey: object:257
+                nomargin: false
+                subtype: vueJS
+                datasource:
+                    name: AEMET_DIARIO
+                    refresh: 0
+                    id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                    type: query
+                x: 7
+                y: 2
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: TMIN
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688462090364
+                tempId: ff685fb4-83e6-488a-a91d-056249a693b0
+                customMenuOptions: [
+                    ]
+                cols: 7
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-SIMPLE_KPI
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                tparams:
+                    datasource:
+                        name: AEMET_ULTIMA
+                        refresh: 0
+                        id: 1e1d8b8b-d281-4790-99df-42edc29052b5
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiField: prec
+                            kpiOperation: sum
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                        setup:
+                            kpiLabel: Precipitación
+                            kpiUnit: mm
+                            kpiDesc: (#today)
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(30, 144, 255, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-showers
+                hideBadges: true
+                prettyTitle: TPREC (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_DIARIO
+                        refresh: 0
+                        id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiExclude: false
+                            kpiField: prec
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                            kpiExcludeFilter: false
+                        setup:
+                            kpiLabel: Precipitación
+                            kpiUnit: mm
+                            kpiDesc: Media (#today)
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(13, 42, 70, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-showers
+                $$hashKey: object:286
+                nomargin: false
+                subtype: vueJS
+                datasource:
+                    name: AEMET_DIARIO
+                    refresh: 0
+                    id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                    type: query
+                x: 14
+                y: 2
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: TPREC
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688462568329
+                tempId: ff685fb4-83e6-488a-a91d-056249a693b0
+                customMenuOptions: [
+                    ]
+                cols: 7
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-SIMPLE_KPI
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                tparams:
+                    datasource:
+                        name: AEMET_ULTIMA
+                        refresh: 0
+                        id: 1e1d8b8b-d281-4790-99df-42edc29052b5
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiField: velmedia
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                        setup:
+                            kpiLabel: Velocidad Viento
+                            kpiUnit: km/h
+                            kpiDesc: (#today)
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(30, 144, 255, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-strong-wind
+                hideBadges: true
+                prettyTitle: TVIENTO (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_DIARIO
+                        refresh: 0
+                        id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiExclude: false
+                            kpiField: velmedia
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                            kpiExcludeFilter: false
+                        setup:
+                            kpiLabel: Velocidad Viento
+                            kpiUnit: km/h
+                            kpiDesc: Media (#today)
+                            showKpiIcon: true
+                            kpiIconPosition: right
+                            kpiIconBg: rgba(13, 42, 70, 1)
+                            showKpiDesc: true
+                            kpiIcon: wi wi-strong-wind
+                $$hashKey: object:624
+                nomargin: false
+                subtype: vueJS
+                datasource:
+                    name: AEMET_DIARIO
+                    refresh: 0
+                    id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                    type: query
+                x: 21
+                y: 2
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: TVIENTO
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688462798344
+                tempId: ff685fb4-83e6-488a-a91d-056249a693b0
+                customMenuOptions: [
+                    ]
+                cols: 8
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-SIMPLE_KPI
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: true
+                tparams:
+                    datasource:
+                        name: AEMET_ULTIMA
+                        refresh: 0
+                        id: 1e1d8b8b-d281-4790-99df-42edc29052b5
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiField: altitud
+                            kpiOperation: sum
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                        setup:
+                            kpiLabel: Altitud Estación
+                            kpiUnit: m
+                            kpiDesc: ''
+                            showKpiIcon: true
+                            kpiIconPosition: left
+                            kpiIconBg: rgba(30, 144, 255, 1)
+                            showKpiDesc: false
+                            kpiIcon: wi wi-small-craft-advisory
+                hideBadges: true
+                prettyTitle: TALTURA (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_ULTIMO_DATO
+                        refresh: 0
+                        id: e8fa5e40-a70a-499d-99b0-0b576154c4af
+                        type: query
+                    parameters:
+                        advanced:
+                            component: '{}'
+                        datasource:
+                            kpiExclude: false
+                            kpiField: altitud
+                            kpiOperation: average
+                            kpiFormat: raw
+                            kpiMaxField: ''
+                            kpiExcludeFilter: true
+                        setup:
+                            kpiLabel: Altitud Estación
+                            kpiUnit: m
+                            kpiDesc: ''
+                            showKpiIcon: true
+                            kpiIconPosition: right
+                            kpiIconBg: rgba(13, 42, 70, 1)
+                            showKpiDesc: false
+                            kpiIcon: wi wi-small-craft-advisory
+                $$hashKey: object:603
+                nomargin: false
+                subtype: vueJS
+                datasource:
+                    name: AEMET_ULTIMO_DATO
+                    refresh: 0
+                    id: e8fa5e40-a70a-499d-99b0-0b576154c4af
+                    type: query
+                x: 29
+                y: 2
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: TALTURA
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688463002736
+                tempId: ff685fb4-83e6-488a-a91d-056249a693b0
+                customMenuOptions: [
+                    ]
+                cols: 7
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-TIMESERIES
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                tparams:
+                    datasource:
+                        name: AEMET_MENSUAL
+                        refresh: 0
+                        id: 3f3bd90f-c8ce-4ca5-a300-3557994cb894
+                        type: query
+                    parameters:
+                        component:
+                            exportToExcel: true
+                            summary:
+                                showTitle: true
+                                show: false
+                                style: '{ "background": "#fff", "borderBottom": "1px
+                                    solid #CCC", "padding": "12px 0 0 12px", "height":
+                                    "90px" }'
+                                title: ''
+                                order: '1'
+                            showTitle: false
+                            grid: 1fr
+                            loader:
+                                size: false
+                                title: Datos Meteorológicos
+                                loading: true
+                            title: ''
+                            chart:
+                                showTitle: true
+                                show: true
+                                showToolbox: true
+                                style: '{ "background": "#fff", "minHeight": "210px",
+                                    "maxHeight": "85%" }'
+                                title: Datos meteorológicos del último mes
+                                order: '2'
+                        timeseries:
+                            series:
+                                timeButtons:
+                                -   range: ''
+                                    label: M
+                                -   range: ''
+                                    label: Y
+                                serie:
+                                -   unit: º
+                                    stack: ''
+                                    field: tmax
+                                    color: rgba(255, 69, 0, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Temperatura Máxima
+                                    filterOp: eq
+                                    type: line
+                                    operation: avg
+                                    filterField: null
+                                -   unit: º
+                                    stack: ''
+                                    field: tmin
+                                    color: rgba(30, 144, 255, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Temperatura Mínima
+                                    filterOp: eq
+                                    type: line
+                                    operation: avg
+                                    filterField: null
+                            endFormat: YYYYMMDD
+                            locale: es
+                            indicators:
+                                kpiIndicators:
+                                -   date: ''
+                                    dynamicDate: false
+                                    id: '0'
+                                    label: ''
+                                    type: null
+                                    operation: null
+                                    percent: false
+                            initFormat: YYYY-MM-DD
+                            defaultType: D
+                        axes:
+                            yAxis:
+                                min: '0'
+                                max: ''
+                                interval: '0'
+                                label: Datos
+                            xAxis:
+                                showZoom: true
+                                dateKey: fecha
+                                label: Meteorología último mes
+                hideBadges: true
+                prettyTitle: CHART_METEO (livehtml)
+                rows: 13
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_DIARIO
+                        refresh: 0
+                        id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                        type: query
+                    parameters:
+                        component:
+                            exportToExcel: true
+                            summary:
+                                showTitle: true
+                                show: false
+                                style: '{ "background": "#fff", "borderBottom": "1px
+                                    solid #CCC", "padding": "12px 0 0 12px", "height":
+                                    "90px" }'
+                                title: ''
+                                order: '1'
+                            showTitle: false
+                            grid: 1fr
+                            loader:
+                                size: false
+                                title: Datos Meteorológicos
+                                loading: true
+                            title: ''
+                            chart:
+                                showTitle: true
+                                show: true
+                                showToolbox: true
+                                style: '{ "background": "#fff", "minHeight": "210px",
+                                    "maxHeight": "85%" }'
+                                title: Datos meteorológicos del último Año
+                                order: '2'
+                        timeseries:
+                            series:
+                                timeButtons:
+                                -   range: ''
+                                    label: M
+                                -   range: ''
+                                    label: Y
+                                serie:
+                                -   unit: º
+                                    stack: ''
+                                    field: tmax
+                                    color: rgba(255, 69, 0, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Temperatura Máxima
+                                    filterOp: eq
+                                    type: line
+                                    operation: avg
+                                    filterField: null
+                                -   unit: º
+                                    stack: ''
+                                    field: tmin
+                                    color: rgba(144, 205, 238, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Temperatura Mínima
+                                    filterOp: eq
+                                    type: line
+                                    operation: avg
+                                    filterField: null
+                                -   unit: º
+                                    stack: ''
+                                    field: tmed
+                                    color: rgba(25, 61, 96, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: 'Temperatura '
+                                    filterOp: eq
+                                    type: bar
+                                    operation: avg
+                                    filterField: null
+                            endFormat: YYYYMMDD
+                            locale: es
+                            indicators:
+                                kpiIndicators:
+                                -   date: ''
+                                    dynamicDate: false
+                                    id: '0'
+                                    label: ''
+                                    type: null
+                                    operation: null
+                                    percent: false
+                            initFormat: YYYY-MM-DD
+                            defaultType: D
+                        axes:
+                            yAxis:
+                                min: '0'
+                                max: ''
+                                interval: '0'
+                                label: Datos
+                            xAxis:
+                                showZoom: true
+                                dateKey: fecha
+                                label: Meteorología último mes
+                $$hashKey: object:388
+                nomargin: false
+                subtype: vueJSODS
+                datasource:
+                    name: AEMET_DIARIO
+                    refresh: 0
+                    id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                    type: query
+                x: 0
+                y: 4
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: CHART_METEO
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688465097821
+                tempId: 8902ba3c-02b7-4011-bd27-f0270df2f8ea
+                customMenuOptions: [
+                    ]
+                cols: 36
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET-TIMESERIES
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                tparams:
+                    datasource:
+                        name: AEMET_ULTIMA
+                        refresh: 0
+                        id: 1e1d8b8b-d281-4790-99df-42edc29052b5
+                        type: query
+                    parameters:
+                        component:
+                            exportToExcel: true
+                            summary:
+                                showTitle: false
+                                show: false
+                                style: '{ "background": "#fff", "borderBottom": "1px
+                                    solid #CCC", "padding": "12px 0 0 12px", "height":
+                                    "90px" }'
+                                title: ''
+                                order: '1'
+                            showTitle: false
+                            grid: 1fr
+                            loader:
+                                size: false
+                                title: Velocidad del Viento
+                                loading: true
+                            title: ''
+                            chart:
+                                showTitle: true
+                                show: true
+                                showToolbox: true
+                                style: '{ "background": "#fff", "minHeight": "210px",
+                                    "maxHeight": "85%" }'
+                                title: Velocidad del Viento Último Mes
+                                order: '2'
+                        timeseries:
+                            series:
+                                timeButtons:
+                                -   range: ''
+                                    label: M
+                                -   range: ''
+                                    label: Y
+                                serie:
+                                -   unit: km/h
+                                    stack: ''
+                                    field: velmedia
+                                    color: rgba(16, 44, 70, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Velocidad Media
+                                    filterOp: eq
+                                    type: area
+                                    operation: avg
+                                    filterField: null
+                            endFormat: YYYYMMDD
+                            locale: es
+                            indicators:
+                                kpiIndicators:
+                                -   date: ''
+                                    dynamicDate: false
+                                    id: '0'
+                                    label: ''
+                                    type: null
+                                    operation: null
+                                    percent: false
+                            initFormat: YYYY-MM-DD
+                            defaultType: D
+                        axes:
+                            yAxis:
+                                min: '0'
+                                max: ''
+                                interval: '0'
+                                label: Datos
+                            xAxis:
+                                showZoom: true
+                                dateKey: fecha
+                                label: Datos Meteorológicos
+                hideBadges: true
+                prettyTitle: CHART_VIENTO (livehtml)
+                rows: 12
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_DIARIO
+                        refresh: 0
+                        id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                        type: query
+                    parameters:
+                        component:
+                            exportToExcel: true
+                            summary:
+                                showTitle: false
+                                show: false
+                                style: '{ "background": "#fff", "borderBottom": "1px
+                                    solid #CCC", "padding": "12px 0 0 12px", "height":
+                                    "90px" }'
+                                title: ''
+                                order: '1'
+                            showTitle: false
+                            grid: 1fr
+                            loader:
+                                size: false
+                                title: Velocidad del Viento
+                                loading: true
+                            title: ''
+                            chart:
+                                showTitle: true
+                                show: true
+                                showToolbox: true
+                                style: '{ "background": "#fff", "minHeight": "210px",
+                                    "maxHeight": "85%" }'
+                                title: Velocidad del Viento Último Año
+                                order: '2'
+                        timeseries:
+                            series:
+                                timeButtons:
+                                -   range: ''
+                                    label: M
+                                -   range: ''
+                                    label: Y
+                                serie:
+                                -   unit: km/h
+                                    stack: ''
+                                    field: velmedia
+                                    color: rgba(16, 44, 70, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Velocidad Media
+                                    filterOp: eq
+                                    type: area
+                                    operation: avg
+                                    filterField: null
+                                -   unit: km/h
+                                    stack: ''
+                                    field: racha
+                                    color: rgba(52, 123, 133, 1)
+                                    filterValue: ''
+                                    percentTotal: ''
+                                    name: Rachas de Viento
+                                    filterOp: eq
+                                    type: line
+                                    operation: avg
+                                    filterField: null
+                            endFormat: YYYYMMDD
+                            locale: es
+                            indicators:
+                                kpiIndicators:
+                                -   date: ''
+                                    dynamicDate: false
+                                    id: '0'
+                                    label: ''
+                                    type: null
+                                    operation: null
+                                    percent: false
+                            initFormat: YYYY-MM-DD
+                            defaultType: D
+                        axes:
+                            yAxis:
+                                min: '0'
+                                max: ''
+                                interval: '0'
+                                label: Datos
+                            xAxis:
+                                showZoom: true
+                                dateKey: fecha
+                                label: Datos Meteorológicos
+                $$hashKey: object:423
+                nomargin: false
+                subtype: vueJSODS
+                datasource:
+                    name: AEMET_DIARIO
+                    refresh: 0
+                    id: 7e09012d-bc9c-405b-80da-07fc912969b3
+                    type: query
+                x: 0
+                y: 17
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: CHART_VIENTO
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688466816778
+                tempId: 8902ba3c-02b7-4011-bd27-f0270df2f8ea
+                customMenuOptions: [
+                    ]
+                cols: 19
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                template: AEMET_SELECT_FILTER
+                padding: 0
+                backgroundColor: hsla(0, 0%, 100%, 0)
+                notshowDotsMenu: true
+                tparams:
+                    datasource:
+                        name: AEMET_PROVINCIAS
+                        refresh: 0
+                        id: bf7b01ea-82e1-4aa5-9896-05b8c66e06dd
+                        type: query
+                    parameters:
+                        setup:
+                            filterable: true
+                            clearable: true
+                            size: default
+                            multiple: true
+                            model: provincia
+                            placeholder: Seleccionar Provincia
+                            label: Provincias
+                        filters:
+                            filterValue: provincia
+                            sendValue: false
+                            sendFilter: true
+                            filterLabel: nombre
+                hideBadges: true
+                prettyTitle: FILTER_PROVINCIA (livehtml)
+                rows: 2
+                type: livehtml
+                params:
+                    datasource:
+                        name: AEMET_PROVINCIAS
+                        refresh: 0
+                        id: bf7b01ea-82e1-4aa5-9896-05b8c66e06dd
+                        type: query
+                    parameters:
+                        setup:
+                            filterable: true
+                            clearable: true
+                            size: default
+                            multiple: false
+                            model: provincia
+                            placeholder: Seleccionar Provincia
+                            label: Provincias
+                        filters:
+                            filterValue: provincia
+                            sendValue: false
+                            sendFilter: true
+                            filterType: string
+                            filterLabel: nombre
+                $$hashKey: object:490
+                nomargin: false
+                subtype: vueJSODS
+                datasource:
+                    name: AEMET_PROVINCIAS
+                    refresh: 0
+                    id: bf7b01ea-82e1-4aa5-9896-05b8c66e06dd
+                    type: query
+                x: 25
+                y: 0
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: FILTER_PROVINCIA
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: customgadget_1688554200112
+                tempId: 66e88bb0-edfd-4823-89c1-5a41f32e4579
+                customMenuOptions: [
+                    ]
+                cols: 11
+            -   border:
+                    color: hsl(0, 0%, 90%)
+                    width: 0
+                    radius: 5
+                padding: 0
+                backgroundColor: white
+                notshowDotsMenu: false
+                hideBadges: true
+                prettyTitle: ESTACIONES_AEMET (table)
+                rows: 12
+                type: table
+                $$hashKey: object:452
+                content: table
+                nomargin: false
+                x: 19
+                y: 17
+                header:
+                    backgroundColor: hsl(0, 0%, 100%)
+                    enable: false
+                    title:
+                        iconColor: hsl( 206, 54%, 5%)
+                        icon: ''
+                        text: ESTACIONES_AEMET
+                        textColor: hsl(206,54%,5%)
+                    height: 40
+                id: 6c817087-3b23-4f9c-83c3-a3511a5b1b3d
+                customMenuOptions: [
+                    ]
+                cols: 17
+            title: baseLayer
+            $$hashKey: object:23
+        title: Main
+        $$hashKey: object:4
+    interactionHash:
+        customgadget_1688554200112:
+        -   targetList:
+            -   gadgetId: customgadget_1688465097821
+                overwriteField: provincia
+            -   gadgetId: customgadget_1688463002736
+                overwriteField: provincia
+            -   gadgetId: customgadget_1688466816778
+                overwriteField: provincia
+            -   gadgetId: customgadget_1688390059904
+                overwriteField: provincia
+            -   gadgetId: customgadget_1688462090364
+                overwriteField: provincia
+            -   gadgetId: customgadget_1688462568329
+                overwriteField: provincia
+            -   gadgetId: customgadget_1688462798344
+                overwriteField: provincia
+            -   gadgetId: 6c817087-3b23-4f9c-83c3-a3511a5b1b3d
+                overwriteField: provincia
+            emiterField: provincia
+        customgadget_1688385042599: [
+            ]
+        customgadget_1688386044563: [
+            ]
+        customgadget_1688390059904: [
+            ]
+        livehtml_1688458347571: [
+            ]
+        customgadget_1688462090364: [
+            ]
+        customgadget_1688462568329: [
+            ]
+        customgadget_1688462798344: [
+            ]
+        customgadget_1688463002736: [
+            ]
+        customgadget_1688465097821: [
+            ]
+        customgadget_1688466816778: [
+            ]
+        6c817087-3b23-4f9c-83c3-a3511a5b1b3d: [
+            ]
+    gridOptions:
+        displayGrid: onDrag&Resize
+        maxItemRows: 1000
+        outerMargin: true
+        disableWindowResize: false
+        minCols: 50
+        defaultItemCols: 1
+        disableLiveResize: true
+        maxItemArea: 25000
+        minItemRows: 1
+        emptyCellDragMaxCols: 1000
+        enableEmptyCellDrag: false
+        maxRows: 110
+        enableEmptyCellAlign: true
+        draggable:
+            delayStart: 100
+            ignoreContent: true
+            dragHandleClass: drag-handler
+            enabled: true
+        gridType: verticalFixed
+        minItemArea: 1
+        compactType: none
+        api: {
+            }
+        pushDirections:
+            east: true
+            south: true
+            north: true
+            west: true
+        disableLiveMove: true
+        disablePushOnResize: true
+        maxItemCols: 1000
+        margin: 8
+        minRows: 80
+        resizable:
+            delayStart: 0
+            enabled: true
+        swap: true
+        defaultItemRows: 1
+        enableEmptyCellContextMenu: false
+        enableEmptyCellDrop: true
+        scrollToNewItems: false
+        dragGadgetType: livehtml
+        fixedRowHeight: 35
+        minItemCols: 1
+        emptyCellDragMaxRows: 1000
+        disablePushOnDrag: true
+        pushResizeItems: false
+        mobileBreakpoint: 640
+        disableWarnings: false
+        fixedColWidth: 45
+        enableEmptyCellClick: false
+        maxCols: 49
+        pushItems: false
+    editButtonsIframe:
+        urlParameterButton: true
+        trashButton: false
+        editGadgetMenu: true
+        closeButton: true
+        configButton: true
+        dataLinkButton: true
+        addElementButton: true
+        moveToolBarButton: true
+        active: true
+        filterGadgetMenu: true
+    header:
+        backgroundColor: hsla(0, 0%, 100%, 0)
+        enable: false
+        pageColor: hsl(205, 35%, 48%)
+        iconColor: hsl(206, 4%, 38%)
+        logo:
+            height: 48
+        title: AEMET - ONESAIT PLATFORM DASHBOARDS SYTLES AND COMPONENTS
+        textColor: hsl(206, 5%, 43%)
+        height: 52
+    parameterHash: {
+        }
+    updatedAt: 1688731038978
+headerlibs: !html |-
+    <!-- DASHBOARD STYLES -->
+    <link href="/web/web-resources-AEMET/libs/css/dashboard.css" rel="stylesheet">
+    <link href="/web/web-resources-AEMET/fonts/fonts.css" rel="stylesheet">
+
+    <!-- ADDITIONAL STYLES: weather icons -->
+    <link href="/web/web-resources-AEMET/fonts/css/weather-icons.min.css" rel="stylesheet">
+
+    <!-- ADDITIONAL SCRIPTS: excel export, vue-trend -->
+    <script src="/web/web-resources-AEMET/libs/js/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/vue-trend-chart@0.15.1/dist/vue-trend-chart.js"></script>
+type: DASHBOARD
+generateImage: false
+accesses: [
+    ]
+public: false

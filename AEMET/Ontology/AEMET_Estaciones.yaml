@@ -1,0 +1,48 @@
+---
+createdAt: 1688729771261
+updatedAt: 1688729771261
+id: "fcba5488-2019-45d9-a0db-80075757cce9"
+identification: "AEMET_Estaciones"
+user: "administrator"
+jsonSchema:
+  properties:
+    latitud:
+      type: "string"
+    provincia:
+      type: "string"
+    altitud:
+      type: "string"
+    indicativo:
+      type: "string"
+    nombre:
+      type: "string"
+    indsinop:
+      type: "string"
+    longitud:
+      type: "string"
+  type: "object"
+  description: "Info AEMET_Estaciones"
+  $schema: "http://json-schema.org/draft-04/schema#"
+  title: "AEMET_Estaciones"
+  additionalProperties: true
+dataModel: "MASTER-DataModel-5"
+active: true
+contextDataEnabled: false
+rtdbClean: false
+rtdbCleanLapse: "NEVER"
+rtdbToHdb: false
+rtdbToHdbStorage: "MONGO_GRIDFS"
+description: "AEMET DATA FROM PENDATA"
+metainf: "imported,json"
+ontologyUserAccesses: []
+rtdbDatasource: "MONGO"
+allowsCypherFields: false
+allowsCreateTopic: false
+allowsCreateNotificationTopic: false
+allowsCreateMqttTopic: false
+supportsJsonLd: false
+enableDataClass: false
+public: false
+ontologyKPI: null
+ontologyAI: null
+ontologyTimeSeries: null

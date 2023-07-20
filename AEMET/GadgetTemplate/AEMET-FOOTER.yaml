@@ -1,0 +1,222 @@
+createdAt: 1688729771270
+updatedAt: 1688729771270
+id: 25dd460a-b2a4-4c0b-97bc-b67315be4f88
+identification: AEMET-FOOTER
+user: administrator
+description: AEMET FOOTER GADGET
+type: vueJS
+template: !html |-
+    <!-- GADGETMARKET COMPONENT: FOOTER WITH OPTIONAL ENGAGE MENU -->
+    <style>
+       .gadget-footer {
+          font-size: 0.7rem;
+          font-family: var(--main-font-family, 'Poppins');
+          padding: 6px 12px;
+          margin-top: 9px;
+          text-align: center;
+       }
+
+       .engage-toolbar {
+          display: flex !important;
+          position: fixed !important;
+          padding-right: 1.25rem !important;
+          padding-left: 1.25rem !important;
+          font-weight: 600 !important;
+          top: 50% !important;
+          transform: rotate(90deg);
+          transform-origin: right top;
+          margin-top: 5rem !important;
+          gap: .5rem !important;
+          z-index: 10000;
+          right: -5px;
+
+       }
+
+       .engage-toolbar-right {
+          right: -1 !important;
+       }
+
+       .engage-toolbar-left {
+          left: -1 !important;
+       }
+
+       .px-4 {
+          padding-right: 1rem !important;
+          padding-left: 1rem !important;
+       }
+
+       .px-5 {
+          padding-right: 1.25rem !important;
+          padding-left: 1.25rem !important;
+       }
+
+       .btn-menu {
+          font-weight: 500;
+          line-height: 1.5;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          user-select: none;
+          border-radius: .475rem;
+          transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+          border: 0;
+          padding: calc(.75rem + 1px) calc(1.5rem + 1px);
+          background-color: white;
+          color: #5e6278;
+          display: inline-flex;
+          align-items: center;
+          box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 8%);
+          height: 35px !important;
+          font-size: .75rem !important;
+          font-family: 'Poppins';
+       }
+
+       .btn-menu-left {
+          border-bottom-left-radius: 0 !important;
+          border-bottom-right-radius: 0 !important;
+       }
+
+       // 90deg rotated
+       .btn-menu-right {
+          border-top-left-radius: 0 !important;
+          border-top-right-radius: 0 !important;
+       }
+
+       .btn-menu>a {
+          color: #5e6278 !important;
+       }
+
+       .last {
+          margin-top: 0px !important
+       }
+
+       .no-shadow {
+          box-shadow: none !important;
+       }
+    </style>
+    <div class="gadget-footer">
+       {{ footerTitle }}
+    </div>
+templateJS: !html |-
+    //Write your Vue with ODS JSON controller code here
+    //Focus here and F11 to full screen editor
+    //This function will be call once to init components
+
+    vm.vueconfig = {
+       el: document.querySelector('#' + vm.id + ' vuetemplate .gadget-footer'),
+       data:{
+          footerTitle : vm.tparams.parameters.copyright ? '@ ' + new Date().getFullYear() + ' ' + vm.tparams.parameters.copyright : '© ' + new Date().getFullYear() + ' Onesait Platform Dashboards',
+            engageMenuShow: vm.tparams.parameters.engage.show,
+          engageMenuPosition: vm.tparams.parameters.engage.position || 'right',
+            links: vm.tparams.parameters.engage.links || []
+       },
+       methods:{
+          resizeEvent: function(){
+             //Resize event
+          },
+          destroyVueComponent: function(){
+             vm.vueapp.$destroy();
+          },
+            // apply styles from gadget to gridster-item container
+          gridsterClass (cssClass) {
+             this.$el.parentElement.parentElement.parentElement.parentElement.className += ' ' + cssClass
+          },
+            // engage Menu
+            createFixedMenu () {
+             // check if other component creates before a menu on body, then skip
+             if (document.getElementById('menu')) { return false; }
+
+             // if not exist, then create.
+             var iDiv, innerBtn, innerA;
+             // main menu div container
+             iDiv = document.createElement('div')
+             iDiv.id = 'menu'
+             iDiv.className = 'engage-toolbar ' + 'engage-toolbar-' + this.engageMenuPosition
+             document.querySelector('body').appendChild(iDiv)
+
+             // Now create links and append to iDiv
+             for (let i = 0; i < this.links.length; i++ ){
+                // button
+                innerBtn = document.createElement('button')
+                innerBtn.className = 'btn-menu btn-menu-' + this.engageMenuPosition
+                innerBtn.className += i === this.links.length - 1 ? ' px-5' : ' px-4'
+
+                // a
+                innerA = document.createElement('a')
+                innerA.target = this.links[i].target || '_blank'
+                innerA.text   = this.links[i].label
+                innerA.href   = this.links[i].url
+                innerA.rel    = 'noopener noreferrer'
+                innerBtn.appendChild(innerA)
+
+                // append to menu
+                iDiv.appendChild(innerBtn)
+             }
+          }
+       },
+       mounted () {
+          this.gridsterClass('no-shadow last')
+            if (this.engageMenuShow) {
+                this.createFixedMenu()
+            }
+       }
+    }
+
+    //Init Vue app
+    vm.vueapp = new Vue(vm.vueconfig);
+headerlibs: !html ""
+config:
+    gform:
+    -   id: 1
+        type: input-text
+        name: copyright
+        default: 'AEMET - Onesait Platform Dashboards '
+        title: COPYRIGHT
+    -   id: 8
+        type: section
+        elements:
+        -   id: 4
+            type: checkbox
+            name: show
+            default: true
+            title: SHOW ENGAGE MENU
+        -   id: 1
+            type: input-text
+            name: description
+            default: Engage Menu es un menú de enlaces que se queda fijo en el centro
+                de la página, a l borde derecho o izquierdo y que contiene enlaces
+                configurados
+            title: INFO
+        -   id: 3
+            type: selector
+            name: position
+            options:
+            -   value: left
+                text: Izquierda
+            -   value: right
+                text: Derecha
+            title: POSITION
+            default: right
+        -   id: 9
+            type: section-array
+            elements:
+            -   id: 1
+                type: input-text
+                name: label
+                default: ''
+                title: LABEL
+            -   id: 1
+                type: input-text
+                name: url
+                default: ''
+                title: URL
+            -   id: 1
+                type: input-text
+                name: target
+                default: _blank
+                title: TARGET
+            name: links
+            title: LINKS
+        name: engage
+        title: ENGAGE MENU
+public: false
