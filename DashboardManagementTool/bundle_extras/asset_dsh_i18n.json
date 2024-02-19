@@ -1,0 +1,294 @@
+{
+  "createdAt": 1706183238062,
+  "updatedAt": 1707134222260,
+  "id": "7c58d3ed-75d5-4b4c-ab8d-a72df9635f50",
+  "identification": "asset_dsh_i18n",
+  "user": "administrator",
+  "jsoni18n": {
+    "languages": {
+      "EN": {
+        "label": "English",
+        "labelMobile": "EN",
+        "serverError": "Unexpected server error. Try again.",
+        "breadcrumb": {
+          "default": "Dashboard Management",
+          "home": "Home",
+          "dashboard": "Dashboard",
+          "admin": "Dashboard Management",
+          "tasks": "Tasks",
+          "users": "Users",
+          "randomUser": "Random user ",
+          "randomString": "Random string param: ",
+          "editProfile": "Edit user",
+          "myUser": "My user",
+          "editUser": "Edit user",
+          "userAccount": "User Account",
+          "formcode": "Forms",
+          "Notifications": "Notification Management"
+        },
+        "login": {
+          "title": "Login",
+          "user": "Username",
+          "password": "Password",
+          "submitButton": "Send",
+          "rules": {
+            "user": "Please, type a user name",
+            "password": "Please, type a password"
+          },
+          "logging": "Loading...",
+          "loginErrorTitle": "Validation Error",
+          "loginError": "Invalid user or wrong password.",
+          "forgotPassword": "Forgot your password?",
+          "keepMeLogged": "Keep me logged in",
+          "login": "Login",
+          "footerLinks": [
+            "faq",
+            "terms",
+            "conditions"
+          ],
+          "social": {
+            "title": "Login with"
+          },
+          "register": {
+            "account": "Not have account?",
+            "register": "Register"
+          },
+          "app": {
+            "title": "Accessing the Application...",
+            "description": "You are accessing the application, we are loading the Environment, in a few seconds you will be redirected..."
+          }
+        },
+        "password": {
+          "title": "Reset password",
+          "message": "Type your account's email to proceed",
+          "email": "Email",
+          "submitButton": "Submit",
+          "goBack": "Go back",
+          "error": "Email not found",
+          "sending": "Sending...",
+          "rules": {
+            "email": "Email not found"
+          },
+          "emailSubmitted": "We've sent an email with the instructions to reset your password to: ",
+          "done": "Finish",
+          "emailError": "We can't find any account with this email:"
+        },
+        "notifications": {
+          "popoverTitle": "Hi, there!"
+        },
+        "header": {
+          "user": {
+            "profile": "Profile",
+            "account": "Account",
+            "theme": "Select Theme",
+            "logout": "Log Out"
+          }
+        },
+        "navigation": {
+          "home": "Home",
+          "admin": "Dashboards Management",
+          "dashboards": "Dashboards",
+          "userFavorite": "Dashboard Favourite"
+        },
+        "filters": {
+          "showhide": "Show/Hide Filters",
+          "filters": "Filters",
+          "favorites": "Favorites",
+          "noFavorites": "No Favorites",
+          "favorites_search": "Search favorite",
+          "search": "Search Gadgets and Dashboards",
+          "search_NoResults": "No Gadgets Found",
+          "save_dashboard": "Save Dashboard",
+          "view_dashboard": "My Dashboards",
+          "gadgets": "Gadgets",
+          "activeFilters": "Active filters",
+          "ApplianceType_placeholder": "Select Type",
+          "ApplianceType": "Appliance Type",
+          "datalink_dashboard": "Datalink: Connections between Gadgets"
+        },
+        "user": {
+          "dashboardAdmin": {
+            "title": "Dashboard Management",
+            "infoTitle": "Dashboard Info.",
+            "infoDescription": "You can view, create, update or remove personal dashboards. After updating dashboards, you can view a dashboard using his own link and then you will redirect to the Dashboard´s page. Thank you."
+          },
+          "testUnit": {
+            "title": "Test Management",
+            "infoTitle": "Test Info.",
+            "infoDescription": "You can make test on DERConnection. It´s a section to help and guide."
+          },
+          "account": {
+            "header": "Personal Data",
+            "title": "Change Password",
+            "info": "You can change the password, enter the new password, and submit the form. After updating we will redirect you to the page you came from. The next login will be done with your new password. Thank you.",
+            "inputs": {
+              "user": "User",
+              "password": "New Password",
+              "checkpassword": "Repeat Password",
+              "send": "Change Password",
+              "cancel": "Cancel"
+            },
+            "validations": {
+              "newpassword": {
+                "required": "Please input the password",
+                "pattern": "Please use at least 8 chars, a-z A-Z, numbers and at least 1 special char."
+              },
+              "checkpassword": {
+                "required": "Please input the password again",
+                "same": "The two passwords must be the same."
+              }
+            },
+            "notifications": {
+              "success_title": "Password has been modified successfully.",
+              "error_title": "Error modifying password",
+              "error_msg": "An error has occurred, repeat the process again, or contact the administrator."
+            }
+          }
+        }
+      },
+      "ES": {
+        "label": "Español",
+        "labelMobile": "ES",
+        "serverError": "Ha ocurrido un error inesperado en el servidor. Inténtalo de nuevo.",
+        "breadcrumb": {
+          "default": "Administración de Dashboards",
+          "home": "Inicio",
+          "dashboard": "Escritorio",
+          "admin": "Administración de Dashboards",
+          "tasks": "Tareas",
+          "users": "Usuarios",
+          "randomUser": "Usuario random ",
+          "randomString": "Random string param: ",
+          "editProfile": "Editar mi perfil",
+          "myUser": "Mi usuario",
+          "editUser": "Editar usuario",
+          "userAccount": "Cuenta de Usuario",
+          "formcode": "Formularios",
+          "Notifications": "Administración de notificaciones"
+        },
+        "login": {
+          "title": "Iniciar sesión",
+          "user": "Nombre de usuario",
+          "password": "Contraseña",
+          "submitButton": "Enviar",
+          "rules": {
+            "user": "Introduzca el usuario",
+            "password": "Introduzca la contaseña"
+          },
+          "logging": "Iniciando sesión...",
+          "loginErrorTitle": "Error de validación.",
+          "loginError": "La combinación usuario/contraseña no es valida.",
+          "forgotPassword": "¿Has olvidado tu contraseña?",
+          "keepMeLogged": "Mantener sesión iniciada",
+          "login": "Entrar",
+          "footerLinks": [
+            "faq",
+            "términos",
+            "condiciones"
+          ],
+          "social": {
+            "title": "Haz login con"
+          },
+          "register": {
+            "account": "¿No tienes cuenta todavía?",
+            "register": "Regístrate"
+          },
+          "app": {
+            "title": "Accediendo a la Aplicación...",
+            "description": "Está usted accediendo a la aplicación, estamos cargando el Entorno, en breves segundos será redirigido..."
+          }
+        },
+        "password": {
+          "title": "Restablecer contraseña",
+          "message": "Introduce una cuenta de correo electrónico vinculada al producto para continuar",
+          "email": "Correo electrónico",
+          "submitButton": "Enviar",
+          "goBack": "Volver",
+          "error": "Email no encontrado.",
+          "sending": "Enviando...",
+          "rules": {
+            "email": "Email no encontrado"
+          },
+          "emailSubmitted": "Hemos enviado un correo electrónico con instrucciones para poder restablecer su contraseña a:",
+          "done": "Finalizar",
+          "emailError": "No existe ninguna cuenta vinculada a este correo electrónico: "
+        },
+        "notifications": {
+          "popoverTitle": "Hi, there!"
+        },
+        "header": {
+          "user": {
+            "profile": "Perfil",
+            "account": "Cuenta",
+            "theme": "Seleccionar tema",
+            "logout": "Salir"
+          }
+        },
+        "navigation": {
+          "home": "Home",
+          "admin": "Administración de Dashboards",
+          "dashboards": "Dashboards",
+          "userFavorite": "Dashboard Favorito"
+        },
+        "filters": {
+          "showhide": "Mostrar/Ocultar Filtros",
+          "filters": "Filtros",
+          "favorites": "Favoritos",
+          "noFavorites": "No hay Favoritos",
+          "favorites_search": "Buscar Favorito",
+          "search": "Buscar Gadgets Favoritos",
+          "search_NoResults": "No se han encontrado Gadgets",
+          "save_dashboard": "Guardar Dashboard",
+          "view_dashboard": "Mis Dashboards",
+          "gadgets": "Gadgets",
+          "activeFilters": "Filtros activos:",
+          "ApplianceType_placeholder": "Seleccionar Tipo",
+          "ApplianceType": "Tipo de Dispositivo",
+          "datalink_dashboard": "Datalink: Conexiones entre Gadgets"
+        },
+        "user": {
+          "dashboardAdmin": {
+            "title": "Gestión de Dashboards",
+            "infoTitle": "Información de Dashboards",
+            "infoDescription": "Puede ver, crear, editar y borrar sus dashboards. Despés de actualizar la información, puede seleccionar un dashboars y mediante su enlace, puede ir a la visualización del Dashboard elegido. Gracias."
+          },
+          "testUnit": {
+            "title": "Gestión de Tests",
+            "infoTitle": "Información de test",
+            "infoDescription": "Puede generar y gestionar test contra la Aplicación DERConnection (pendiente...)"
+          },
+          "account": {
+            "header": "Datos Personales",
+            "title": "Cambio de Contraseña del usuario",
+            "info": "Puede cambiar la contraseña , introduzca la nueva contraseña, y  envíe el formulario. Tras actualizarse le redireccionaremos a la página de donde venía. El siguiente login ya se hará con su nueva contraseña. Muchas gracias.",
+            "inputs": {
+              "user": "Usuario",
+              "password": "Nueva Contraseña",
+              "checkpassword": "Repetir Contraseña",
+              "send": "Cambiar Contraseña",
+              "cancel": "Cancelar"
+            },
+            "validations": {
+              "newpassword": {
+                "required": "Nueva Contraseña es Requerida",
+                "pattern": "Por favor la contraseña debe tener al menos 8 caracteres (A-Z, a-z, números) y al menos 1 caracter especial."
+              },
+              "checkpassword": {
+                "required": "Repetir Contraseña es requerida",
+                "same": "Las dos contraseñas deben ser iguales, tener el mismo valor."
+              }
+            },
+            "notifications": {
+              "success_title": "La Contraseña ha sido modificada con éxito.",
+              "error_title": "Error al modificar la contraseña",
+              "error_msg": "Se ha producido un error, Repita el proceso o contacte con el administrador."
+            }
+          }
+        }
+      }
+    },
+    "default": "EN"
+  },
+  "description": "asset_dsh_i18n",
+  "public": true
+}

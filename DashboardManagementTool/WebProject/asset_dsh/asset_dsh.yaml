@@ -1,0 +1,11 @@
+---
+createdAt: 1706119369180
+updatedAt: 1706119369180
+id: "3ec981c5-4afd-46d2-bb7b-312f15d18242"
+identification: "asset_dsh"
+user: "administrator"
+description: "asset_dsh"
+mainFile: "index.html"
+npm: false
+runCommand: ""
+targetDirectory: ""

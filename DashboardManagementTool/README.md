@@ -1,0 +1,1 @@
+Además de los recursos necesarios a la hora de generar el Bundle, es necesario realizar la importación del archivo de internacionalización (incluso como adjunto, de nombre asset_dsh_i18n.json) con el API de internacionalización.

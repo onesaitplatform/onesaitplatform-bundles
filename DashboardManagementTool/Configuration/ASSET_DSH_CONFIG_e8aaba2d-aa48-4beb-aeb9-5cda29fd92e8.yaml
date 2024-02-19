@@ -1,0 +1,72 @@
+---
+createdAt: 1706108405666
+updatedAt: 1707387746572
+id: "e8aaba2d-aa48-4beb-aeb9-5cda29fd92e8"
+identification: "ASSET_DSH_CONFIG"
+user: "administrator"
+ymlConfig: "[\r\n  {\r\n    \"realmId\": \"asset_dsh_realm\",\r\n    \"clientId\"\
+  : \"asset_dsh_realm\",\r\n    \"secret\": \"asset_dsh_realm_1357\",\r\n    \"title\"\
+  : \"Asset Dashboard\",\r\n    \"i18n\": \"asset_dsh_i18n\",\r\n    \"project\":\
+  \ \"asset_dsh_resources\",\r\n    \"productInfo\": {\r\n      \"suite\": \"platform\"\
+  ,\r\n      \"product\": \"Asset Dashboard\",\r\n      \"productModule\": \" \",\r\
+  \n      \"secondary\": false,\r\n      \"negative\": false,\r\n      \"simple\"\
+  : false,\r\n      \"onesait\": false,\r\n      \"accentBlock\": false\r\n    },\r\
+  \n    \"pluginsOpts\": {\r\n      \"filterDatasources\": {}\r\n    },\r\n    \"\
+  appVersion\": 0,\r\n    \"customization\": {\r\n      \"showFilters\": true,\r\n\
+  \      \"showActiveFilters\": false,\r\n      \"showfavorites\": false,\r\n    \
+  \  \"user\": {\r\n        \"showTheme\": false,\r\n        \"showLanguage\": true\r\
+  \n      },\r\n      \"styles\": {\r\n        \"--color-bg-interactive\": \"#2e4454\"\
+  ,\r\n        \"--color-border-interactive\": \"#2e4454\",\r\n        \"--color-bg-interactive-soft\"\
+  : \"#2e4454\",\r\n        \"--color-bg-hover-2\": \"#c8e0de\"\r\n      },\r\n  \
+  \    \"login\": {\r\n        \"backgroundColor\": \"\",\r\n        \"mainLogo\"\
+  : {\r\n          \"show\": true,\r\n          \"order\": 1\r\n        },\r\n   \
+  \     \"clientLogo\": {\r\n          \"file\": \"onesait-brand-logo.svg\",\r\n \
+  \         \"show\": true,\r\n          \"order\": 2\r\n        }\r\n      }\r\n\
+  \    },\r\n    \"globalFilters\": [\r\n    ],\r\n    \"initialNavigation\": [\r\n\
+  \      {\r\n        \"role\": \"Asset_Admin\",\r\n        \"type\": \"component\"\
+  ,\r\n        \"path\": \"/admin\",\r\n        \"id\": \"Admin\"\r\n      },\r\n\
+  \      {\r\n        \"role\": \"Asset_User\",\r\n        \"type\": \"component\"\
+  ,\r\n        \"path\": \"/admin\",\r\n        \"id\": \"Admin\"\r\n      }\r\n \
+  \   ],\r\n    \"navigationAllowed\": [\r\n      {\r\n        \"role\": \"Asset_Admin\"\
+  ,\r\n        \"components\": [\r\n          {\r\n            \"id\": \"Admin\",\r\
+  \n            \"options\": {\r\n              \"editMode\": true,\r\n          \
+  \    \"filter\": \"\"\r\n            }\r\n          },\r\n          {\r\n      \
+  \      \"id\": \"users\",\r\n            \"options\": {\r\n              \"editMode\"\
+  : true\r\n            }\r\n          }\r\n        ]\r\n      },\r\n      {\r\n \
+  \       \"role\": \"Asset_User\",\r\n        \"components\": [\r\n          {\r\n\
+  \            \"id\": \"Admin\",\r\n            \"options\": {\r\n              \"\
+  editMode\": false,\r\n              \"filter\": \"\"\r\n            }\r\n      \
+  \    },\r\n          {\r\n            \"id\": \"users\",\r\n            \"options\"\
+  : {\r\n              \"editMode\": false\r\n            }\r\n          }\r\n   \
+  \     ]\r\n      }\r\n    ],\r\n    \"navigation\": {     \r\n      \"admin\": {\r\
+  \n        \"cssClass\": \"my-custom-class\",\r\n        \"langs\": {\r\n       \
+  \   \"es\": \"Admin\",\r\n          \"en\": \"Admin\"\r\n        },\r\n        \"\
+  icon\": \"pie-chart\",\r\n        \"componentId\": \"Admin\",\r\n        \"to\"\
+  : \"/admin\"\r\n      }\r\n    },\r\n    \"gadgetTree\": [\r\n      {\r\n      \
+  \  \"id\": 1,\r\n        \"name\": \"bar\",\r\n        \"types\": [\r\n        \
+  \  \"bar\",\r\n          \"BarChart\",\r\n          \"mixed\",\r\n          \"timeseries\"\
+  ,\r\n          \"timeChart\"\r\n        ],\r\n        \"icon\": \"chart-bar\",\r\
+  \n        \"children\": []\r\n      },\r\n      {\r\n        \"id\": 2,\r\n    \
+  \    \"name\": \"line\",\r\n        \"types\": [\r\n          \"line\",\r\n    \
+  \      \"LineChart\",\r\n          \"area\",\r\n          \"mixed\",\r\n       \
+  \   \"timeseries\"\r\n        ],\r\n        \"icon\": \"chart-line\",\r\n      \
+  \  \"children\": []\r\n      },\r\n      {\r\n        \"id\": 3,\r\n        \"name\"\
+  : \"circular\",\r\n        \"types\": [\r\n          \"pie\",\r\n          \"doughnut\"\
+  ,\r\n          \"rosetype\"\r\n        ],\r\n        \"icon\": \"pie-chart\",\r\n\
+  \        \"children\": []\r\n      },\r\n      {\r\n        \"id\": 4,\r\n     \
+  \   \"name\": \"kpi\",\r\n        \"types\": [\r\n          \"kpi\",\r\n       \
+  \   \"kpis\",\r\n          \"GaugeChart\",\r\n          \"progress\",\r\n      \
+  \    \"carousel\"\r\n        ],\r\n        \"icon\": \"app\",\r\n        \"children\"\
+  : []\r\n      },\r\n      {\r\n        \"id\": 5,\r\n        \"name\": \"table\"\
+  ,\r\n        \"types\": [\r\n          \"table\",\r\n          \"gadget-crud\",\r\
+  \n          \"gadget-import\"\r\n        ],\r\n        \"icon\": \"table\",\r\n\
+  \        \"children\": []\r\n      },\r\n      {\r\n        \"id\": 6,\r\n     \
+  \   \"name\": \"layout\",\r\n        \"types\": [\r\n          \"header\",\r\n \
+  \         \"footer\",\r\n          \"info\"\r\n        ],\r\n        \"icon\": \"\
+  table\",\r\n        \"children\": []\r\n      },\r\n      {\r\n        \"id\": 7,\r\
+  \n        \"name\": \"Filters\",\r\n        \"types\": [\r\n          \"visualfilter\"\
+  ,\r\n          \"FilterSelector\"\r\n        ],\r\n        \"icon\": \"eye\",\r\n\
+  \        \"children\": []\r\n      }\r\n    ]\r\n  }\r\n]"
+environment: "default"
+type: "EXTERNAL_CONFIG"
+description: "ASSET_DSH_CONFIG"

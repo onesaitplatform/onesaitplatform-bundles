@@ -1,0 +1,42 @@
+---
+createdAt: 1706108405649
+updatedAt: 1706108813377
+id: "fce44367-f142-4af0-a726-0993ffe94a16"
+identification: "asset_dsh_realm"
+description: "Realm for the management of Dashboard Asset roles"
+secret: "asset_dsh_realm_1357"
+publicClient: true
+project: "d3b3d603-c5a6-4452-8293-b603f959382c"
+user: "administrator"
+appRoles:
+- createdAt: 1706108405651
+  updatedAt: 1706108405682
+  id: "2a3f50ba-3696-48ea-9a22-89321391c5a1"
+  name: "Asset_Admin"
+  description: "Superb users"
+  childRoles: []
+  appUsers:
+  - createdAt: 1706108405657
+    updatedAt: 1706108405682
+    id: "e24e9170-9c80-4f8d-913f-088ffafb2d2c"
+    user: "platform_admin"
+  - createdAt: 1706108405653
+    updatedAt: 1706108405682
+    id: "38acd966-75f2-4ced-806b-7b952a8d5e66"
+    user: "administrator"
+- createdAt: 1706108405658
+  updatedAt: 1706108405683
+  id: "f76f1c0f-6915-49c9-ba62-a1b743873a6c"
+  name: "Asset_User"
+  description: "Normal users"
+  childRoles: []
+  appUsers:
+  - createdAt: 1706108405660
+    updatedAt: 1706108405683
+    id: "1e796058-ef0e-4c2f-8472-63b3bee0ce39"
+    user: "fjla.dev"
+  - createdAt: 1706108405663
+    updatedAt: 1706108405683
+    id: "f260997e-b050-494b-8800-dc9ca8e4c897"
+    user: "demo_developer"
+childApps: []
